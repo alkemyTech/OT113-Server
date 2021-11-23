@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\OngProject\\OngProject.csproj": {}
+    "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\Abstractions.csproj": {
+    "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\Abstractions.csproj",
+        "projectUniqueName": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj",
         "projectName": "Abstractions",
-        "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\Abstractions.csproj",
+        "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj",
         "packagesPath": "C:\\Users\\Emmanuel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\obj\\",
+        "outputPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -61,14 +61,14 @@
         }
       }
     },
-    "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Core\\Core.csproj": {
+    "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\Emmanuel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Core\\obj\\",
+        "outputPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -88,17 +88,17 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\Abstractions.csproj": {
-                "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\Abstractions.csproj"
+              "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj"
               },
-              "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Entities\\Entities.csproj"
+              "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj"
               },
-              "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Repositories\\Repositories.csproj": {
-                "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Repositories\\Repositories.csproj"
+              "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Repositories\\Repositories.csproj"
               },
-              "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Services\\Services.csproj"
+              "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Services\\Services.csproj": {
+                "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Services\\Services.csproj"
               }
             }
           }
@@ -131,14 +131,14 @@
         }
       }
     },
-    "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\Emmanuel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -158,8 +158,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Core\\Core.csproj"
+              "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Core\\Core.csproj"
               }
             }
           }
@@ -192,14 +192,14 @@
         }
       }
     },
-    "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Entities\\Entities.csproj": {
+    "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\Emmanuel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -219,8 +219,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\Abstractions.csproj": {
-                "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\Abstractions.csproj"
+              "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj"
               }
             }
           }
@@ -253,14 +253,14 @@
         }
       }
     },
-    "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\OngProject\\OngProject.csproj": {
+    "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\OngProject\\OngProject.csproj",
+        "projectUniqueName": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj",
         "projectName": "OngProject",
-        "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\OngProject\\OngProject.csproj",
+        "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj",
         "packagesPath": "C:\\Users\\Emmanuel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\OngProject\\obj\\",
+        "outputPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\OngProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -280,11 +280,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Core\\Core.csproj"
+              "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Core\\Core.csproj"
               },
-              "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -326,14 +326,14 @@
         }
       }
     },
-    "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Repositories\\Repositories.csproj": {
+    "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Repositories\\Repositories.csproj",
+        "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Repositories\\Repositories.csproj",
         "packagesPath": "C:\\Users\\Emmanuel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Repositories\\obj\\",
+        "outputPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -353,11 +353,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\Abstractions.csproj": {
-                "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\Abstractions.csproj"
+              "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj"
               },
-              "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Entities\\Entities.csproj"
+              "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj"
               }
             }
           }
@@ -390,14 +390,14 @@
         }
       }
     },
-    "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Services\\Services.csproj": {
+    "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Services\\Services.csproj",
+        "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Services\\Services.csproj",
         "packagesPath": "C:\\Users\\Emmanuel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Services\\obj\\",
+        "outputPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -417,8 +417,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\Abstractions.csproj": {
-                "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Abstractions\\Abstractions.csproj"
+              "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj"
               }
             }
           }

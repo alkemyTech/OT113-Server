@@ -310,11 +310,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\OngProject\\OngProject.csproj",
+      "projectUniqueName": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj",
       "projectName": "OngProject",
-      "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\OngProject\\OngProject.csproj",
+      "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj",
       "packagesPath": "C:\\Users\\Emmanuel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\OngProject\\obj\\",
+      "outputPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\OngProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -334,11 +334,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\Core\\Core.csproj"
+            "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\Core\\Core.csproj"
             },
-            "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Emmanuel\\Desktop\\Alkemy\\Docs\\OngProject\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Emmanuel\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj"
             }
           }
         }
