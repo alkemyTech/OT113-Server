@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Activity
+    public class Activity : EntityBase
     {
         [Required]
         [MaxLength(255)]
         public string Name { get; set; }
 
+        [Required]
         [Column(TypeName = "ntext(65535)")]
         public string Content { get; set; }
 
