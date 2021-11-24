@@ -17,6 +17,7 @@ namespace OT113-Server.Entities {
 
 		[Required]
 		[MaxLenght(320)]
+		[EmailAddress]
 		public string Email { get; set; }
 
 		[Required]
