@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abstractions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Member
+    public class Member : IEntityBase
     {
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
@@ -28,5 +32,9 @@ namespace Entities
 
         [StringLength(255)]
         public string Description { get; set; }
+
+        [Required]
+        public bool isDelete { get; set; }
+        public DateTime modifiedAt { get; set; }
     }
 }
