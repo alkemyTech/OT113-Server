@@ -1,8 +1,9 @@
+using Entities;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-
-namespace OT113-Server.Entities {
+namespace Entities {
 
     public class Comment : EntityBase
     {

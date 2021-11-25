@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-
-namespace OT113-Server.Entities {
+namespace Entities {
 
 	public class User : EntityBase
 	{
 
 		[Required]
-		[MaxLenght(255)]
+		[MaxLength(255)]
 		public string firstName { get; set; }
 
 		[Required]
@@ -16,7 +17,7 @@ namespace OT113-Server.Entities {
 		public string lastName { get; set; }
 
 		[Required]
-		[MaxLenght(320)]
+		[MaxLength(320)]
 		[EmailAddress]
 		public string Email { get; set; }
 

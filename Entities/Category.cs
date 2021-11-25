@@ -1,8 +1,9 @@
+using Entities;
 using System;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace OT113-Server.Entities {
+namespace Entities {
 
     public class Category : EntityBase
     {
