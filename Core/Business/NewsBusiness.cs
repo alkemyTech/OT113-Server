@@ -19,8 +19,10 @@ namespace Core.Business
         }
 
         public void AddNews() { }
-        public void RemoveNews() { }
-        public News GetActivityById() { throw new NotImplementedException(); }
+        public void RemoveNews(int id) { }
+        public void UpdateNews(News news) { }
+
+        public News GetNewsById() { throw new NotImplementedException(); }
         public async Task<IEnumerable<News>> GetAllNews() { throw new NotImplementedException(); }
     }
 }
