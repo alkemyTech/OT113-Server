@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\OngProject.csproj": {}
+    "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\OngProject\\OngProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj": {
+    "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\Abstractions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj",
+        "projectUniqueName": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\Abstractions.csproj",
         "projectName": "Abstractions",
-        "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj",
-        "packagesPath": "C:\\Users\\kerne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\obj\\",
+        "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\Abstractions.csproj",
+        "packagesPath": "C:\\Users\\ramon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ramon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -59,6 +61,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.25.0, )"
             }
           },
           "imports": [
@@ -76,26 +82,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj": {
+    "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\kerne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\obj\\",
+        "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\ramon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ramon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -108,17 +116,17 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj": {
-                "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj"
+              "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\Abstractions.csproj"
               },
-              "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Entities\\Entities.csproj"
+              "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Entities\\Entities.csproj"
               },
-              "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Repositories\\Repositories.csproj": {
-                "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Repositories\\Repositories.csproj"
+              "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Repositories\\Repositories.csproj"
               },
-              "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Services\\Services.csproj"
+              "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Services\\Services.csproj": {
+                "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Services\\Services.csproj"
               }
             }
           }
@@ -148,6 +156,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.25.0, )"
             }
           },
           "imports": [
@@ -165,26 +177,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\kerne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\ramon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ramon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -197,8 +211,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj"
+              "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Core\\Core.csproj"
               }
             }
           }
@@ -228,6 +242,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.25.0, )"
             }
           },
           "imports": [
@@ -245,26 +263,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Entities\\Entities.csproj": {
+    "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\kerne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\ramon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ramon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -277,8 +297,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj": {
-                "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj"
+              "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\Abstractions.csproj"
               }
             }
           }
@@ -308,6 +328,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.25.0, )"
             }
           },
           "imports": [
@@ -325,26 +349,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\OngProject.csproj": {
+    "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\OngProject\\OngProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\OngProject.csproj",
+        "projectUniqueName": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\OngProject\\OngProject.csproj",
         "projectName": "OngProject",
-        "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\OngProject.csproj",
-        "packagesPath": "C:\\Users\\kerne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\obj\\",
+        "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\OngProject\\OngProject.csproj",
+        "packagesPath": "C:\\Users\\ramon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\OngProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ramon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -357,11 +383,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj"
+              "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Core\\Core.csproj"
               },
-              "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -391,6 +417,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.25.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -415,26 +445,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Repositories\\Repositories.csproj": {
+    "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Repositories\\Repositories.csproj",
-        "packagesPath": "C:\\Users\\kerne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Repositories\\obj\\",
+        "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\ramon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ramon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -447,11 +479,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj": {
-                "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj"
+              "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\Abstractions.csproj"
               },
-              "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Entities\\Entities.csproj"
+              "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Entities\\Entities.csproj"
               }
             }
           }
@@ -481,6 +513,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.25.0, )"
             }
           },
           "imports": [
@@ -498,26 +534,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Services\\Services.csproj": {
+    "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\kerne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Services\\obj\\",
+        "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\ramon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ramon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -530,8 +568,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj": {
-                "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj"
+              "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Abstractions\\Abstractions.csproj"
               }
             }
           }
@@ -561,6 +599,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.25.0, )"
             }
           },
           "imports": [
@@ -578,7 +620,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -499,6 +499,28 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "SendGrid/9.25.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "starkbank-ecdsa": "[1.3.3, 2.0.0)"
+        },
+        "compile": {
+          "lib/netstandard2.0/SendGrid.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SendGrid.dll": {}
+        }
+      },
+      "starkbank-ecdsa/1.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/StarkbankEcdsa.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/StarkbankEcdsa.dll": {}
+        }
+      },
       "Swashbuckle.AspNetCore/5.6.3": {
         "type": "package",
         "dependencies": {
@@ -1598,7 +1620,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
+          "SendGrid": "9.25.0"
         },
         "compile": {
           "bin/placeholder/Abstractions.dll": {}
@@ -1615,6 +1638,7 @@
           "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
           "Repositories": "1.0.0",
+          "SendGrid": "9.25.0",
           "Services": "1.0.0"
         },
         "compile": {
@@ -1629,7 +1653,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Core": "1.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
+          "SendGrid": "9.25.0"
         },
         "compile": {
           "bin/placeholder/DataAccess.dll": {}
@@ -1643,7 +1668,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Abstractions": "1.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
+          "SendGrid": "9.25.0"
         },
         "compile": {
           "bin/placeholder/Entities.dll": {}
@@ -1658,7 +1684,8 @@
         "dependencies": {
           "Abstractions": "1.0.0",
           "Entities": "1.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
+          "SendGrid": "9.25.0"
         },
         "compile": {
           "bin/placeholder/Repositories.dll": {}
@@ -1672,7 +1699,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Abstractions": "1.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
+          "SendGrid": "9.25.0"
         },
         "compile": {
           "bin/placeholder/Services.dll": {}
@@ -2485,6 +2513,45 @@
         "lib/netstandard1.0/_._",
         "runtime.native.system.4.3.0.nupkg.sha512",
         "runtime.native.system.nuspec"
+      ]
+    },
+    "SendGrid/9.25.0": {
+      "sha512": "mYVzc+tcqVvmxamSiJR2cRlC3+TJcTxEzvBHiG+SASAanMYTz6ecL11iWIBIw8eqThDMUMmq8/XsXP0JKuMLpg==",
+      "type": "package",
+      "path": "sendgrid/9.25.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SendGrid.dll",
+        "lib/net40/SendGrid.pdb",
+        "lib/net40/SendGrid.xml",
+        "lib/net452/SendGrid.dll",
+        "lib/net452/SendGrid.pdb",
+        "lib/net452/SendGrid.xml",
+        "lib/netstandard1.3/SendGrid.dll",
+        "lib/netstandard1.3/SendGrid.pdb",
+        "lib/netstandard1.3/SendGrid.xml",
+        "lib/netstandard2.0/SendGrid.dll",
+        "lib/netstandard2.0/SendGrid.pdb",
+        "lib/netstandard2.0/SendGrid.xml",
+        "sendgrid.9.25.0.nupkg.sha512",
+        "sendgrid.nuspec"
+      ]
+    },
+    "starkbank-ecdsa/1.3.3": {
+      "sha512": "OblOaKb1enXn+dSp7tsx9yjwV+/BEKM9jFhshIkZTwCk7LuTFTp+wSon6rFzuPiIiTGtvVWQNUw2slHjGktJog==",
+      "type": "package",
+      "path": "starkbank-ecdsa/1.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/StarkbankEcdsa.dll",
+        "lib/net452/StarkbankEcdsa.dll",
+        "lib/netstandard1.3/StarkbankEcdsa.dll",
+        "lib/netstandard2.0/StarkbankEcdsa.dll",
+        "lib/netstandard2.1/StarkbankEcdsa.dll",
+        "starkbank-ecdsa.1.3.3.nupkg.sha512",
+        "starkbank-ecdsa.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/5.6.3": {
@@ -6094,29 +6161,33 @@
       "Microsoft.EntityFrameworkCore.Design >= 5.0.12",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.12",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.12",
+      "SendGrid >= 9.25.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kerne\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ramon\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\OngProject.csproj",
+      "projectUniqueName": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\OngProject\\OngProject.csproj",
       "projectName": "OngProject",
-      "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\OngProject.csproj",
-      "packagesPath": "C:\\Users\\kerne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\obj\\",
+      "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\OngProject\\OngProject.csproj",
+      "packagesPath": "C:\\Users\\ramon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\OngProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ramon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -6129,11 +6200,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj"
+            "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\Core\\Core.csproj"
             },
-            "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\DataAccess\\DataAccess.csproj"
             }
           }
         }
@@ -6164,6 +6235,10 @@
             "target": "Package",
             "version": "[5.0.12, )"
           },
+          "SendGrid": {
+            "target": "Package",
+            "version": "[9.25.0, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[5.6.3, )"
@@ -6187,7 +6262,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
