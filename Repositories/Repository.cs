@@ -19,7 +19,8 @@ namespace Repositories
         }
         public void Delete(int id)
         {
-            _ctx.Delete(id);
+            _ctx.GetById(id).isDelete = true;
+            _ctx.GetById(id).modifiedAt = DateTime.Now.Date;
         }
         public async Task<IEnumerable<T>> GetAll()
         {
