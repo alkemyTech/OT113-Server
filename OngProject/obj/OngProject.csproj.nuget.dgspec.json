@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< Updated upstream
     "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\OngProject.csproj": {}
   },
   "projects": {
@@ -19,6 +20,22 @@
         "configFilePaths": [
           "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+    "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj",
+        "projectName": "Abstractions",
+        "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj",
+        "packagesPath": "C:\\Users\\nacho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nacho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -76,6 +93,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< Updated upstream
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
@@ -95,6 +113,23 @@
         "configFilePaths": [
           "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Core\\Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Core\\Core.csproj",
+        "projectName": "Core",
+        "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\nacho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nacho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -108,6 +143,7 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+<<<<<<< Updated upstream
               "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj": {
                 "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj"
               },
@@ -119,6 +155,19 @@
               },
               "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Services\\Services.csproj": {
                 "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Services\\Services.csproj"
+=======
+              "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj"
+              },
+              "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj"
+              },
+              "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Repositories\\Repositories.csproj"
+              },
+              "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Services\\Services.csproj": {
+                "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Services\\Services.csproj"
+>>>>>>> Stashed changes
               }
             }
           }
@@ -165,6 +214,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< Updated upstream
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
@@ -184,6 +234,23 @@
         "configFilePaths": [
           "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj",
+        "projectName": "DataAccess",
+        "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\nacho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nacho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -197,8 +264,13 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+<<<<<<< Updated upstream
               "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj": {
                 "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj"
+=======
+              "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Core\\Core.csproj"
+>>>>>>> Stashed changes
               }
             }
           }
@@ -245,6 +317,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< Updated upstream
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
@@ -264,6 +337,23 @@
         "configFilePaths": [
           "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj",
+        "projectName": "Entities",
+        "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\nacho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nacho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -277,8 +367,13 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+<<<<<<< Updated upstream
               "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj": {
                 "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj"
+=======
+              "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj"
+>>>>>>> Stashed changes
               }
             }
           }
@@ -325,6 +420,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< Updated upstream
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
@@ -344,6 +440,23 @@
         "configFilePaths": [
           "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj",
+        "projectName": "OngProject",
+        "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj",
+        "packagesPath": "C:\\Users\\nacho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\OngProject\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nacho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -357,11 +470,19 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+<<<<<<< Updated upstream
               "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj": {
                 "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj"
               },
               "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\DataAccess.csproj": {
                 "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\DataAccess.csproj"
+=======
+              "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Core\\Core.csproj"
+              },
+              "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj"
+>>>>>>> Stashed changes
               }
             }
           }
@@ -415,6 +536,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< Updated upstream
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
@@ -434,6 +556,23 @@
         "configFilePaths": [
           "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Repositories\\Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Repositories\\Repositories.csproj",
+        "projectName": "Repositories",
+        "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\nacho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Repositories\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nacho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -447,11 +586,19 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+<<<<<<< Updated upstream
               "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj": {
                 "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj"
               },
               "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Entities\\Entities.csproj": {
                 "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Entities\\Entities.csproj"
+=======
+              "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj"
+              },
+              "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Entities\\Entities.csproj"
+>>>>>>> Stashed changes
               }
             }
           }
@@ -498,6 +645,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< Updated upstream
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
@@ -517,6 +665,23 @@
         "configFilePaths": [
           "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Services\\Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Services\\Services.csproj",
+        "projectName": "Services",
+        "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\nacho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nacho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -530,8 +695,13 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+<<<<<<< Updated upstream
               "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj": {
                 "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Abstractions\\Abstractions.csproj"
+=======
+              "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj": {
+                "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Abstractions\\Abstractions.csproj"
+>>>>>>> Stashed changes
               }
             }
           }
@@ -578,7 +748,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< Updated upstream
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+>>>>>>> Stashed changes
         }
       }
     }

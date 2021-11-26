@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "lvupe42yZtJZQ7pBPB8VFpAzF3t6p03pA1aP6EG5xCRN0oSuZu1lul+eIRn50JsqHmq84QWwEdKc0wud7cxWHw==",
   "success": true,
   "projectFilePath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\OngProject.csproj",
@@ -107,6 +108,18 @@
     "C:\\Users\\kerne\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\kerne\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\kerne\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+=======
+  "dgSpecHash": "rFpCbL6tcwulempnlXRBkivGIbwJ1xuQ3+inxiGgmX5p0ZuR+bHr5n1ekEYmmsNlX1rbzehKjRZpWKpoCr6m1g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nacho\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\nacho\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\nacho\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\nacho\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\nacho\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\nacho\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+>>>>>>> Stashed changes
   ],
   "logs": []
 }

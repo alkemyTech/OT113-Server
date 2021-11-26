@@ -6098,12 +6098,17 @@
     ]
   },
   "packageFolders": {
+<<<<<<< Updated upstream
     "C:\\Users\\kerne\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "C:\\Users\\nacho\\.nuget\\packages\\": {}
+>>>>>>> Stashed changes
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\OngProject.csproj",
       "projectName": "OngProject",
       "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\OngProject.csproj",
@@ -6116,6 +6121,16 @@
       "configFilePaths": [
         "C:\\Users\\kerne\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+      "projectUniqueName": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj",
+      "projectName": "OngProject",
+      "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\OngProject\\OngProject.csproj",
+      "packagesPath": "C:\\Users\\nacho\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\OngProject\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\nacho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6129,11 +6144,19 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+<<<<<<< Updated upstream
             "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj": {
               "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\Core\\Core.csproj"
             },
             "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\DataAccess.csproj": {
               "projectPath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\DataAccess\\DataAccess.csproj"
+=======
+            "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\Core\\Core.csproj"
+            },
+            "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\nacho\\Source\\Repos\\OT113-Server\\DataAccess\\DataAccess.csproj"
+>>>>>>> Stashed changes
             }
           }
         }
@@ -6187,7 +6210,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< Updated upstream
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+>>>>>>> Stashed changes
       }
     }
   }
