@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "lvupe42yZtJZQ7pBPB8VFpAzF3t6p03pA1aP6EG5xCRN0oSuZu1lul+eIRn50JsqHmq84QWwEdKc0wud7cxWHw==",
+  "dgSpecHash": "QuKw/1FgRXkH+zrRZRjq/sZDenqqfhwCgtSj29FIpAfq4ift0PGtZ9KKleUJr87joYJvYYmOUNx2FVLuGvfxFg==",
   "success": true,
   "projectFilePath": "C:\\Users\\kerne\\Desktop\\Alkemy ONG\\OT113-Server\\OngProject\\OngProject.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kerne\\.nuget\\packages\\awssdk.core\\3.7.5.2\\awssdk.core.3.7.5.2.nupkg.sha512",
+    "C:\\Users\\kerne\\.nuget\\packages\\awssdk.extensions.netcore.setup\\3.7.1\\awssdk.extensions.netcore.setup.3.7.1.nupkg.sha512",
+    "C:\\Users\\kerne\\.nuget\\packages\\awssdk.s3\\3.7.5\\awssdk.s3.3.7.5.nupkg.sha512",
     "C:\\Users\\kerne\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kerne\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\kerne\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

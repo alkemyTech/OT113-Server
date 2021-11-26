@@ -376,6 +376,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AWSSDK.Extensions.NETCore.Setup": {
+              "target": "Package",
+              "version": "[3.7.1, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.5, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -546,6 +554,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AWSSDK.Extensions.NETCore.Setup": {
+              "target": "Package",
+              "version": "[3.7.1, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.5, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
