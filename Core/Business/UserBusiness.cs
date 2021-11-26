@@ -13,7 +13,7 @@ namespace Core.Business
     {
         private readonly Repository<User> _repository;
 
-        public NewsBusiness(Repository<User> repository)
+        public UserBusiness(Repository<User> repository)
         {
             _repository = repository;
         }
@@ -21,7 +21,7 @@ namespace Core.Business
         
         public void AddUser() { }
         public void RemoveUser(int id) { }
-        public void UpdateUser(News news) { }
+        public void UpdateUser(User user) { }
 
         public User GetUserById() { }
         public async Task<IEnumerable<User>> GetAllUsers() { }
