@@ -1,11 +1,15 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace OngProject.Controllers
 {
-    public class SlidesController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class SlidesController : ControllerBase
     {
     }
 }
