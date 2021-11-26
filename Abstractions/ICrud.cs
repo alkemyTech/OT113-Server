@@ -12,5 +12,6 @@ namespace Abstractions
         Task<IEnumerable<T>> GetAll();
         T GetById(int id);
         void Delete(int id);
+        void Update(T entity);
     }
 }

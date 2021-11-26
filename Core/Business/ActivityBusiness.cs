@@ -20,6 +20,7 @@ namespace Core.Business
 
         public void AddActivity() { }
         public void RemoveActivity(int id) { }
+        public void UpdateActivity(Activity activity) { }
         public Activity GetActivityById() { throw new NotImplementedException(); }
         public async Task <IEnumerable<Activity>> GetAllActivities() { throw new NotImplementedException(); }
     }

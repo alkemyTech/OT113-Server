@@ -19,6 +19,10 @@ namespace DataAccess
         }
         public void Delete(int id)
         {
+            var item = _items.Find(id);
+            item.isDelete = true;
+            item.modifiedAt = DateTime.Now;
+            _ctx.SaveChanges();
         }
         public async Task<IEnumerable<T>> GetAll()
         {
@@ -33,6 +37,12 @@ namespace DataAccess
             _items.Add(entity);
             _ctx.SaveChanges();
             return entity;
+        }
+
+        public void Update(T entity)
+        {
+            _items.Update(entity);
+            _ctx.SaveChanges();
         }
     }
 }
