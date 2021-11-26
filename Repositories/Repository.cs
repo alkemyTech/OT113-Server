@@ -19,8 +19,7 @@ namespace Repositories
         }
         public void Delete(int id)
         {
-            _ctx.GetById(id).isDelete = true;
-            _ctx.GetById(id).modifiedAt = DateTime.Now.Date;
+            _ctx.Delete(id);
         }
         public async Task<IEnumerable<T>> GetAll()
         {
@@ -33,6 +32,11 @@ namespace Repositories
         public T Save(T entity)
         {
             return _ctx.Save(entity);
+        }
+
+        public void Update(T entity)
+        {
+            _ctx.Update(entity);
         }
     }
 }
