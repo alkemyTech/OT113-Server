@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DLE66/SDJ4Z+u/8FypURWLfSl5+BKTSe3wK8EIbngzqfrd4g+2ZFOCEo0PktB8rqzwa0byi6uhObRYqF37/Cxw==",
+  "dgSpecHash": "H0rUCLHg2JxMScPK/ssR5jk3pdY4acZPzCylCWmAgWMKEVDtk3+oLbSR6jJYwi5XC6YZ6o2ZdpwoXjywNorSew==",
   "success": true,
   "projectFilePath": "C:\\Users\\ramon\\Desktop\\Programación\\Estudio\\Alkemy\\Capacitación\\OngProject\\OngProject.csproj",
   "expectedPackageFiles": [
@@ -38,8 +38,6 @@
     "C:\\Users\\ramon\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\ramon\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
     "C:\\Users\\ramon\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
-    "C:\\Users\\ramon\\.nuget\\packages\\sendgrid\\9.25.0\\sendgrid.9.25.0.nupkg.sha512",
-    "C:\\Users\\ramon\\.nuget\\packages\\starkbank-ecdsa\\1.3.3\\starkbank-ecdsa.1.3.3.nupkg.sha512",
     "C:\\Users\\ramon\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "C:\\Users\\ramon\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
     "C:\\Users\\ramon\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",

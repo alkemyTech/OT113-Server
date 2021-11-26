@@ -61,10 +61,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.25.0, )"
             }
           },
           "imports": [
@@ -156,10 +152,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.25.0, )"
             }
           },
           "imports": [
@@ -242,10 +234,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.25.0, )"
             }
           },
           "imports": [
@@ -328,10 +316,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.25.0, )"
             }
           },
           "imports": [
@@ -417,10 +401,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.25.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -513,10 +493,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.25.0, )"
             }
           },
           "imports": [
@@ -599,10 +575,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.12, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.25.0, )"
             }
           },
           "imports": [
