@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Entities
 {
-    class Organization : EntityBase
+    public class Organization : EntityBase
     {
         [Required]
         [MaxLength(255)]
