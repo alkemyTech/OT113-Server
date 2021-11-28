@@ -23,9 +23,13 @@ namespace Core.Business
         public void RemoveUser(int id) { }
         public void UpdateUser(User user) { }
 
-        public User GetUserById() { }
-        public async Task<IEnumerable<User>> GetAllUsers() { }
+        public User GetUserById() {
+            throw new NotImplementedException();
+        }
+        public async Task<IEnumerable<User>> GetAllUsers() {
+            throw new NotImplementedException();
+        }
     }
 
-    }
+    
 }
