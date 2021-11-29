@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Business.Interfaces
 {
-    interface IOrganizationBusiness
+    public interface IOrganizationBusiness
     {
     }
 }
