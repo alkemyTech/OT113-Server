@@ -10,7 +10,7 @@ namespace Services
     public class SendGrid
     {
         private IConfiguration _configuration;
-        public SendGrid(IConfiguration configuration,)
+        public SendGrid(IConfiguration configuration)
         {
             _configuration = configuration;
         }
