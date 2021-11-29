@@ -21,7 +21,7 @@ namespace Entities
 
 
         [Required]
-        [Column(TypeName = "ntext(8000)")]
+        [MaxLength(65535)]
 
         public string Content { get; set; }
 

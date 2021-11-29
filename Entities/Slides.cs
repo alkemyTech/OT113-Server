@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class Slides : EntityBase
+    public class Slides : EntityBase
     {
         public string ImgUrl { get; set; }
 
