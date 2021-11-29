@@ -18,7 +18,7 @@ namespace Core.Business
             _organization = repository;
         }
 
-        public Organization GetOrganizationId()
+        public Organization GetOrganizationById()
         {
             throw new NotImplementedException();
         }
