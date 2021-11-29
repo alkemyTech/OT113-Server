@@ -37,7 +37,7 @@ namespace OngProject
             });
 
             services.AddDbContext<ApiDbContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("OngMigrations")));
+               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("OngProject")));
 
             services.AddAWSService<IAmazonS3>();
         }
