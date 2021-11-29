@@ -16,7 +16,7 @@ namespace Entities
         public string Name { get; set; }
 
         [Required]
-        [Column(TypeName = "ntext(65535)")]
+        [Column(TypeName = "ntext(8000)")]
         public string Content { get; set; }
 
         [Required]
