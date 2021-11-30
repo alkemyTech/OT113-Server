@@ -35,5 +35,17 @@ namespace Entities
 
         [MaxLength(2000)]
         public string AboutUsText { get; set; }
+
+        [Required]
+        [MaxLength(65535)]
+        public string Facebook { get; set; }
+
+        [Required]
+        [MaxLength(65535)]
+        public string Linkedin { get; set; }
+
+        [Required]
+        [MaxLength(65535)]
+        public string Instagram { get; set; }
     }
 }
