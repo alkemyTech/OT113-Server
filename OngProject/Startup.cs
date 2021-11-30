@@ -1,5 +1,10 @@
+using Abstractions;
 using Amazon.S3;
+using Core.Business;
+using Core.Business.Interfaces;
+using Core.Mapper;
 using DataAccess;
+using Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +46,10 @@ namespace OngProject
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("OngProject")));
 
             services.AddAWSService<IAmazonS3>();
+            services.AddTransient<IRepository<Organization>, Repository<Organization>>();
+            services.AddTransient<IOrganizationBusiness, OrganizationBusiness>();
+            services.AddTransient<IEntityMapper, EntityMapper>();
+            services.AddTransient<IDbContext<Organization>, DbContext<Organization>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

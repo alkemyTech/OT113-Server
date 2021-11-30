@@ -1,4 +1,6 @@
 ﻿using Core.Business.Interfaces;
+using Core.Mapper;
+using Core.Models.DTOs;
 using Entities;
 using Repositories;
 using System;
@@ -11,21 +13,20 @@ namespace Core.Business
 {
     public class OrganizationBusiness : IOrganizationBusiness
     {
-        private readonly IRepository<Organization> _organization;
+        private readonly IRepository<Organization> _repository;
+        private readonly IEntityMapper _mapper;
 
-        public OrganizationBusiness (IRepository<Organization> repository)
+        public OrganizationBusiness (IRepository<Organization> repository, IEntityMapper mapper)
         {
-            _organization = repository;
+            _repository = repository;
+            _mapper = mapper;
         }
 
-        public Organization GetOrganizationById()
+        public OrganizationDto GetById(int id)
         {
-            throw new NotImplementedException();
-        }
+            var organization = _repository.GetById(id);
 
-        public async Task<IEnumerable<Organization>> GetAllOrganization()
-        {
-            throw new NotImplementedException();
+            return _mapper.Map(organization);
         }
 
         public void UpdateOrganization(Organization context) { }
