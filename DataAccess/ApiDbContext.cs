@@ -34,6 +34,7 @@ namespace DataAccess
             SeedNews(modelBuilder);
             SeedUsers(modelBuilder);
             SeedMembres(modelBuilder);
+            SeedTestimonals(modelBuilder);
 
         }
 
@@ -104,6 +105,23 @@ namespace DataAccess
                     LinkedinUrl = "www.TestUrl.Members3",
                     Image = "TestImageMembers",
                     Description = "TestDescriptionMembers",
+                    isDelete = false,
+                    modifiedAt = DateTime.Now
+
+                });
+            };
+        }
+
+        private void SeedTestimonals(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<Testimonials>().HasData(new Testimonials
+                {
+                    Id = i,
+                    Name = "TestNameTestimonals",
+                    Content = "TestContentTestimonals",
+                    Image = "TestImageTestimonals",                  
                     isDelete = false,
                     modifiedAt = DateTime.Now
 
