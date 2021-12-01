@@ -31,6 +31,7 @@ namespace DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             SeedActivity(modelBuilder);
+            SeedNews(modelBuilder);
 
         }
 
@@ -45,6 +46,24 @@ namespace DataAccess
                     Content = "TestContent",
                     Image = "TestImage",
                     isDelete = false
+
+                });
+            };
+        }
+
+        private void SeedNews(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<News>().HasData(new News
+                {
+                    Id = i,
+                    Name = "TestNameNews",
+                    Content = "TestContentNews",
+                    Image = "TestImageNews",
+                    CategoryId = i,
+                    isDelete = false,
+                    modifiedAt = DateTime.Now
 
                 });
             };
