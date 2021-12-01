@@ -15,7 +15,7 @@ namespace Core.Helper
             modelBuilder.Entity<Activity>().HasData(new Activity()
             {
                 Id = 1,
-                Name = "TestName",
+                Name = "TestNamegit",
                 Content = "TestContent",
                 Image = "TestImage"
             });
