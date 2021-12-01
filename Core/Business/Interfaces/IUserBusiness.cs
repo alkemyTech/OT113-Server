@@ -8,5 +8,6 @@ namespace Core.Business.Interfaces
 {
     public interface IUserBusiness
     {
+        string getSha256(string pass);
     }
 }
