@@ -27,6 +27,7 @@ namespace DataAccess
         public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
         {
         }
+<<<<<<< Updated upstream
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -45,6 +46,21 @@ namespace DataAccess
                     Content = "TestContent",
                     Image = "TestImage",
                     isDelete = false
+=======
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+
+        }
+
+        private void SeedNews(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<News>().HasData(new News
+                {
+                    Id = i,
+>>>>>>> Stashed changes
                 });
             };
         }
