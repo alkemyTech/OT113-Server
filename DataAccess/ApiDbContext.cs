@@ -32,6 +32,8 @@ namespace DataAccess
         {
             SeedActivity(modelBuilder);
             SeedNews(modelBuilder);
+            SeedUsers(modelBuilder);
+            SeedMembres(modelBuilder);
 
         }
 
@@ -82,6 +84,26 @@ namespace DataAccess
                     Password = "TestLastPassUser",
                     Photo = "TestPhoto",
                     roleId = i,
+                    isDelete = false,
+                    modifiedAt = DateTime.Now
+
+                });
+            };
+        }
+
+        private void SeedMembres(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<Member>().HasData(new Member
+                {
+                    Id = i,
+                    Name = "TestNameMembers",
+                    FacebookUrl = "www.TestUrl.Members1",
+                    InstagramUrl = "www.TestUrl.Members2",
+                    LinkedinUrl = "www.TestUrl.Members3",
+                    Image = "TestImageMembers",
+                    Description = "TestDescriptionMembers",
                     isDelete = false,
                     modifiedAt = DateTime.Now
 
