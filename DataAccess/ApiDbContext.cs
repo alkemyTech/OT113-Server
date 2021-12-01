@@ -68,5 +68,25 @@ namespace DataAccess
                 });
             };
         }
+
+        private void SeedUsers(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<User>().HasData(new User
+                {
+                    Id = i,
+                    firstName = "TestNameUser",
+                    lastName = "TestLastNameUser",
+                    Email = "Test@email.user",
+                    Password = "TestLastPassUser",
+                    Photo = "TestPhoto",
+                    roleId = i,
+                    isDelete = false,
+                    modifiedAt = DateTime.Now
+
+                });
+            };
+        }
     }
 }
