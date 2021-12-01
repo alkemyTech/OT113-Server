@@ -1,4 +1,5 @@
 ﻿using Abstractions;
+using Core.Helper;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,8 +23,15 @@ namespace DataAccess
         public DbSet<Slides> Slides { get; set; }
         public DbSet<Testimonials> Testimonials { get; set; }
         public DbSet<User> Users { get; set; }
+
         public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ActivitySeed();
+
         }
     }
 }
