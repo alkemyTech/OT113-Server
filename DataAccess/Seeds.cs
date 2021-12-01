@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    class Seeds
+    public class Seeds
     {
     }
 }

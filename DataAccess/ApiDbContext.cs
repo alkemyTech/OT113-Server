@@ -30,8 +30,23 @@ namespace DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ActivitySeed();
+            SeedActivity(modelBuilder);
 
+        }
+
+        private void SeedActivity(ModelBuilder modelBuilder)
+        {
+            for(int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<Activity>().HasData(new Activity 
+                {
+                    Id = i,
+                    Name = "TestNamegit",
+                    Content = "TestContent",
+                    Image = "TestImage",
+                    isDelete = false
+                });
+            };
         }
     }
 }
