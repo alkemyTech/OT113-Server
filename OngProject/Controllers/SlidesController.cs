@@ -1,4 +1,5 @@
 ﻿using Core.Business.Interfaces;
+using Core.Mapper;
 using Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,29 @@ namespace OngProject.Controllers
     public class SlidesController : ControllerBase
     {
         private readonly ISlidesBusiness _business;
-        public SlidesController(ISlidesBusiness business)
+        private readonly IEntityMapper _mapper;
+        public SlidesController(ISlidesBusiness business, IEntityMapper mapper)
         {
             _business = business;
+            _mapper = mapper;
         }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            try
+            {
+                var slides = _business.GetAllSlides().Result;
+                var listSlides = _mapper.Mapp(slides);
+
+                return Ok(listSlides);
+            }
+            catch(Exception e)
+            {
+                return StatusCode(400, e.Message);
+            }
+        }
+
 
         [HttpGet("{id}")]
         public IActionResult GetSlide(int id)
