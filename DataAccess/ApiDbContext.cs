@@ -31,6 +31,7 @@ namespace DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             SeedNews(modelBuilder);
+            SeedUsers(modelBuilder);
         }
 
         private void SeedNews(ModelBuilder modelBuilder)
@@ -65,6 +66,49 @@ namespace DataAccess
                 isDelete = false,
                 modifiedAt = DateTime.Now
             });
+
+            
+           
+        }
+      
+        private void SeedUsers(ModelBuilder modelBuilder)
+        {             
+            modelBuilder.Entity<User>().HasData(new User()
+            {
+                Id = 1,
+                firstName = "TestNameUser",
+                lastName = "TestLastNameUser",
+                Email = "Test@email.user",
+                Password = "TestLastPassUser",
+                Photo = "TestPhoto",
+                roleId = 1,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+
+            },new User()
+            {
+                Id = 2,
+                firstName = "TestNameUser",
+                lastName = "TestLastNameUser",
+                Email = "Test@email.user",
+                Password = "TestLastPassUser",
+                Photo = "TestPhoto",
+                roleId = 2,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+
+            },new User() 
+            {
+                Id = 3,
+                firstName = "TestNameUser",
+                lastName = "TestLastNameUser",
+                Email = "Test@email.user",
+                Password = "TestLastPassUser",
+                Photo = "TestPhoto",
+                roleId = 1,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+            }); 
 
         }
     }
