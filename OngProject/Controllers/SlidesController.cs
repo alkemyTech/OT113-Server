@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Core.Business.Interfaces;
+using Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,8 +10,32 @@ using System.Threading.Tasks;
 namespace OngProject.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("Slides")]
     public class SlidesController : ControllerBase
     {
+        private readonly ISlidesBusiness _business;
+        public SlidesController(ISlidesBusiness business)
+        {
+            _business = business;
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetSlide(int id)
+        {
+            try
+            {
+                var slide = _business.FindById(id);
+                if(slide == null)
+                {
+                    return StatusCode(404);
+                }
+
+                return Ok(slide);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(404);
+            }
+        }
     }
 }
