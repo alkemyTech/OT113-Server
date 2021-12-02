@@ -50,6 +50,9 @@ namespace OngProject
             services.AddTransient<IOrganizationBusiness, OrganizationBusiness>();
             services.AddTransient<IEntityMapper, EntityMapper>();
             services.AddTransient<IDbContext<Organization>, DbContext<Organization>>();
+            services.AddTransient<IRepository<User>, Repository<User>>();
+            services.AddTransient<IUserBusiness, UserBusiness>();
+            services.AddTransient<IDbContext<User>, DbContext<User>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

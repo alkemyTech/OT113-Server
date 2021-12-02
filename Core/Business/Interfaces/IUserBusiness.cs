@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,6 @@ namespace Core.Business.Interfaces
     public interface IUserBusiness
     {
         string getSha256(string pass);
+        Task<IEnumerable<User>> GetAllUsers();
     }
 }

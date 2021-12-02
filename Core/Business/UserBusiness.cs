@@ -12,9 +12,9 @@ namespace Core.Business
 {
     public class UserBusiness : IUserBusiness
     {
-        private readonly Repository<User> _repository;
+        private readonly IRepository<User> _repository;
 
-        public UserBusiness(Repository<User> repository)
+        public UserBusiness(IRepository<User> repository)
         {
             _repository = repository;
         }
@@ -28,7 +28,7 @@ namespace Core.Business
             throw new NotImplementedException();
         }
         public async Task<IEnumerable<User>> GetAllUsers() {
-            throw new NotImplementedException();
+            return await _repository.GetAll();
         }
 
         public string getSha256(string pass)

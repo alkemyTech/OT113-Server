@@ -10,10 +10,12 @@ namespace Entities {
 
 		[Required]
 		[MaxLength(255)]
+		[RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Solo se aceptan letras")]
 		public string firstName { get; set; }
 
 		[Required]
 		[MaxLength(255)]
+		[RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Solo se aceptan letras")]
 		public string lastName { get; set; }
 
 		[Required]

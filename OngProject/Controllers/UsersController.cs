@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OngProject.Controllers
 {
-    [Route("user")]
+    [Route("auth")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -20,39 +20,40 @@ namespace OngProject.Controllers
         {
             _business = business;
         }
-        [HttpPost("auth/register")]
+        [HttpPost("register")]
         public IActionResult Register([FromBody] User user)
         {
-            if(!String.IsNullOrWhiteSpace(user.firstName) && String.IsNullOrWhiteSpace(user.lastName) && String.IsNullOrWhiteSpace(user.Email) && String.IsNullOrWhiteSpace(user.Password))
+            var userExist = _business.GetAllUsers().Result;
+            User newUser = new User();
+            try
             {
-                return StatusCode(400, "Error al validar los campos");
-            }
-            else
-            {
-                try
+                if (!String.IsNullOrWhiteSpace(user.firstName) && String.IsNullOrWhiteSpace(user.lastName) && String.IsNullOrWhiteSpace(user.Email) && String.IsNullOrWhiteSpace(user.Password))
                 {
-
-                    //SHA256 sha256 = SHA256Managed.Create();
-                    //ASCIIEncoding encoding = new ASCIIEncoding();
-                    //byte[] stream = null;
-                    //StringBuilder sb = new StringBuilder();
-                    //stream = sha256.ComputeHash(encoding.GetBytes(user.Password));
-                    //for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
-
-                    User newUser = new User
-                    {
-                        firstName = user.firstName,
-                        lastName = user.lastName,
-                        Email = user.Email,
-                        Password = _business.getSha256(user.Password)
-                };
+                    return StatusCode(400, "Error al validar los campos");
+                }
+                else
+                {
+                    foreach( var users in userExist){
+                        if(users.Email == user.Email)
+                        {
+                            return StatusCode(500, "Usuario existente");
+                        }
+                        newUser = new User
+                        {
+                            firstName = user.firstName,
+                            lastName = user.lastName,
+                            Email = user.Email,
+                            Password = _business.getSha256(user.Password)
+                        };
+                    }
                     return Ok(newUser);
                 }
-                catch (Exception e)
-                {
-                    return StatusCode(400, e);
-                }
+            }
+            catch(Exception e)
+            {
+                return StatusCode(400, e);
             }
         }
     }
 }
+
