@@ -30,67 +30,8 @@ namespace DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            SeedActivity(modelBuilder);
-            SeedNews(modelBuilder);
-            SeedUsers(modelBuilder);
             SeedMembres(modelBuilder);
-
         }
-
-        private void SeedActivity(ModelBuilder modelBuilder)
-        {
-            for(int i = 1; i < 11; i++)
-            {
-                modelBuilder.Entity<Activity>().HasData(new Activity 
-                {
-                    Id = i,
-                    Name = "TestNamegit",
-                    Content = "TestContent",
-                    Image = "TestImage",
-                    isDelete = false
-
-                });
-            };
-        }
-
-        private void SeedNews(ModelBuilder modelBuilder)
-        {
-            for (int i = 1; i < 11; i++)
-            {
-                modelBuilder.Entity<News>().HasData(new News
-                {
-                    Id = i,
-                    Name = "TestNameNews",
-                    Content = "TestContentNews",
-                    Image = "TestImageNews",
-                    CategoryId = i,
-                    isDelete = false,
-                    modifiedAt = DateTime.Now
-
-                });
-            };
-        }
-
-        private void SeedUsers(ModelBuilder modelBuilder)
-        {
-            for (int i = 1; i < 11; i++)
-            {
-                modelBuilder.Entity<User>().HasData(new User
-                {
-                    Id = i,
-                    firstName = "TestNameUser",
-                    lastName = "TestLastNameUser",
-                    Email = "Test@email.user",
-                    Password = "TestLastPassUser",
-                    Photo = "TestPhoto",
-                    roleId = i,
-                    isDelete = false,
-                    modifiedAt = DateTime.Now
-
-                });
-            };
-        }
-
         private void SeedMembres(ModelBuilder modelBuilder)
         {
             for (int i = 1; i < 11; i++)
