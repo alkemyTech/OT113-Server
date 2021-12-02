@@ -30,8 +30,23 @@ namespace DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
-
+            SeedCategories(modelBuilder);
+        }
+        
+        private void SeedCategories(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<Category>().HasData(new Category
+                {
+                    Id = i,
+                    Name = "TestNameCategory",
+                    Description = "TestContentCategory",
+                    Image = "TestImageCategory",
+                    isDelete = false,
+                    modifiedAt = DateTime.Now
+                });
+            }   
         }
 
     }
