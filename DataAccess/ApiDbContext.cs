@@ -30,43 +30,42 @@ namespace DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            SeedActivity(modelBuilder);
             SeedNews(modelBuilder);
-
-        }
-
-        private void SeedActivity(ModelBuilder modelBuilder)
-        {
-            for(int i = 1; i < 11; i++)
-            {
-                modelBuilder.Entity<Activity>().HasData(new Activity 
-                {
-                    Id = i,
-                    Name = "TestNamegit",
-                    Content = "TestContent",
-                    Image = "TestImage",
-                    isDelete = false
-
-                });
-            };
         }
 
         private void SeedNews(ModelBuilder modelBuilder)
         {
-            for (int i = 1; i < 11; i++)
+            modelBuilder.Entity<News>().HasData(new News()
             {
-                modelBuilder.Entity<News>().HasData(new News
-                {
-                    Id = i,
-                    Name = "TestNameNews",
-                    Content = "TestContentNews",
-                    Image = "TestImageNews",
-                    CategoryId = i,
-                    isDelete = false,
-                    modifiedAt = DateTime.Now
+                Id = 1,
+                Name = "TestNameNews",
+                Content = "TestContentNews",
+                Image = "TestImageNews",
+                CategoryId = 1,
+                isDelete = false,
+                modifiedAt = DateTime.Now
 
-                });
-            };
+            },new News() 
+            {
+                Id = 2,
+                Name = "TestNameNews",
+                Content = "TestContentNews",
+                Image = "TestImageNews",
+                CategoryId = 2,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+
+            },new News() 
+            {
+                Id = 3,
+                Name = "TestNameNews",
+                Content = "TestContentNews",
+                Image = "TestImageNews",
+                CategoryId = 1,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+            });
+
         }
     }
 }
