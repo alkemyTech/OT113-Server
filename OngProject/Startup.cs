@@ -92,6 +92,9 @@ namespace OngProject
             services.AddTransient<ITokenHandler, Core.Helper.TokenHandler>();
             services.AddTransient<IDbContext<User>, DbContext<User>>();
             services.AddTransient<IDbContext<Roles>, DbContext<Roles>>();
+            services.AddTransient<IRepository<Slides>, Repository<Slides>>();
+            services.AddTransient<ISlidesBusiness, SlidesBusiness>();
+            services.AddTransient<IDbContext<Slides>, DbContext<Slides>>();
 
             services.AddAuthentication(options =>
             {
