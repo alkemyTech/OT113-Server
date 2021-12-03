@@ -39,7 +39,7 @@ namespace Core.Business
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<CategoryDto>> GetAllCategories()
+        public async Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories()
         {
 
             var categories = await _repository.GetAll();
