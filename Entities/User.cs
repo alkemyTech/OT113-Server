@@ -22,7 +22,7 @@ namespace Entities {
 		public string Email { get; set; }
 
 		[Required]
-		[MaxLength(20)]
+		[MaxLength(70)]
 		public string Password { get; set; }
 
 		[MaxLength(255)]

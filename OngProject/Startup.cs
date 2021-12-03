@@ -75,11 +75,16 @@ namespace OngProject
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("OngProject")));
 
             services.AddAWSService<IAmazonS3>();
+            services.AddTransient<IEntityMapper, EntityMapper>();
             services.AddTransient<IRepository<Organization>, Repository<Organization>>();
             services.AddTransient<IOrganizationBusiness, OrganizationBusiness>();
-            services.AddTransient<IEntityMapper, EntityMapper>();
             services.AddTransient<IDbContext<Organization>, DbContext<Organization>>();
-            //services.Configure<JwtConfig>(Configuration.GetSection(nameof(JwtConfig)));
+            services.AddTransient<IRepository<Category>, Repository<Category>>();
+            services.AddTransient<ICategoryBusiness, CategoryBusiness>();
+            services.AddTransient<IDbContext<Category>, DbContext<Category>>();
+            services.AddTransient<IMembersBusiness, MembersBusiness>();
+            services.AddTransient<IRepository<Member>, Repository<Member>>();
+            services.AddTransient<IDbContext<Member>, DbContext<Member>>();
             services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
             services.AddTransient<IRepository<User>, Repository<User>>();
             services.AddTransient<IUserBusiness, UserBusiness>();

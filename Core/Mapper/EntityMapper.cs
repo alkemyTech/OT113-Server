@@ -12,15 +12,18 @@ namespace Core.Mapper
 {
     public interface IEntityMapper
     {
+        IEnumerable<MemberDto> mapMemberModelToDto(IEnumerable<Member> members);
+        CategoryDto mapCategoryModeltoDto(Category category);
+        IEnumerable<CategoryDto> mapCategoriesNamesModelToDto(IEnumerable<Category> categories);
         OrganizationDto MapOrganizationDtoToModel(Organization organization);
         TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
     }
-    
+
     public class EntityMapper : IEntityMapper
     {
         public OrganizationDto MapOrganizationDtoToModel(Organization organization)
         {
-            if(organization != null)
+            if (organization != null)
             {
                 var organizationDto = new OrganizationDto
                 {
@@ -47,5 +50,81 @@ namespace Core.Mapper
                 Password = user.Password
             };
         }
+
+
+
+        public IEnumerable<MemberDto> mapMemberModelToDto(IEnumerable<Member> members)
+        {
+
+            List<MemberDto> membersDto = new List<MemberDto>();
+
+            if (members != null)
+            {
+                foreach (var m in members)
+                {
+
+                    var memberDTO = new MemberDto
+                    {
+                        Name = m.Name,
+                        FacebookUrl = m.FacebookUrl,
+                        InstagramUrl = m.InstagramUrl,
+                        LinkedinUrl = m.LinkedinUrl,
+                        Image = m.Image,
+                        Description = m.Description
+                    };
+
+                    membersDto.Add(memberDTO);
+                }
+
+                return membersDto;
+            }
+
+            return null;
+        }
+
+
+
+        public CategoryDto mapCategoryModeltoDto(Category category){
+
+            if(category != null){
+                CategoryDto categoryDto = new CategoryDto{
+                    Name = category.Name,
+                    Description = category.Description,
+                    Image = category.Image
+                };
+
+                return categoryDto;
+            } 
+
+            return null;
+        }
+        
+
+        public IEnumerable<CategoryDto> mapCategoriesNamesModelToDto(IEnumerable<Category> categories)
+        {
+
+            List<CategoryDto> categoriesDto = new List<CategoryDto>();
+
+            if (categories != null)
+            {
+                foreach (var c in categories)
+                {
+
+                    var categoryDTO = new CategoryDto
+                    {
+                        Name = c.Name
+                    };
+
+                    categoriesDto.Add(categoryDTO);
+                }
+
+                return categoriesDto;
+            }
+
+            return null;
+
+        }
+
+
     }
 }
