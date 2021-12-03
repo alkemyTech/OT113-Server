@@ -10,5 +10,6 @@ namespace Core.Business.Interfaces
     public interface ISlidesBusiness
     {
         Slides FindById(int id);
+        Task<IEnumerable<Slides>> GetAllSlides();
     }
 }

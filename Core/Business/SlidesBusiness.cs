@@ -28,5 +28,10 @@ namespace Core.Business
             return slide;
         }
 
+        public async Task<IEnumerable<Slides>> GetAllSlides()
+        {
+            return await _repository.GetAll();
+        }
+
     }
 }

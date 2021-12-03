@@ -18,6 +18,7 @@ namespace Core.Mapper
         OrganizationDto MapOrganizationDtoToModel(Organization organization);
         TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
         UserDto mapUserDTO(User user);
+        IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
     }
 
     public class EntityMapper : IEntityMapper
@@ -139,6 +140,27 @@ namespace Core.Mapper
             return newUser;
         }
 
+        public IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides)
+        {
+            if (slides != null)
+            {
+                List<SlidesDTO> listSlides = new List<SlidesDTO>();
+
+                foreach (var slide in slides)
+                {
+                    var slideDTO = new SlidesDTO
+                    {
+                        ImgUrl = slide.ImgUrl,
+                        Order = slide.Order
+                    };
+                    listSlides.Add(slideDTO);
+                }
+
+                return listSlides;
+            }
+
+            return null;
+        }
 
     }
 }
