@@ -14,10 +14,12 @@ namespace Core.Business
     public class SlidesBusiness : ISlidesBusiness
     {
         private readonly IRepository<Slides> _repository;
+        private readonly IEntityMapper _mapper;
 
         public SlidesBusiness(IRepository<Slides> repository, IEntityMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         public Slides FindById(int id)
@@ -26,6 +28,11 @@ namespace Core.Business
 
 
             return slide;
+        }
+
+        public async Task<IEnumerable<Slides>> GetAllSlides()
+        {
+            return await _repository.GetAll();
         }
 
     }
