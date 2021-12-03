@@ -34,6 +34,7 @@ namespace OngProject.Controllers
             return Ok(category);
         }
 
+        [HttpGet]
         [Route("/categories")]
         public async Task<IActionResult> GetAllCategories()
         {

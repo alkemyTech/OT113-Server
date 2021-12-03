@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Core.Models.DTOs;
+using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,11 @@ namespace Core.Business.Interfaces
 {
     public interface IUserBusiness
     {
+        void AddUser();
+        void RemoveUser(int id);
+        void UpdateUser(User user);
+        User GetUserById(int id);
+        Task<IEnumerable<User>> GetAllUsers();
+        Task<string> Login(UserLoginDto userDto);
     }
 }

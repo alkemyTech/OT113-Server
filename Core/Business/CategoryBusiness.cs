@@ -34,12 +34,6 @@ namespace Core.Business
             return _mapper.mapCategoryModeltoDto(category);
         }
 
-
-        public async Task<IEnumerable<Category>> GetAllCategories()
-        {
-            throw new NotImplementedException();
-        }
-
         public Category GetCategoryById()
         {
             throw new NotImplementedException();
