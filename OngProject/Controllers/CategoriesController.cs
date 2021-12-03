@@ -33,5 +33,20 @@ namespace OngProject.Controllers
 
             return Ok(category);
         }
+
+        [Route("/categories")]
+        public async Task<IActionResult> GetAllCategories()
+        {
+
+            var categories = await _business.GetAllCategories();
+
+            if (categories == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(categories);
+        }
+
     }
 }

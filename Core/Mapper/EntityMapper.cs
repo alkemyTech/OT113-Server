@@ -13,13 +13,14 @@ namespace Core.Mapper
     {
         OrganizationDto Map(Organization organization);
         CategoryDto mapCategoryModeltoDto(Category category);
+        IEnumerable<CategoryDto> mapCategoriesNamesModelToDto(IEnumerable<Category> categories);
     }
-    
+
     public class EntityMapper : IEntityMapper
     {
         public OrganizationDto Map(Organization organization)
         {
-            if(organization != null)
+            if (organization != null)
             {
                 var organizationDto = new OrganizationDto
                 {
@@ -39,6 +40,7 @@ namespace Core.Mapper
         }
 
 
+
         public CategoryDto mapCategoryModeltoDto(Category category){
 
             if(category != null){
@@ -54,5 +56,31 @@ namespace Core.Mapper
             return null;
         }
         
+
+        public IEnumerable<CategoryDto> mapCategoriesNamesModelToDto(IEnumerable<Category> categories)
+        {
+
+            List<CategoryDto> categoriesDto = new List<CategoryDto>();
+
+            if (categories != null)
+            {
+                foreach (var c in categories)
+                {
+
+                    var categoryDTO = new CategoryDto
+                    {
+                        Name = c.Name
+                    };
+
+                    categoriesDto.Add(categoryDTO);
+                }
+
+                return categoriesDto;
+            }
+
+            return null;
+
+        }
+
     }
 }
