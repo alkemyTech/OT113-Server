@@ -58,18 +58,49 @@ namespace Core.Business
             return null;
         }
 
+        public async Task<IEnumerable<User>> GetAllUsers()
+        {
+            var users = await _repository.GetAll();
 
-        
-        public void AddUser() { }
+            return users;
+        }
+
+        public bool Exist(IEnumerable<User> users, string email)
+        {
+            var exist = users.Where(user => user.Email == email).FirstOrDefault();
+            if (exist != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+
+        public void AddUser(User user) {
+            User newUser = new User
+            {
+                Id = user.Id,
+                firstName = user.firstName,
+                lastName = user.lastName,
+                Email = user.Email,
+                Password = EncryptPassSha25(user.Password),
+                //Password = user.Password,
+                Photo = user.Photo,
+                roleId = user.roleId,
+                isDelete = user.isDelete,
+                modifiedAt = user.modifiedAt
+            };
+
+            _repository.Save(newUser);
+        }
         public void RemoveUser(int id) { }
         public void UpdateUser(User user) { }
 
         public User GetUserById(int id) 
         {
            return _repository.GetById(id);
-        }
-        public async Task<IEnumerable<User>> GetAllUsers() {
-            throw new NotImplementedException();
         }
     }
 
