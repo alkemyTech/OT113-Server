@@ -1,4 +1,5 @@
 ﻿using Abstractions;
+using Core.Helper;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,8 +23,55 @@ namespace DataAccess
         public DbSet<Slides> Slides { get; set; }
         public DbSet<Testimonials> Testimonials { get; set; }
         public DbSet<User> Users { get; set; }
+
         public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            SeedUsers(modelBuilder);
+           
+        }
+      
+        private void SeedUsers(ModelBuilder modelBuilder)
+        {             
+            modelBuilder.Entity<User>().HasData(new User()
+            {
+                Id = 1,
+                firstName = "TestNameUser",
+                lastName = "TestLastNameUser",
+                Email = "Test@email.user",
+                Password = "TestLastPassUser",
+                Photo = "TestPhoto",
+                roleId = 1,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+
+            },new User()
+            {
+                Id = 2,
+                firstName = "TestNameUser",
+                lastName = "TestLastNameUser",
+                Email = "Test@email.user",
+                Password = "TestLastPassUser",
+                Photo = "TestPhoto",
+                roleId = 2,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+
+            },new User() 
+            {
+                Id = 3,
+                firstName = "TestNameUser",
+                lastName = "TestLastNameUser",
+                Email = "Test@email.user",
+                Password = "TestLastPassUser",
+                Photo = "TestPhoto",
+                roleId = 1,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+            }); 
         }
     }
 }
