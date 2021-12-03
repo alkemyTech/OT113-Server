@@ -27,7 +27,7 @@ namespace Core.Business
         public void UpdateCategory(Category activity) { }
 
 
-        public CategoryDto GetCategoryById(int id)
+        public CategoryDtoGetDetailResponse GetCategoryById(int id)
         {
 
             Category category = _repository.GetById(id);
@@ -35,17 +35,13 @@ namespace Core.Business
         }
 
 
-        public async Task<IEnumerable<Category>> GetAllCategories()
-        {
-            throw new NotImplementedException();
-        }
 
         public Category GetCategoryById()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<CategoryDto>> GetAllCategories()
+        public async Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories()
         {
 
             var categories = await _repository.GetAll();
