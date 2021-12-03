@@ -27,7 +27,7 @@ namespace OngProject.Controllers
                 var slide = _business.FindById(id);
                 if(slide == null)
                 {
-                    return StatusCode(404);
+                    return NotFound();
                 }
 
                 return Ok(slide);

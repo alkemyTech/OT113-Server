@@ -9,6 +9,6 @@ namespace Core.Business.Interfaces
 {
     public interface ISlidesBusiness
     {
-        Slides FindById(int id);
+        Slides FindById (int id);
     }
 }

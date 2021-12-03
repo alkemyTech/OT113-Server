@@ -20,10 +20,8 @@ namespace Core.Business
 
         public Slides FindById(int id)
         {
-            var slide =  _repository.GetById(id) != null ? _repository.GetById(id) : null;
+            return  _repository.GetById(id) != null ? _repository.GetById(id) : null;
 
-
-            return slide;
         }
     }
 }
