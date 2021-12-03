@@ -26,7 +26,7 @@ namespace Core.Business
         {
             var organization = _repository.GetById(id);
 
-            return _mapper.Map(organization);
+            return _mapper.MapOrganizationDtoToModel(organization);
         }
 
         public void UpdateOrganization(Organization context) { }

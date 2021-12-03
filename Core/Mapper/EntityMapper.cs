@@ -1,4 +1,5 @@
 ﻿using Abstractions;
+using Core.Models;
 using Core.Models.DTOs;
 using Entities;
 using System;
@@ -11,12 +12,13 @@ namespace Core.Mapper
 {
     public interface IEntityMapper
     {
-        OrganizationDto Map(Organization organization);
+        OrganizationDto MapOrganizationDtoToModel(Organization organization);
+        TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
     }
     
     public class EntityMapper : IEntityMapper
     {
-        public OrganizationDto Map(Organization organization)
+        public OrganizationDto MapOrganizationDtoToModel(Organization organization)
         {
             if(organization != null)
             {
@@ -35,6 +37,15 @@ namespace Core.Mapper
             }
 
             return null;
+        }
+
+        public TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user)
+        {
+            return new TokenParameter
+            {
+                Email = user.Email,
+                Password = user.Password
+            };
         }
     }
 }
