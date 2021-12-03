@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Business.Interfaces;
+using Core.Mapper;
+using Core.Models.DTOs;
 
 namespace OngProject.Controllers
 {
@@ -11,5 +14,31 @@ namespace OngProject.Controllers
     [ApiController]
     public class MembersController : ControllerBase
     {
+
+        private readonly IMembersBusiness _business;
+
+        public MembersController(IMembersBusiness business, IEntityMapper mapper)
+        {
+            _business = business;
+
+        }
+
+
+        [HttpGet]
+        [Route("/members")]
+        public async Task<IActionResult> GetAllMembers()
+        {
+            var members = await _business.GetAllMembers();
+
+            if (members == null){
+                return NotFound();
+            }
+
+            return Ok(members);
+        }
+
+
     }
+
+
 }
