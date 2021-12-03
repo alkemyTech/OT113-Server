@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Core.Business.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,28 @@ namespace OngProject.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
+
+        private readonly ICategoryBusiness _business;
+
+        public CategoriesController(ICategoryBusiness business)
+        {
+            _business = business;
+        }
+
+        [HttpGet]
+        [Route("/categories")]
+        public async Task<IActionResult> GetAllCategories()
+        {
+
+            var categories = await _business.GetAllCategories();
+
+            if (categories == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(categories);
+        }
+
     }
 }
