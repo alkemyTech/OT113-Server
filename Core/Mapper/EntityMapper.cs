@@ -17,6 +17,7 @@ namespace Core.Mapper
         IEnumerable<CategoryDto> mapCategoriesNamesModelToDto(IEnumerable<Category> categories);
         OrganizationDto MapOrganizationDtoToModel(Organization organization);
         TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
+        UserDto mapUserDTO(User user);
     }
 
     public class EntityMapper : IEntityMapper
@@ -123,6 +124,19 @@ namespace Core.Mapper
 
             return null;
 
+        }
+
+        public UserDto mapUserDTO(User user)
+        {
+            UserDto newUser = new UserDto
+            {
+                Id = user.Id,
+                firstName = user.firstName,
+                lastName = user.lastName,
+                Email = user.Email
+            };
+
+            return newUser;
         }
 
 
