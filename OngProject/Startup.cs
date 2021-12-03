@@ -47,9 +47,9 @@ namespace OngProject
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("OngProject")));
 
             services.AddAWSService<IAmazonS3>();
+            services.AddTransient<IEntityMapper, EntityMapper>();
             services.AddTransient<IRepository<Organization>, Repository<Organization>>();
             services.AddTransient<IOrganizationBusiness, OrganizationBusiness>();
-            services.AddTransient<IEntityMapper, EntityMapper>();
             services.AddTransient<IDbContext<Organization>, DbContext<Organization>>();
             services.AddTransient<IRepository<Category>, Repository<Category>>();
             services.AddTransient<ICategoryBusiness, CategoryBusiness>();

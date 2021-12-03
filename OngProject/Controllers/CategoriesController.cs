@@ -21,6 +21,19 @@ namespace OngProject.Controllers
         }
 
         [HttpGet]
+        [Route("/categories/{id}")]
+        public IActionResult GetById(int id)
+        {
+
+            var category = _business.GetCategoryById(id);
+            if (category == null)
+            {
+                return NotFound("La categoría buscada no existe");
+            }
+
+            return Ok(category);
+        }
+
         [Route("/categories")]
         public async Task<IActionResult> GetAllCategories()
         {

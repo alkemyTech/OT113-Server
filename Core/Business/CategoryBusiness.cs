@@ -25,6 +25,21 @@ namespace Core.Business
         public void AddCategory() { }
         public void RemoveCategory(int id) { }
         public void UpdateCategory(Category activity) { }
+
+
+        public CategoryDto GetCategoryById(int id)
+        {
+
+            Category category = _repository.GetById(id);
+            return _mapper.mapCategoryModeltoDto(category);
+        }
+
+
+        public async Task<IEnumerable<Category>> GetAllCategories()
+        {
+            throw new NotImplementedException();
+        }
+
         public Category GetCategoryById()
         {
             throw new NotImplementedException();
@@ -38,6 +53,7 @@ namespace Core.Business
             var categoriesDto = _mapper.mapCategoriesNamesModelToDto(categories);
 
             return categoriesDto;
+
         }
 
     }
