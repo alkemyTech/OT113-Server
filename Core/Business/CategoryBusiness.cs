@@ -1,4 +1,6 @@
 ﻿using Core.Business.Interfaces;
+using Core.Mapper;
+using Core.Models.DTOs;
 using Entities;
 using Repositories;
 using System;
@@ -12,19 +14,28 @@ namespace Core.Business
     public class CategoryBusiness : ICategoryBusiness
     {
         private readonly IRepository<Category> _repository;
+        private readonly IEntityMapper _mapper;
 
-        public CategoryBusiness(IRepository<Category> repository)
+        public CategoryBusiness(IRepository<Category> repository, IEntityMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         public void AddCategory() { }
         public void RemoveCategory(int id) { }
         public void UpdateCategory(Category activity) { }
-        public Category GetCategoryById() {
-            throw new NotImplementedException();
+
+        public CategoryDto GetCategoryById(int id)
+        {
+
+            Category category = _repository.GetById(id);
+            return _mapper.mapCategoryModeltoDto(category);
         }
-        public async Task<IEnumerable<Category>> GetAllCategories () {
+
+
+        public async Task<IEnumerable<Category>> GetAllCategories()
+        {
             throw new NotImplementedException();
         }
     }

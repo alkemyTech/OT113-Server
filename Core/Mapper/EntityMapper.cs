@@ -12,6 +12,7 @@ namespace Core.Mapper
     public interface IEntityMapper
     {
         OrganizationDto Map(Organization organization);
+        CategoryDto mapCategoryModeltoDto(Category category);
     }
     
     public class EntityMapper : IEntityMapper
@@ -36,5 +37,22 @@ namespace Core.Mapper
 
             return null;
         }
+
+
+        public CategoryDto mapCategoryModeltoDto(Category category){
+
+            if(category != null){
+                CategoryDto categoryDto = new CategoryDto{
+                    Name = category.Name,
+                    Description = category.Description,
+                    Image = category.Image
+                };
+
+                return categoryDto;
+            } 
+
+            return null;
+        }
+        
     }
 }
