@@ -31,7 +31,11 @@ namespace DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             SeedUsers(modelBuilder);
-           
+            SeedNews(modelBuilder);
+            SeedActivity(modelBuilder);
+            SeedMembres(modelBuilder);
+            SeedTestimonals(modelBuilder);
+            SeedCategories(modelBuilder);
         }
       
         private void SeedUsers(ModelBuilder modelBuilder)
@@ -73,5 +77,108 @@ namespace DataAccess
                 modifiedAt = DateTime.Now
             }); 
         }
+
+        private void SeedNews(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<News>().HasData(new News()
+            {
+                Id = 1,
+                Name = "TestNameNews",
+                Content = "TestContentNews",
+                Image = "TestImageNews",
+                CategoryId = 1,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+
+            }, new News()
+            {
+                Id = 2,
+                Name = "TestNameNews",
+                Content = "TestContentNews",
+                Image = "TestImageNews",
+                CategoryId = 2,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+
+            }, new News()
+            {
+                Id = 3,
+                Name = "TestNameNews",
+                Content = "TestContentNews",
+                Image = "TestImageNews",
+                CategoryId = 1,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+            });
+        }
+
+        private void SeedActivity(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<Activity>().HasData(new Activity
+                {
+                    Id = i,
+                    Name = "TestNamegit",
+                    Content = "TestContent",
+                    Image = "TestImage",
+                    isDelete = false
+                });
+            };
+        }
+
+        private void SeedMembres(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<Member>().HasData(new Member
+                {   
+
+                    Id = i,
+                    Name = "TestNameMembers",
+                    FacebookUrl = "www.TestUrl.Members1",
+                    InstagramUrl = "www.TestUrl.Members2",
+                    LinkedinUrl = "www.TestUrl.Members3",
+                    Image = "TestImageMembers",
+                    Description = "TestDescriptionMembers",
+                    isDelete = false,
+                    modifiedAt = DateTime.Now
+
+                });
+            };
+        }
+
+        private void SeedTestimonals(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<Testimonials>().HasData(new Testimonials()
+                {
+                    Id = i,
+                    Name = "TestNameTestimonals",
+                    Content = "TestContentTestimonals",
+                    Image = "TestImageTestimonals",
+                    modifiedAt = DateTime.Now
+                });
+            }
+        }
+
+        private void SeedCategories(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<Category>().HasData(new Category
+                {
+                    Id = i,
+                    Name = "TestNameCategory",
+                    Description = "TestContentCategory",
+                    Image = "TestImageCategory",
+                    isDelete = false,
+                    modifiedAt = DateTime.Now
+                });
+            }
+        }
+=======
+>>>>>>> c2b64f1a9d7d052639894565ad7f1bca96f4d0d4
     }
 }
