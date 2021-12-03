@@ -87,9 +87,11 @@ namespace OngProject
             services.AddTransient<IDbContext<Member>, DbContext<Member>>();
             services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
             services.AddTransient<IRepository<User>, Repository<User>>();
+            services.AddTransient<IRepository<Roles>, Repository<Roles>>();
             services.AddTransient<IUserBusiness, UserBusiness>();
             services.AddTransient<ITokenHandler, Core.Helper.TokenHandler>();
             services.AddTransient<IDbContext<User>, DbContext<User>>();
+            services.AddTransient<IDbContext<Roles>, DbContext<Roles>>();
 
             services.AddAuthentication(options =>
             {

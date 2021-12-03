@@ -18,12 +18,14 @@ namespace Core.Business
         private readonly IRepository<User> _repository;
         private readonly ITokenHandler _tokenHandler;
         private readonly IEntityMapper _mapper;
+        private readonly IRepository<Roles> _roleRepository;
 
-        public UserBusiness(IRepository<User> repository, ITokenHandler tokenHandler, IEntityMapper mapper)
+        public UserBusiness(IRepository<User> repository, ITokenHandler tokenHandler, IEntityMapper mapper, IRepository<Roles> roleRepository)
         {
             _repository = repository;
             _tokenHandler = tokenHandler;
             _mapper = mapper;
+            _roleRepository = roleRepository;
         }
 
         private string EncryptPassSha25(string password)
@@ -44,9 +46,12 @@ namespace Core.Business
 
             if (user != null)
             {
+                var role = _roleRepository.GetById(user.roleId).Name;
+                var tokenParameter = _mapper.MapUserLoginDtoToTokenParameter(userDto);
+                tokenParameter.Role = role;
                 if (EncryptPassSha25(userDto.Password) == user.Password)
                 {
-                    return _tokenHandler.GenerateTokenJWT(_mapper.MapUserLoginDtoToTokenParameter(userDto));
+                    return _tokenHandler.GenerateTokenJWT(tokenParameter);
                 }
             }
 

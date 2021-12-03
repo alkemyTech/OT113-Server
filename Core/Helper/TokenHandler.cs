@@ -33,7 +33,8 @@ namespace Core.Helper
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Email, parameter.Email),
-                    new Claim("Password", parameter.Password)
+                    new Claim("Password", parameter.Password),
+                    new Claim("Role", parameter.Role)
                 }),
                 Expires = DateTime.UtcNow.AddHours(6),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature)
