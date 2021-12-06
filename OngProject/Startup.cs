@@ -98,7 +98,8 @@ namespace OngProject
             services.AddTransient<IDbContext<Slides>, DbContext<Slides>>();
             services.AddTransient<IAmazonS3Business, AmazonS3Business>();
             services.AddTransient<IS3AwsHelper, S3AwsHelper>();
-
+            services.AddTransient<SendGInterface, SendG>();
+            
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
