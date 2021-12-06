@@ -78,19 +78,17 @@ namespace Core.Business
 
 
 
-        public void AddUser(User user) {
+        public void AddUser(UserRegisterDto user) {
             User newUser = new User
             {
-                Id = user.Id,
                 firstName = user.firstName,
                 lastName = user.lastName,
                 Email = user.Email,
                 Password = EncryptPassSha25(user.Password),
-                //Password = user.Password,
                 Photo = user.Photo,
-                roleId = user.roleId,
-                isDelete = user.isDelete,
-                modifiedAt = user.modifiedAt
+                roleId = 1,
+                isDelete = false,
+                modifiedAt = DateTime.Now
             };
 
             _repository.Save(newUser);
