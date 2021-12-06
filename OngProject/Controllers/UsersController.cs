@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,14 @@ namespace OngProject.Controllers
     {
         private readonly IUserBusiness _business;
         private readonly IEntityMapper _mapper;
+        private readonly SendGInterface _sendG;
         //private readonly IOptionsMonitor<JwtConfig> _jwtConfig;
 
-        public UsersController(IUserBusiness business, IEntityMapper mapper)
+        public UsersController(IUserBusiness business, IEntityMapper mapper, SendGInterface sendGBusiness)
         {
             _business = business;
             _mapper = mapper;
+            _sendG = sendGBusiness;
         }
 
         [HttpPost("register")]
@@ -48,6 +51,7 @@ namespace OngProject.Controllers
                     else
                     {
                         _business.AddUser(user);
+                        _sendG.SendEmailAsync(user.Email, $"Gracias por registrarte {user.firstName} {user.lastName}", "Registro completo").Wait();
                         return Ok(_mapper.mapUserDTO(user));
                     }
                 }

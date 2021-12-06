@@ -20,6 +20,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Repositories;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -95,7 +96,8 @@ namespace OngProject
             services.AddTransient<IRepository<Slides>, Repository<Slides>>();
             services.AddTransient<ISlidesBusiness, SlidesBusiness>();
             services.AddTransient<IDbContext<Slides>, DbContext<Slides>>();
-            services.AddTransient<IAmazonS3Business, AmazonS3Business>();
+            //services.AddTransient<IAmazonS3Business, AmazonS3Business>();
+            services.AddTransient<SendGInterface, SendG>();
 
             services.AddAuthentication(options =>
             {
