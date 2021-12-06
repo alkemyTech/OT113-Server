@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Core.Models.DTOs
 {
-    public class UserDto
+    public class UserRegisterDto
     {
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
+        public string Photo { get; set; }
     }
 }
