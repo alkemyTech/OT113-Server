@@ -28,7 +28,7 @@ namespace Core.Business
 
                 var response = await _s3AwsHelper.AwsUploadFile(fileName, image);
 
-                return response.ToString();
+                return response.Url.ToString();
             }
 
             return null;
