@@ -10,11 +10,12 @@ namespace Core.Business
     public class AmazonS3Business : IAmazonS3Business
     {
 
-        private readonly S3AwsHelper _s3AwsHelper;
+        private readonly IS3AwsHelper _s3AwsHelper;
 
 
-        public AmazonS3Business(S3AwsHelper s3AwsHelper)
+        public AmazonS3Business(IS3AwsHelper s3AwsHelper)
         {
+            
             _s3AwsHelper = s3AwsHelper;
 
         }
@@ -27,7 +28,7 @@ namespace Core.Business
 
                 var response = await _s3AwsHelper.AwsUploadFile(fileName, image);
 
-                return response.ToString();
+                return response.Url.ToString();
             }
 
             return null;

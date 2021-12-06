@@ -13,7 +13,13 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class S3AwsHelper
+
+    public interface IS3AwsHelper
+    {
+        Task<AwsManagerResponse> AwsUploadFile(string key, IFormFile file);
+    }
+    
+    public class S3AwsHelper : IS3AwsHelper
     {
         private readonly IAmazonS3 _amazonS3;
         public S3AwsHelper()
