@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services;
 
 namespace OngProject
 {
@@ -96,6 +97,7 @@ namespace OngProject
             services.AddTransient<ISlidesBusiness, SlidesBusiness>();
             services.AddTransient<IDbContext<Slides>, DbContext<Slides>>();
             services.AddTransient<IAmazonS3Business, AmazonS3Business>();
+            services.AddTransient<IS3AwsHelper, S3AwsHelper>();
 
             services.AddAuthentication(options =>
             {
