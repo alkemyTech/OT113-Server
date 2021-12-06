@@ -10,7 +10,7 @@ namespace Core.Business.Interfaces
 {
     public interface IUserBusiness
     {
-        void AddUser(User user);
+        void AddUser(UserRegisterDto user);
         void RemoveUser(int id);
         void UpdateUser(User user);
         User GetUserById(int id);

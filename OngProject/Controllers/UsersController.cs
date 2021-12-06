@@ -29,7 +29,7 @@ namespace OngProject.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register([FromBody] User user)
+        public IActionResult Register([FromBody] UserRegisterDto user)
         {
             var userExist = _business.GetAllUsers().Result;
 
