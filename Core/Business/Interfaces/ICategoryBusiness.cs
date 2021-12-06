@@ -10,7 +10,7 @@ namespace Core.Business.Interfaces
     {
 
         CategoryDto GetCategoryById(int id);  
-        Task<IEnumerable<CategoryDto>> GetAllCategories();
+        Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories();
 
     }
     

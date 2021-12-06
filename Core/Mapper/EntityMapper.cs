@@ -14,10 +14,11 @@ namespace Core.Mapper
     {
         IEnumerable<MemberDto> mapMemberModelToDto(IEnumerable<Member> members);
         CategoryDto mapCategoryModeltoDto(Category category);
-        IEnumerable<CategoryDto> mapCategoriesNamesModelToDto(IEnumerable<Category> categories);
+        IEnumerable<CategoryDtoGetAllResponse> mapCategoriesNamesModelToDto(IEnumerable<Category> categories);
         OrganizationDto MapOrganizationDtoToModel(Organization organization);
         TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
         UserDto mapUserDTO(UserRegisterDto user);
+        IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
     }
 
     public class EntityMapper : IEntityMapper
@@ -101,17 +102,17 @@ namespace Core.Mapper
         }
         
 
-        public IEnumerable<CategoryDto> mapCategoriesNamesModelToDto(IEnumerable<Category> categories)
+        public IEnumerable<CategoryDtoGetAllResponse> mapCategoriesNamesModelToDto(IEnumerable<Category> categories)
         {
 
-            List<CategoryDto> categoriesDto = new List<CategoryDto>();
+            List<CategoryDtoGetAllResponse> categoriesDto = new List<CategoryDtoGetAllResponse>();
 
             if (categories != null)
             {
                 foreach (var c in categories)
                 {
 
-                    var categoryDTO = new CategoryDto
+                    var categoryDTO = new CategoryDtoGetAllResponse
                     {
                         Name = c.Name
                     };
@@ -138,6 +139,27 @@ namespace Core.Mapper
             return newUser;
         }
 
+        public IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides)
+        {
+            if (slides != null)
+            {
+                List<SlidesDTO> listSlides = new List<SlidesDTO>();
+
+                foreach (var slide in slides)
+                {
+                    var slideDTO = new SlidesDTO
+                    {
+                        ImgUrl = slide.ImgUrl,
+                        Order = slide.Order
+                    };
+                    listSlides.Add(slideDTO);
+                }
+
+                return listSlides;
+            }
+
+            return null;
+        }
 
     }
 }
