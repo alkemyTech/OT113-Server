@@ -18,6 +18,7 @@ namespace Core.Mapper
         OrganizationDto MapOrganizationDtoToModel(Organization organization);
         TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
         UserDto mapUserDTO(UserRegisterDto user);
+        List<UserDto> mapUsers(IEnumerable<User> users);
         IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
     }
 
@@ -137,6 +138,24 @@ namespace Core.Mapper
             };
 
             return newUser;
+        }
+
+        public List<UserDto> mapUsers(IEnumerable<User> users)
+        {
+            List<UserDto> usersDTO = new List<UserDto>();
+
+            foreach(var user in users)
+            {
+                UserDto userAdd = new UserDto
+                {
+                    firstName = user.firstName,
+                    lastName = user.lastName,
+                    Email = user.Email,
+                };
+                usersDTO.Add(userAdd);
+            }
+
+            return usersDTO;
         }
 
         public IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides)
