@@ -19,6 +19,7 @@ namespace Core.Mapper
         TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
         UserDto mapUserDTO(UserRegisterDto user);
         IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
+        IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts);
     }
 
     public class EntityMapper : IEntityMapper
@@ -161,5 +162,24 @@ namespace Core.Mapper
             return null;
         }
 
+        public IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts)
+        {
+            List<ContactDto> mappedContacts = new List<ContactDto>();
+
+            foreach (var contact in contacts)
+            {
+                var mappedContact = new ContactDto
+                {
+                    Name = contact.Name,
+                    Phone = contact.Phone,
+                    Email = contact.Email,
+                    Message = contact.Message
+                };
+
+                mappedContacts.Add(mappedContact);
+            }
+
+            return mappedContacts;
+        }
     }
 }
