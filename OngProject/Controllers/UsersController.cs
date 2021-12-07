@@ -87,7 +87,7 @@ namespace OngProject.Controllers
             }
         }
 
-        [Authorize("Admin")]
+        [Authorize(Roles ="Admin")]
         [Route("~/users")]
         [HttpGet]
         public IActionResult GetAllUsers()
