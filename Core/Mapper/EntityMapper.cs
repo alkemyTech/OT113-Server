@@ -19,6 +19,7 @@ namespace Core.Mapper
         TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
         UserDto mapUserDTO(UserRegisterDto user);
         IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
+        IEnumerable<CommentsDto> MappComments(IEnumerable<Comment> comments);
     }
 
     public class EntityMapper : IEntityMapper
@@ -159,6 +160,23 @@ namespace Core.Mapper
             }
 
             return null;
+        }
+
+        public IEnumerable<CommentsDto> MappComments(IEnumerable<Comment> comments)
+        {
+            List<CommentsDto> listComments = new List<CommentsDto>();
+            comments = comments.OrderBy(com => com.modifiedAt);
+            foreach(var comm in comments)
+            {
+                CommentsDto comment = new CommentsDto
+                {
+                    Body = comm.Body
+                };
+
+                listComments.Add(comment);
+            }
+
+            return listComments;
         }
 
     }

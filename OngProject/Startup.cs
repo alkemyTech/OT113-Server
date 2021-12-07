@@ -103,6 +103,9 @@ namespace OngProject
             services.AddTransient<IS3AwsHelper, S3AwsHelper>();
 
             services.AddTransient<SendGInterface, SendG>();
+            services.AddTransient<IRepository<Comment>, Repository<Comment>>();
+            services.AddTransient<ICommentBusiness, CommentBusiness>();
+            services.AddTransient<IDbContext<Comment>, DbContext<Comment>>();
 
 
             services.AddAuthentication(options =>
