@@ -97,7 +97,9 @@ namespace OngProject
             services.AddTransient<IRepository<Slides>, Repository<Slides>>();
             services.AddTransient<ISlidesBusiness, SlidesBusiness>();
             services.AddTransient<IDbContext<Slides>, DbContext<Slides>>();
-
+            services.AddTransient<IContactsBusiness, ContactsBusiness>();
+            services.AddTransient<IRepository<Contacts>, Repository<Contacts>>();
+            services.AddTransient<IDbContext<Contacts>, DbContext<Contacts>>();
             services.AddTransient<IDbContext<Slides>, DbContext<Slides>>();
             services.AddTransient<IAmazonS3Business, AmazonS3Business>();
             services.AddTransient<IS3AwsHelper, S3AwsHelper>();
@@ -138,6 +140,13 @@ namespace OngProject
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OngProject v1"));
             }
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseAuthentication();
 
             app.UseHttpsRedirection();
 

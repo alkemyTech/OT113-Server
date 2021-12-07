@@ -20,6 +20,7 @@ namespace Core.Mapper
         UserDto mapUserDTO(UserRegisterDto user);
         IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
         IEnumerable<CommentsDto> MappComments(IEnumerable<Comment> comments);
+        IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts);
     }
 
     public class EntityMapper : IEntityMapper
@@ -162,6 +163,7 @@ namespace Core.Mapper
             return null;
         }
 
+
         public IEnumerable<CommentsDto> MappComments(IEnumerable<Comment> comments)
         {
             List<CommentsDto> listComments = new List<CommentsDto>();
@@ -179,5 +181,25 @@ namespace Core.Mapper
             return listComments;
         }
 
+
+        public IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts)
+        {
+            List<ContactDto> mappedContacts = new List<ContactDto>();
+
+            foreach (var contact in contacts)
+            {
+                var mappedContact = new ContactDto
+                {
+                    Name = contact.Name,
+                    Phone = contact.Phone,
+                    Email = contact.Email,
+                    Message = contact.Message
+                };
+
+                mappedContacts.Add(mappedContact);
+            }
+
+            return mappedContacts;
+        }
     }
 }
