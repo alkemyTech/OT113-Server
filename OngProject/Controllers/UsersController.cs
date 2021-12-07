@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Microsoft.Net.Http.Headers;
 using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace OngProject.Controllers
@@ -22,7 +24,6 @@ namespace OngProject.Controllers
         private readonly IUserBusiness _business;
         private readonly IEntityMapper _mapper;
         private readonly SendGInterface _sendG;
-        //private readonly IOptionsMonitor<JwtConfig> _jwtConfig;
 
         public UsersController(IUserBusiness business, IEntityMapper mapper, SendGInterface sendGBusiness)
         {
@@ -79,6 +80,27 @@ namespace OngProject.Controllers
                 }
 
                 return new JsonResult(new { ok = false }) { StatusCode = 201 };
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        
+
+        [HttpGet("me")]
+        [Authorize]
+        [ProducesResponseType(typeof(List<UserDetailsDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult GetUserDetailsFromToken()
+        {
+            try
+            {
+                var token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
+
+                return new JsonResult(_business.GetUserDetails(token)) { StatusCode = 200 };
             }
             catch (Exception)
             {
