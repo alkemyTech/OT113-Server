@@ -103,8 +103,12 @@ namespace OngProject
             services.AddTransient<IDbContext<Slides>, DbContext<Slides>>();
             services.AddTransient<IAmazonS3Business, AmazonS3Business>();
             services.AddTransient<IS3AwsHelper, S3AwsHelper>();
+            services.AddTransient<IRepository<News>, Repository<News>>();
+            services.AddTransient<INewsBusiness, NewsBusiness>();
+            services.AddTransient<IDbContext<News>, DbContext<News>>();
 
             services.AddTransient<SendGInterface, SendG>();
+
 
 
             services.AddAuthentication(options =>
