@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Core.Business.Interfaces
 {
-    public interface INewsBusiness
+    public interface ICommentBusiness
     {
-        News GetNewsById(int id);
+        Task<IEnumerable<Comment>> GetAll();
     }
 }
