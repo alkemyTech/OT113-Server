@@ -88,6 +88,7 @@ namespace OngProject.Controllers
             }
         }
 
+
         
 
         [HttpGet("me")]
@@ -106,6 +107,24 @@ namespace OngProject.Controllers
             {
 
                 return StatusCode(500, "Internal server error");
+            }
+        }
+
+
+        [Authorize(Roles ="Admin")]
+        [Route("~/users")]
+        [HttpGet]
+        public IActionResult GetAllUsers()
+        {
+            try
+            {
+                var users = _business.GetAllUsers().Result;
+
+                return Ok(_mapper.mapUsers(users));
+            }
+            catch(Exception e)
+            {
+                return StatusCode(400, e);
             }
         }
 

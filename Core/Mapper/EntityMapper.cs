@@ -18,7 +18,9 @@ namespace Core.Mapper
         OrganizationDto MapOrganizationDtoToModel(Organization organization);
         TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
         UserDto mapUserDTO(UserRegisterDto user);
+        List<UserDto> mapUsers(IEnumerable<User> users);
         IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
+        IEnumerable<CommentsDto> MappComments(IEnumerable<Comment> comments);
         IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts);
     }
 
@@ -140,6 +142,24 @@ namespace Core.Mapper
             return newUser;
         }
 
+        public List<UserDto> mapUsers(IEnumerable<User> users)
+        {
+            List<UserDto> usersDTO = new List<UserDto>();
+
+            foreach(var user in users)
+            {
+                UserDto userAdd = new UserDto
+                {
+                    firstName = user.firstName,
+                    lastName = user.lastName,
+                    Email = user.Email,
+                };
+                usersDTO.Add(userAdd);
+            }
+
+            return usersDTO;
+        }
+
         public IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides)
         {
             if (slides != null)
@@ -161,6 +181,25 @@ namespace Core.Mapper
 
             return null;
         }
+
+
+        public IEnumerable<CommentsDto> MappComments(IEnumerable<Comment> comments)
+        {
+            List<CommentsDto> listComments = new List<CommentsDto>();
+            comments = comments.OrderBy(com => com.modifiedAt);
+            foreach(var comm in comments)
+            {
+                CommentsDto comment = new CommentsDto
+                {
+                    Body = comm.Body
+                };
+
+                listComments.Add(comment);
+            }
+
+            return listComments;
+        }
+
 
         public IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts)
         {
