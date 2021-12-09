@@ -11,9 +11,9 @@ namespace Core.Business
 {
     public class NewsBusiness: INewsBusiness
     {
-        private readonly Repository<News> _repository;
+        private readonly IRepository<News> _repository;
 
-        public NewsBusiness(Repository<News> repository)
+        public NewsBusiness(IRepository<News> repository)
         {
             _repository = repository;
         }
@@ -22,7 +22,10 @@ namespace Core.Business
         public void RemoveNews(int id) { }
         public void UpdateNews(News news) { }
 
-        public News GetNewsById() { throw new NotImplementedException(); }
+        public News GetNewsById(int id) 
+        {
+            return _repository.GetById(id);
+        }
         public async Task<IEnumerable<News>> GetAllNews() { throw new NotImplementedException(); }
     }
 }
