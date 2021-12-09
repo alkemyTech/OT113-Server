@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace Entities
+namespace Core.Models.DTOs
 {
-    public class Organization : EntityBase
+    public class OrganizationDtoPostRequest
     {
+        [Required]
+        public int Id { get; set; }
+
         [Required]
         [MaxLength(255)]
         public string Name { get; set; }
@@ -17,9 +15,11 @@ namespace Entities
         [MaxLength(255)]
         public string Image { get; set; }
 
+        [Required]
         [MaxLength(255)]
         public string Address { get; set; }
 
+        [Required]
         [Phone]
         [MaxLength(20)]
         public string Phone { get; set; }
@@ -33,6 +33,7 @@ namespace Entities
         [MaxLength(500)]
         public string WelcomeText { get; set; }
 
+        [Required]
         [MaxLength(2000)]
         public string AboutUsText { get; set; }
 
