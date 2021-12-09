@@ -24,6 +24,7 @@ namespace Core.Mapper
         IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts);
         Contacts MapContactDtoToContact(ContactDto contact);
         NewsDto mapNews(News news);
+        Category mapNewCategory(CategoryDto category);
     }
 
     public class EntityMapper : IEntityMapper
@@ -235,6 +236,7 @@ namespace Core.Mapper
                 isDelete = false,
                 modifiedAt = DateTime.Now.Date
             };
+        }
 
         public NewsDto mapNews(News news)
         {
@@ -248,6 +250,20 @@ namespace Core.Mapper
 
             return newsDTO;
 
+        }
+
+        public Category mapNewCategory(CategoryDto category)
+        {
+            Category newCat = new Category
+            {
+                Name = category.Name,
+                Description = category.Description,
+                Image = category.Image,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+            };
+
+            return newCat;
         }
     }
 }
