@@ -1,5 +1,6 @@
 ﻿using Core.Business.Interfaces;
 using Core.Mapper;
+using Core.Models.DTOs;
 using Entities;
 using Repositories;
 using System;
@@ -19,6 +20,12 @@ namespace Core.Business
         {
             _repository = repository;
             _mapper = mapper;
+        }
+
+        public void AddComment(CommentDtoForCreation comment)
+        {
+            var mappedComment = _mapper.MapCommentDtoForCreationToComment(comment);
+            _repository.Save(mappedComment);
         }
 
         public async Task<IEnumerable<Comment>> GetAll()
