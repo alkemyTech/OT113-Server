@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Models.DTOs
 {
-    public class UserDto
+    public class SlidesDTO
     {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string Email { get; set; }
+        public string ImgUrl { get; set; }
+        public int Order { get; set; }
     }
 }
