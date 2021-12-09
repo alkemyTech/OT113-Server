@@ -11,6 +11,6 @@ namespace Core.Business.Interfaces
     public interface ICommentBusiness
     {
         Task<IEnumerable<Comment>> GetAll();
-        void AddComment(CommentDtoForCreation comment);
+        CommentDtoForCreation AddComment(CommentDtoForCreation comment);
     }
 }

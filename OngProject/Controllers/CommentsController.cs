@@ -49,9 +49,14 @@ namespace OngProject.Controllers
         {
             try
             {
-                _business.AddComment(comment);
+                var response = _business.AddComment(comment);
+                
+                if(response != null)
+                {
+                    return new JsonResult(comment) { StatusCode = 201 };
+                }
 
-                return new JsonResult(comment) { StatusCode = 201 };
+                return new JsonResult(new { ok = false });
             }
             catch (Exception)
             {
