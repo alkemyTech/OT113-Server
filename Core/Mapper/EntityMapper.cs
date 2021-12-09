@@ -20,6 +20,7 @@ namespace Core.Mapper
         UserDto mapUserDTO(UserRegisterDto user);
         IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
         IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts);
+        Contacts MapContactDtoToContact(ContactDto contact);
     }
 
     public class EntityMapper : IEntityMapper
@@ -180,6 +181,19 @@ namespace Core.Mapper
             }
 
             return mappedContacts;
+        }
+
+        public Contacts MapContactDtoToContact(ContactDto contact)
+        {
+            return new Contacts
+            {
+                Name = contact.Name,
+                Phone = contact.Phone,
+                Email = contact.Email,
+                Message = contact.Message,
+                isDelete = false,
+                modifiedAt = DateTime.Now.Date
+            };
         }
     }
 }

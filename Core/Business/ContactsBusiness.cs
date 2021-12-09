@@ -22,9 +22,10 @@ namespace Core.Business
             _mapper = mapper;
         }
 
-        public void AddContact(Contacts contact)
+        public void AddContact(ContactDto contact)
         {
-            throw new NotImplementedException();
+            var mappedContact = _mapper.MapContactDtoToContact(contact);
+            _repository.Save(mappedContact);
         }
 
         public async Task<IEnumerable<ContactDto>> GetAllContacts()
