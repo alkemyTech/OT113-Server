@@ -22,6 +22,7 @@ namespace Core.Mapper
         IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
         IEnumerable<CommentsDto> MappComments(IEnumerable<Comment> comments);
         IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts);
+        Contacts MapContactDtoToContact(ContactDto contact);
         NewsDto mapNews(News news);
     }
 
@@ -222,6 +223,19 @@ namespace Core.Mapper
             return mappedContacts;
         }
 
+
+        public Contacts MapContactDtoToContact(ContactDto contact)
+        {
+            return new Contacts
+            {
+                Name = contact.Name,
+                Phone = contact.Phone,
+                Email = contact.Email,
+                Message = contact.Message,
+                isDelete = false,
+                modifiedAt = DateTime.Now.Date
+            };
+
         public NewsDto mapNews(News news)
         {
             NewsDto newsDTO = new NewsDto
@@ -233,6 +247,7 @@ namespace Core.Mapper
             };
 
             return newsDTO;
+
         }
     }
 }

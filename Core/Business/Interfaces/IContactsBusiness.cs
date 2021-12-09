@@ -10,7 +10,7 @@ namespace Core.Business.Interfaces
 {
     public interface IContactsBusiness
     {
-        void AddContact(Contacts contact);
+        void AddContact(ContactDto contact);
         void RemoveContact(int id);
         void UpdateContact(Contacts contact);
         Contacts GetContactById(int id);
