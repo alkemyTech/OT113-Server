@@ -113,6 +113,8 @@ namespace OngProject
             services.AddTransient<ICommentBusiness, CommentBusiness>();
             services.AddTransient<IDbContext<Comment>, DbContext<Comment>>();
 
+            
+
 
 
             services.AddAuthentication(options =>
