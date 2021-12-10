@@ -1,4 +1,6 @@
 ﻿using Core.Business.Interfaces;
+using Core.Models.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -47,6 +49,27 @@ namespace OngProject.Controllers
             }
 
             return Ok(categories);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        [Route("~/categories")]
+        public IActionResult NewCategory ([FromBody] CategoryDto category)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest();
+                }
+                
+                _business.addCategory(category);
+                return Ok(category);
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, "Internal error");
+            }
         }
 
     }
