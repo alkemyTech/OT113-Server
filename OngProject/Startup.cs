@@ -113,6 +113,9 @@ namespace OngProject
             services.AddTransient<ICommentBusiness, CommentBusiness>();
             services.AddTransient<IDbContext<Comment>, DbContext<Comment>>();
 
+            services.AddTransient<IActivityBusiness, ActivityBusiness>();
+            services.AddTransient<IDbContext<Activity>, DbContext<Activity>>();
+            services.AddTransient<IRepository<Activity>, Repository<Activity>>();
 
 
             services.AddAuthentication(options =>

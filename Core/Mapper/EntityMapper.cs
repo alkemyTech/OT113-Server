@@ -25,9 +25,14 @@ namespace Core.Mapper
         Contacts MapContactDtoToContact(ContactDto contact);
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDto category);
+
+
+        Activity ActivitieMapDto(ActivitiesDto activitie);
+
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
 
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
+
 
     }
 
@@ -274,6 +279,21 @@ namespace Core.Mapper
         }
 
 
+        public Activity ActivitieMapDto(ActivitiesDto activitie)
+        {
+
+            Activity newActivitie = new Activity
+            {
+                Name = activitie.Name,
+                Content = activitie.Content,
+                Image = activitie.Image
+            };
+
+            return newActivitie;
+
+        }
+
+
         public Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto)
         {
 
@@ -303,6 +323,7 @@ namespace Core.Mapper
                 modifiedAt = DateTime.Now.Date
             };
         }
+
 
     }
 }
