@@ -8,6 +8,7 @@ using Repositories;
 using Core.Business.Interfaces;
 using Core.Models.DTOs;
 using Core.Mapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OngProject.Controllers
 {
@@ -22,8 +23,9 @@ namespace OngProject.Controllers
             _business = business;
         }
 
-        [HttpPost("testimonials")]
-        //[Authorize(Roles = "Admin")]
+        [HttpPost]
+        [Route("/testimonials")]
+        [Authorize(Roles = "Admin")]
         public IActionResult TestimonialAddItems([FromBody]TestimonailsDto testimonialsDto)
         {
             try
