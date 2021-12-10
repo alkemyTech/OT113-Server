@@ -1,5 +1,6 @@
 ﻿using Core.Business.Interfaces;
 using Core.Models.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -44,6 +45,25 @@ namespace OngProject
 
                 return StatusCode(500, "Internal server error");
             }
+        }
+
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        [Route("public")]
+        public IActionResult updateOrganization([FromBody] OrganizationDtoPostRequest organizationDto)
+        {
+
+            var organization = _business.GetOrg(organizationDto.Id);
+
+            if (organization == null)
+            {
+                return NotFound("The organization doesn't exist");
+            }
+
+            _business.UpdateOrganization(organizationDto);
+
+            return Ok(organizationDto);
         }
 
     }

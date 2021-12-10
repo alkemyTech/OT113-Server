@@ -12,5 +12,6 @@ namespace Core.Business.Interfaces
     {
         News GetNewsById(int id);
         IEnumerable<CommentsDto> GetCommentByNews(int id);
+        void AddNews(NewNewsDto news);
     }
 }

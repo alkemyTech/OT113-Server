@@ -24,7 +24,12 @@ namespace Core.Business
             _mapper = mapper;
         }
 
-        public void AddNews() { }
+        public void AddNews(NewNewsDto news) 
+        {
+            var newsMapped = _mapper.NewsMapDto(news);
+            _repository.Save(newsMapped);
+        }
+
         public void RemoveNews(int id) { }
         public void UpdateNews(News news) { }
 
