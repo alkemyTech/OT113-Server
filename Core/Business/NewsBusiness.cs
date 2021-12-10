@@ -1,4 +1,6 @@
 ﻿using Core.Business.Interfaces;
+using Core.Mapper;
+using Core.Models.DTOs;
 using Entities;
 using Repositories;
 using System;
@@ -11,18 +13,33 @@ namespace Core.Business
 {
     public class NewsBusiness: INewsBusiness
     {
-        private readonly Repository<News> _repository;
+        private readonly IRepository<News> _repository;
+        private readonly IRepository<Comment> _comment;
+        private readonly IEntityMapper _mapper;
 
-        public NewsBusiness(Repository<News> repository)
+        public NewsBusiness(IRepository<News> repository, IRepository<Comment> comment, IEntityMapper mapper)
         {
             _repository = repository;
+            _comment = comment;
+            _mapper = mapper;
         }
 
         public void AddNews() { }
         public void RemoveNews(int id) { }
         public void UpdateNews(News news) { }
 
-        public News GetNewsById() { throw new NotImplementedException(); }
+        public News GetNewsById(int id) 
+        {
+            return _repository.GetById(id);
+        }
+
+        public IEnumerable<CommentsDto> GetCommentByNews(int id)
+        {
+            var comments = _comment.GetAll().Result;
+
+            var listComments = _mapper.MappComments(comments.Where(comment => comment.newsId == id));
+            return listComments;
+        }
         public async Task<IEnumerable<News>> GetAllNews() { throw new NotImplementedException(); }
     }
 }

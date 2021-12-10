@@ -18,9 +18,17 @@ namespace Core.Mapper
         OrganizationDto MapOrganizationDtoToModel(Organization organization);
         TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
         UserDto mapUserDTO(UserRegisterDto user);
+        List<UserDto> mapUsers(IEnumerable<User> users);
         IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
+        IEnumerable<CommentsDto> MappComments(IEnumerable<Comment> comments);
         IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts);
+<<<<<<< HEAD
         Activity ActivitieMapDto(ActivitiesDto activitie);
+=======
+        Contacts MapContactDtoToContact(ContactDto contact);
+        NewsDto mapNews(News news);
+        Category mapNewCategory(CategoryDto category);
+>>>>>>> 70e93c8d2041c01a0f645ca8a7f6736681af71f2
     }
 
     public class EntityMapper : IEntityMapper
@@ -141,6 +149,24 @@ namespace Core.Mapper
             return newUser;
         }
 
+        public List<UserDto> mapUsers(IEnumerable<User> users)
+        {
+            List<UserDto> usersDTO = new List<UserDto>();
+
+            foreach(var user in users)
+            {
+                UserDto userAdd = new UserDto
+                {
+                    firstName = user.firstName,
+                    lastName = user.lastName,
+                    Email = user.Email,
+                };
+                usersDTO.Add(userAdd);
+            }
+
+            return usersDTO;
+        }
+
         public IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides)
         {
             if (slides != null)
@@ -163,6 +189,25 @@ namespace Core.Mapper
             return null;
         }
 
+
+        public IEnumerable<CommentsDto> MappComments(IEnumerable<Comment> comments)
+        {
+            List<CommentsDto> listComments = new List<CommentsDto>();
+            comments = comments.OrderBy(com => com.modifiedAt);
+            foreach(var comm in comments)
+            {
+                CommentsDto comment = new CommentsDto
+                {
+                    Body = comm.Body
+                };
+
+                listComments.Add(comment);
+            }
+
+            return listComments;
+        }
+
+
         public IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts)
         {
             List<ContactDto> mappedContacts = new List<ContactDto>();
@@ -183,6 +228,7 @@ namespace Core.Mapper
             return mappedContacts;
         }
 
+<<<<<<< HEAD
         public Activity ActivitieMapDto(ActivitiesDto activitie) 
         {
             
@@ -194,6 +240,48 @@ namespace Core.Mapper
             };
 
             return newActivitie;
+=======
+
+        public Contacts MapContactDtoToContact(ContactDto contact)
+        {
+            return new Contacts
+            {
+                Name = contact.Name,
+                Phone = contact.Phone,
+                Email = contact.Email,
+                Message = contact.Message,
+                isDelete = false,
+                modifiedAt = DateTime.Now.Date
+            };
+        }
+
+        public NewsDto mapNews(News news)
+        {
+            NewsDto newsDTO = new NewsDto
+            {
+                Name = news.Name,
+                Image = news.Image,
+                Content = news.Content,
+                CategoryID = news.CategoryId
+            };
+
+            return newsDTO;
+
+        }
+
+        public Category mapNewCategory(CategoryDto category)
+        {
+            Category newCat = new Category
+            {
+                Name = category.Name,
+                Description = category.Description,
+                Image = category.Image,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+            };
+
+            return newCat;
+>>>>>>> 70e93c8d2041c01a0f645ca8a7f6736681af71f2
         }
     }
 }

@@ -10,6 +10,8 @@ using Core.Helper;
 using System.Security.Cryptography;
 using Core.Models.DTOs;
 using Core.Mapper;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace Core.Business
 {
@@ -39,6 +41,29 @@ namespace Core.Business
             return sb.ToString();
         }
 
+        private int GetUserId(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var stringSplit = token.Split(' ');
+            var Token = handler.ReadJwtToken(stringSplit[0]);
+            var claims = Token.Claims.Where(x => x.Type == "nameid").FirstOrDefault();
+            var id = int.Parse(claims.Value);
+            return id;
+        }
+
+        public UserDetailsDto GetUserDetails(string token)
+        {
+            var id = GetUserId(token);
+            var user = _repository.GetById(id);
+
+            return new UserDetailsDto
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Role = _roleRepository.GetById(user.roleId).Name
+            };
+        }
+
         public async Task<string> Login(UserLoginDto userDto)
         {
             var users = await _repository.GetAll();
@@ -49,6 +74,7 @@ namespace Core.Business
                 var role = _roleRepository.GetById(user.roleId).Name;
                 var tokenParameter = _mapper.MapUserLoginDtoToTokenParameter(userDto);
                 tokenParameter.Role = role;
+                tokenParameter.Id = user.Id;
                 if (EncryptPassSha25(userDto.Password) == user.Password)
                 {
                     return _tokenHandler.GenerateTokenJWT(tokenParameter);
