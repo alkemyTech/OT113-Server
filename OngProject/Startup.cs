@@ -81,9 +81,11 @@ namespace OngProject
             services.AddTransient<IRepository<Organization>, Repository<Organization>>();
             services.AddTransient<IOrganizationBusiness, OrganizationBusiness>();
             services.AddTransient<IDbContext<Organization>, DbContext<Organization>>();
+
             services.AddTransient<IRepository<Category>, Repository<Category>>();
             services.AddTransient<ICategoryBusiness, CategoryBusiness>();
             services.AddTransient<IDbContext<Category>, DbContext<Category>>();
+
             services.AddTransient<IMembersBusiness, MembersBusiness>();
             services.AddTransient<IRepository<Member>, Repository<Member>>();
             services.AddTransient<IDbContext<Member>, DbContext<Member>>();
@@ -103,8 +105,11 @@ namespace OngProject
             services.AddTransient<IDbContext<Slides>, DbContext<Slides>>();
             services.AddTransient<IAmazonS3Business, AmazonS3Business>();
             services.AddTransient<IS3AwsHelper, S3AwsHelper>();
-
             services.AddTransient<SendGInterface, SendG>();
+
+            services.AddTransient<IActivityBusiness, ActivityBusiness>();
+            services.AddTransient<IDbContext<Activity>, DbContext<Activity>>();
+            services.AddTransient<IRepository<Activity>, Repository<Activity>>();
 
 
             services.AddAuthentication(options =>

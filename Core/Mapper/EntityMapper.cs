@@ -20,6 +20,7 @@ namespace Core.Mapper
         UserDto mapUserDTO(UserRegisterDto user);
         IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
         IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts);
+        Activity ActivitieMapDto(ActivitiesDto activitie);
     }
 
     public class EntityMapper : IEntityMapper
@@ -180,6 +181,19 @@ namespace Core.Mapper
             }
 
             return mappedContacts;
+        }
+
+        public Activity ActivitieMapDto(ActivitiesDto activitie) 
+        {
+            
+            Activity newActivitie = new Activity
+            {
+                Name = activitie.Name,
+                Content = activitie.Content,
+                Image = activitie.Image
+            };
+
+            return newActivitie;
         }
     }
 }
