@@ -25,6 +25,7 @@ namespace Core.Mapper
         Contacts MapContactDtoToContact(ContactDto contact);
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDto category);
+        Testimonials TestimonialsMapDto(TestimonailsDto testimonial);
     }
 
     public class EntityMapper : IEntityMapper
@@ -264,6 +265,16 @@ namespace Core.Mapper
             };
 
             return newCat;
+        }
+
+        public Testimonials TestimonialsMapDto(TestimonailsDto testimonial)
+        {
+            Testimonials newTestimonial = new Testimonials
+            {
+                Name = testimonial.Name,
+                Content = testimonial.Content
+            };
+            return newTestimonial;
         }
     }
 }
