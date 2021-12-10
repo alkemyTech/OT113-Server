@@ -8,14 +8,14 @@ namespace Entities {
     public class Comment : EntityBase
     {
 
-    [ForeignKey("User")]
-    public int userId { get; set; }
+        [ForeignKey("User")]
+        public int userId { get; set; }
     
-    [MinLength(1)]
-    public string Body { get; set; }
+        [MinLength(1)]
+        public string Body { get; set; }
 
-    [ForeignKey("News")]
-    public int newsId { get; set; }
+        [ForeignKey("News")]
+        public int newsId { get; set; }
 
     }
 

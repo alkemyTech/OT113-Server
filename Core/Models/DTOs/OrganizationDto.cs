@@ -18,11 +18,11 @@ namespace Core.Models.DTOs
         public string Image { get; set; }
 
         [MaxLength(255)]
-        public string Adress { get; set; }
+        public string Address { get; set; }
 
         [Phone]
         [MaxLength(20)]
-        public int Phone { get; set; }
+        public string Phone { get; set; }
 
         [Required]
         [MaxLength(65535)]

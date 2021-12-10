@@ -117,6 +117,16 @@ namespace OngProject
             services.AddTransient<IDbContext<Member>, DbContext<Member>>();
             services.AddTransient<IRepository<Member>, Repository<Member>>();
 
+            services.AddTransient<ITestimonialsBusiness, TestimonialsBusiness>();
+            services.AddTransient<IDbContext<Testimonials>, DbContext<Testimonials>>();
+            services.AddTransient<IRepository<Testimonials>, Repository<Testimonials>>();
+
+
+            services.AddTransient<IActivityBusiness, ActivityBusiness>();
+            services.AddTransient<IDbContext<Activity>, DbContext<Activity>>();
+            services.AddTransient<IRepository<Activity>, Repository<Activity>>();
+
+
 
             services.AddAuthentication(options =>
             {
