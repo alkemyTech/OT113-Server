@@ -25,6 +25,7 @@ namespace Core.Mapper
         Contacts MapContactDtoToContact(ContactDto contact);
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDto category);
+        News NewsMapDto(NewNewsDto news);
     }
 
     public class EntityMapper : IEntityMapper
@@ -264,6 +265,18 @@ namespace Core.Mapper
             };
 
             return newCat;
+        }
+
+        public News NewsMapDto(NewNewsDto news)
+        {
+            News newNews = new News
+            {
+                Name = news.Name,
+                Content = news.Content,
+                Image = news.Image,
+                CategoryId = news.CategoryId
+            };
+            return newNews;
         }
     }
 }

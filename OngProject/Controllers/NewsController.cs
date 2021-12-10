@@ -1,5 +1,6 @@
 ﻿using Core.Business.Interfaces;
 using Core.Mapper;
+using Core.Models.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -63,5 +64,19 @@ namespace OngProject.Controllers
                 return StatusCode(500, "Internal error");
             }
         }
+
+        [HttpPost("/news")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult NewsAddItems([FromBody]NewNewsDto newsDto)
+        {
+            try
+            {
+                _business.AddNews(newsDto);
+                return new JsonResult(newsDto) { StatusCode = 201 };
+
+            }
+            catch(Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
+        }
+
     }
 }
