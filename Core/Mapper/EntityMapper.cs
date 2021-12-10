@@ -26,6 +26,9 @@ namespace Core.Mapper
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDto category);
 
+        Member MemberMapDto(MembersNameDto member);
+
+
         Testimonials TestimonialsMapDto(TestimonailsDto testimonial);
 
 
@@ -282,6 +285,19 @@ namespace Core.Mapper
             return newCat;
         }
 
+    
+        public Member MemberMapDto(MembersNameDto member)
+        {
+            Member newMember = new Member
+            {
+                Name = member.Name,
+                Image = member.Image
+            };
+
+            return newMember;
+        }
+
+
 
         public Testimonials TestimonialsMapDto(TestimonailsDto testimonial)
         {
@@ -338,6 +354,7 @@ namespace Core.Mapper
                 modifiedAt = DateTime.Now.Date
             };
         }
+
 
 
     }
