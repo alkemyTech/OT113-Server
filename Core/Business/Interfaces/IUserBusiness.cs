@@ -17,5 +17,6 @@ namespace Core.Business.Interfaces
         Task<IEnumerable<User>> GetAllUsers();
         Task<string> Login(UserLoginDto userDto);
         bool Exist(IEnumerable<User> users, string email);
+        UserDetailsDto GetUserDetails(string token);
     }
 }

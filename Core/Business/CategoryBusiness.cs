@@ -50,6 +50,13 @@ namespace Core.Business
 
         }
 
+        public void addCategory(CategoryDto category)
+        {
+            var newCat = _mapper.mapNewCategory(category);
+
+            _repository.Save(newCat);
+        }
+
     }
 
 }

@@ -11,6 +11,7 @@ namespace Core.Business.Interfaces
 
         CategoryDto GetCategoryById(int id);  
         Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories();
+        void addCategory(CategoryDto category);
 
     }
     
