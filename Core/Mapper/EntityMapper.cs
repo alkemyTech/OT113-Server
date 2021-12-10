@@ -26,12 +26,16 @@ namespace Core.Mapper
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDto category);
 
+        Testimonials TestimonialsMapDto(TestimonailsDto testimonial);
+
+
 
         Activity ActivitieMapDto(ActivitiesDto activitie);
 
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
 
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
+
 
 
     }
@@ -276,6 +280,17 @@ namespace Core.Mapper
             };
 
             return newCat;
+        }
+
+
+        public Testimonials TestimonialsMapDto(TestimonailsDto testimonial)
+        {
+            Testimonials newTestimonial = new Testimonials
+            {
+                Name = testimonial.Name,
+                Content = testimonial.Content
+            };
+            return newTestimonial;
         }
 
 
