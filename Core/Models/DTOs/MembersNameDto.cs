@@ -7,10 +7,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Core.Models.DTOs
 {
-    public class MemberNameDto
+    public class MembersNameDto
     {
         [Required]
-        [MaxLength(255)]
+        [StringLength(255)]
         public string Name { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        public string Image { get; set; }
     }
 }

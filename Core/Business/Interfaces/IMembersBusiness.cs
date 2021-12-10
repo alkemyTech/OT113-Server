@@ -12,5 +12,7 @@ namespace Core.Business.Interfaces
     public interface IMembersBusiness
     {
         Task<IEnumerable<MemberDto>> GetAllMembers();
+
+        void AddMember(MembersNameDto member);
     }
 }

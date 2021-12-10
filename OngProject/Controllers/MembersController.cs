@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Core.Business.Interfaces;
 using Core.Mapper;
 using Core.Models.DTOs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OngProject.Controllers
 {
@@ -36,8 +37,18 @@ namespace OngProject.Controllers
 
             return Ok(members);
         }
-
-
+        [HttpPost]
+        [Route("/members")]
+        [Authorize(Roles = "User")]
+        public IActionResult MemberAddName([FromBody]MembersNameDto memberDto)
+        {
+            try
+            {
+                _business.AddMember(memberDto);
+                return new JsonResult(memberDto) { StatusCode = 201 };
+            
+            }catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
+        }
     }
 
 

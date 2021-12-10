@@ -22,7 +22,12 @@ namespace Core.Business
             _mapper = mapper;
         }
 
-        public void AddMember() { }
+        public void AddMember(MembersNameDto member) 
+        {
+            var memberMapped = _mapper.MemberMapDto(member);
+            _repository.Save(memberMapped);
+
+        }
         public void RemoveMember(int id) { }
         public void UpdateMember(Member member) { }
         public Member GetMemberById() { throw new NotImplementedException(); }
