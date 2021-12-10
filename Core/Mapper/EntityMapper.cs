@@ -25,6 +25,7 @@ namespace Core.Mapper
         Contacts MapContactDtoToContact(ContactDto contact);
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDto category);
+        Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
     }
 
     public class EntityMapper : IEntityMapper
@@ -264,6 +265,18 @@ namespace Core.Mapper
             };
 
             return newCat;
+        }
+
+        public Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment)
+        {
+            return new Comment
+            {
+                userId = comment.userId,
+                Body = comment.Body,
+                newsId = comment.newsId,
+                isDelete = false,
+                modifiedAt = DateTime.Now.Date
+            };
         }
     }
 }
