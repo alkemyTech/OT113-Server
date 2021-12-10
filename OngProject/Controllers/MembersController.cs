@@ -36,8 +36,17 @@ namespace OngProject.Controllers
 
             return Ok(members);
         }
-
-
+        [HttpPost]
+        [Route("/members")]
+        public IActionResult MemberAddName([FromBody]MembersNameDto memberDto)
+        {
+            try
+            {
+                _business.AddMember(memberDto);
+                return new JsonResult(memberDto) { StatusCode = 201 };
+            
+            }catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
+        }
     }
 
 
