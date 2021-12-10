@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Core.Business.Interfaces;
 using Core.Mapper;
 using Core.Models.DTOs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OngProject.Controllers
 {
@@ -38,6 +39,7 @@ namespace OngProject.Controllers
         }
         [HttpPost]
         [Route("/members")]
+        [Authorize(Roles = "User")]
         public IActionResult MemberAddName([FromBody]MembersNameDto memberDto)
         {
             try
