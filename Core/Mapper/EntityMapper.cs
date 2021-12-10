@@ -25,7 +25,10 @@ namespace Core.Mapper
         Contacts MapContactDtoToContact(ContactDto contact);
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDto category);
+        Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
+
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
+
     }
 
     public class EntityMapper : IEntityMapper
@@ -38,7 +41,7 @@ namespace Core.Mapper
                 {
                     Name = organization.Name,
                     Image = organization.Image,
-                    Adress = organization.Adress,
+                    Address = organization.Address,
                     Phone = organization.Phone,
                     Facebook = organization.Facebook,
                     Linkedin = organization.Linkedin,
@@ -93,21 +96,24 @@ namespace Core.Mapper
 
 
 
-        public CategoryDto mapCategoryModeltoDto(Category category){
+        public CategoryDto mapCategoryModeltoDto(Category category)
+        {
 
-            if(category != null){
-                CategoryDto categoryDto = new CategoryDto{
+            if (category != null)
+            {
+                CategoryDto categoryDto = new CategoryDto
+                {
                     Name = category.Name,
                     Description = category.Description,
                     Image = category.Image
                 };
 
                 return categoryDto;
-            } 
+            }
 
             return null;
         }
-        
+
 
         public IEnumerable<CategoryDtoGetAllResponse> mapCategoriesNamesModelToDto(IEnumerable<Category> categories)
         {
@@ -150,7 +156,7 @@ namespace Core.Mapper
         {
             List<UserDto> usersDTO = new List<UserDto>();
 
-            foreach(var user in users)
+            foreach (var user in users)
             {
                 UserDto userAdd = new UserDto
                 {
@@ -191,7 +197,7 @@ namespace Core.Mapper
         {
             List<CommentsDto> listComments = new List<CommentsDto>();
             comments = comments.OrderBy(com => com.modifiedAt);
-            foreach(var comm in comments)
+            foreach (var comm in comments)
             {
                 CommentsDto comment = new CommentsDto
                 {
@@ -267,6 +273,25 @@ namespace Core.Mapper
             return newCat;
         }
 
+
+        public Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto)
+        {
+
+            organization.isDelete = false;
+            organization.modifiedAt = DateTime.Now;
+            organization.Name = organizationDto.Name;
+            organization.Image = organizationDto.Image;
+            organization.Address = organizationDto.Address;
+            organization.Phone = organizationDto.Phone;
+            organization.WelcomeText = organizationDto.WelcomeText;
+            organization.AboutUsText = organizationDto.AboutUsText;
+            organization.Facebook = organizationDto.Facebook;
+            organization.Linkedin = organizationDto.Linkedin;
+            organization.Instagram = organizationDto.Instagram;
+
+            return organization;
+        }
+
         public Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment)
         {
             return new Comment
@@ -278,5 +303,6 @@ namespace Core.Mapper
                 modifiedAt = DateTime.Now.Date
             };
         }
+
     }
 }

@@ -16,7 +16,7 @@ namespace Core.Business
         private readonly IRepository<Organization> _repository;
         private readonly IEntityMapper _mapper;
 
-        public OrganizationBusiness (IRepository<Organization> repository, IEntityMapper mapper)
+        public OrganizationBusiness(IRepository<Organization> repository, IEntityMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -29,7 +29,21 @@ namespace Core.Business
             return _mapper.MapOrganizationDtoToModel(organization);
         }
 
-        public void UpdateOrganization(Organization context) { }
+        public Organization GetOrg(int id)
+        {
+            var organization = _repository.GetById(id);
+
+            return organization;
+        }
+
+
+        public void UpdateOrganization(OrganizationDtoPostRequest organizationDto)
+        {
+
+            var organizationEdit = _repository.GetById(organizationDto.Id);
+            _mapper.MapOrganizationDtoPostRequestToModel(organizationEdit, organizationDto);
+            _repository.Update(organizationEdit);
+        }
 
         public void DeleteOrganization(int id) { }
 
