@@ -26,6 +26,9 @@ namespace Core.Mapper
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDto category);
 
+        News NewsMapDto(NewNewsDto news);
+
+
         Member MemberMapDto(MembersNameDto member);
 
 
@@ -38,6 +41,7 @@ namespace Core.Mapper
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
 
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
+
 
 
 
@@ -285,6 +289,19 @@ namespace Core.Mapper
             return newCat;
         }
 
+
+        public News NewsMapDto(NewNewsDto news)
+        {
+            News newNews = new News
+            {
+                Name = news.Name,
+                Content = news.Content,
+                Image = news.Image,
+                CategoryId = news.CategoryId
+            };
+            return newNews;
+        }
+
     
         public Member MemberMapDto(MembersNameDto member)
         {
@@ -354,6 +371,7 @@ namespace Core.Mapper
                 modifiedAt = DateTime.Now.Date
             };
         }
+
 
 
 
