@@ -7,6 +7,7 @@ using Core.Mapper;
 using Core.Models;
 using DataAccess;
 using Entities;
+using OngProject.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,7 +27,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Services;
 using Microsoft.AspNetCore.Http;
 
 namespace OngProject
@@ -170,6 +170,8 @@ namespace OngProject
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseOwnershipMiddleware();
+
             app.UseAuthentication();
 
             app.UseHttpsRedirection();
@@ -177,6 +179,8 @@ namespace OngProject
             app.UseRouting();
 
             app.UseAuthorization();
+
+//          app.UseRoutesAdminMiddleware();
 
             app.UseEndpoints(endpoints =>
             {
