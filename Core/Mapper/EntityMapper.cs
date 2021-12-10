@@ -26,6 +26,9 @@ namespace Core.Mapper
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDto category);
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
+
+        Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
+
     }
 
     public class EntityMapper : IEntityMapper
@@ -270,6 +273,7 @@ namespace Core.Mapper
             return newCat;
         }
 
+
         public Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto)
         {
 
@@ -286,6 +290,18 @@ namespace Core.Mapper
             organization.Instagram = organizationDto.Instagram;
 
             return organization;
+        }
+
+        public Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment)
+        {
+            return new Comment
+            {
+                userId = comment.userId,
+                Body = comment.Body,
+                newsId = comment.newsId,
+                isDelete = false,
+                modifiedAt = DateTime.Now.Date
+            };
         }
 
     }
