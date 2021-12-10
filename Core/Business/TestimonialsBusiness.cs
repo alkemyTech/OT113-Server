@@ -17,11 +17,11 @@ namespace Core.Business
    public class TestimonialsBusiness : ITestimonialsBusiness
     {
         
-        private readonly Repository<Testimonials> _repository;
+        private readonly IRepository<Testimonials> _repository;
         private readonly IEntityMapper _mapper;
             
 
-        public TestimonialsBusiness(Repository<Testimonials> repository, IEntityMapper mapper)
+        public TestimonialsBusiness(IRepository<Testimonials> repository, IEntityMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
