@@ -25,24 +25,24 @@ namespace Core.Mapper
         Contacts MapContactDtoToContact(ContactDto contact);
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDto category);
-
         News NewsMapDto(NewNewsDto news);
-
-
         Member MemberMapDto(MembersNameDto member);
-
-
         Testimonials TestimonialsMapDto(TestimonailsDto testimonial);
-
-
-
         Activity ActivitieMapDto(ActivitiesDto activitie);
-
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
-
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
 
+
         Member mapUpdateMember(Member member, MemberDto update);
+
+        News UpdateNews(News news, NewNewsDto newsDto);
+
+
+        Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
+
+
+
+
 
     }
 
@@ -385,6 +385,29 @@ namespace Core.Mapper
 
             return member;
         }
+
+        public News UpdateNews(News news, NewNewsDto newsDto)
+        {
+            news.Name = newsDto.Name;
+            news.Image = newsDto.Image;
+            news.Content = newsDto.Content;
+            news.CategoryId = newsDto.CategoryId;
+
+            return news;
+        }
+
+        public Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update)
+        {
+            testimonial.Name = update.Name;
+            testimonial.Image = update.Image;
+            testimonial.Content = update.Content;
+            testimonial.isDelete = false;
+            testimonial.modifiedAt = DateTime.Now;
+
+            return testimonial;
+        }
+
+
 
     }
 }

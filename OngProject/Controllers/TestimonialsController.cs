@@ -38,5 +38,28 @@ namespace OngProject.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpPut]
+        [Route("~/testimonials/{id}")]
+        public IActionResult Update([FromBody] TestimonialUpdateDto updateTestimonial, int id)
+        {
+            try
+            {
+                var testimonials = _business.GetTestimonialsById(id);
+
+                if(testimonials == null)
+                {
+                    return NotFound();
+                }
+
+                _business.UpdateTestimonials(testimonials, updateTestimonial);
+
+                return Ok(updateTestimonial);
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, "Internal error");
+            }
+        }
     }
 }
