@@ -38,6 +38,7 @@ namespace OngProject.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         [Route("~/testimonials/{id}")]
         public IActionResult Update([FromBody] TestimonialUpdateDto updateTestimonial, int id)
