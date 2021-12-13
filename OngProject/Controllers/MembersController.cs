@@ -71,6 +71,28 @@ namespace OngProject.Controllers
                 return StatusCode(400, "Internal error");
             }
         }
+
+        [HttpDelete]
+        [Route("~/members/{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                var member = _business.GetMemberById(id);
+
+                if(member == null)
+                {
+                    return NotFound();
+                }
+                _business.RemoveMember(id);
+
+                return Ok("Miembro eliminado correctamente");
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, "Internal error");
+            }
+        }
     }
 
 
