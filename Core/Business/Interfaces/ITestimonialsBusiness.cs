@@ -13,5 +13,6 @@ namespace Core.Business.Interfaces
         void AddTestimonials(TestimonailsDto testimonial);
         Testimonials GetTestimonialsById(int id);
         void UpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
+        void RemoveTestimonials(int id);
     }
 }
