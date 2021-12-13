@@ -31,7 +31,12 @@ namespace Core.Mapper
         Activity ActivitieMapDto(ActivitiesDto activitie);
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
+
         News UpdateNews(News news, NewNewsDto newsDto);
+
+
+        Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
+
 
 
 
@@ -362,6 +367,7 @@ namespace Core.Mapper
             };
         }
 
+
         public News UpdateNews(News news, NewNewsDto newsDto)
         {
             news.Name = newsDto.Name;
@@ -371,5 +377,18 @@ namespace Core.Mapper
 
             return news;
         }
+
+        public Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update)
+        {
+            testimonial.Name = update.Name;
+            testimonial.Image = update.Image;
+            testimonial.Content = update.Content;
+            testimonial.isDelete = false;
+            testimonial.modifiedAt = DateTime.Now;
+
+            return testimonial;
+        }
+
+
     }
 }
