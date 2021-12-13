@@ -28,9 +28,15 @@ namespace Core.Business
             _repository.Save(memberMapped);
 
         }
+        public Member GetMemberById(int id) {
+            return _repository.GetById(id);
+        }
+
         public void RemoveMember(int id) { }
-        public void UpdateMember(Member member) { }
-        public Member GetMemberById() { throw new NotImplementedException(); }
+        public void UpdateMember(Member member, MemberDto update) {
+            _mapper.mapUpdateMember(member, update);
+            _repository.Update(member);
+        }
 
 
         public async Task<IEnumerable<MemberDto>> GetAllMembers()

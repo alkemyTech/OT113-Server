@@ -49,6 +49,28 @@ namespace OngProject.Controllers
             
             }catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
         }
+
+        [HttpPut]
+        [Route("~/members/{id}")]
+        public IActionResult UpdateMember([FromBody] MemberDto update, int id)
+        {
+            try
+            {
+                var member = _business.GetMemberById(id);
+
+                if(member == null)
+                {
+                    return NotFound();
+                }
+
+                _business.UpdateMember(member, update);
+                return Ok(update);
+            }
+            catch(Exception e)
+            {
+                return StatusCode(400, "Internal error");
+            }
+        }
     }
 
 

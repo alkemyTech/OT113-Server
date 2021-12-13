@@ -42,8 +42,7 @@ namespace Core.Mapper
 
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
 
-
-
+        Member mapUpdateMember(Member member, MemberDto update);
 
     }
 
@@ -373,7 +372,19 @@ namespace Core.Mapper
         }
 
 
+        public Member mapUpdateMember(Member member, MemberDto update)
+        {
+            member.Name = update.Name;
+            member.FacebookUrl = update.FacebookUrl;
+            member.InstagramUrl = update.InstagramUrl;
+            member.LinkedinUrl = update.LinkedinUrl;
+            member.Image = update.Image;
+            member.Description = update.Description;
+            member.isDelete = false;
+            member.modifiedAt = DateTime.Now;
 
+            return member;
+        }
 
     }
 }
