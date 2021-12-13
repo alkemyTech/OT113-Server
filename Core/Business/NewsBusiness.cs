@@ -31,7 +31,11 @@ namespace Core.Business
         }
 
         public void RemoveNews(int id) { }
-        public void UpdateNews(News news) { }
+        public void UpdateNews(News news, NewNewsDto newsDto) 
+        {
+            var mappedNews = _mapper.UpdateNews(news, newsDto);
+            _repository.Update(mappedNews);
+        }
 
         public News GetNewsById(int id) 
         {
