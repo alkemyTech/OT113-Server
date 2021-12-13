@@ -32,10 +32,14 @@ namespace Core.Mapper
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
 
+
+        Member mapUpdateMember(Member member, MemberDto update);
+
         News UpdateNews(News news, NewNewsDto newsDto);
 
 
         Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
+
 
 
 
@@ -368,6 +372,20 @@ namespace Core.Mapper
         }
 
 
+        public Member mapUpdateMember(Member member, MemberDto update)
+        {
+            member.Name = update.Name;
+            member.FacebookUrl = update.FacebookUrl;
+            member.InstagramUrl = update.InstagramUrl;
+            member.LinkedinUrl = update.LinkedinUrl;
+            member.Image = update.Image;
+            member.Description = update.Description;
+            member.isDelete = false;
+            member.modifiedAt = DateTime.Now;
+
+            return member;
+        }
+
         public News UpdateNews(News news, NewNewsDto newsDto)
         {
             news.Name = newsDto.Name;
@@ -388,6 +406,7 @@ namespace Core.Mapper
 
             return testimonial;
         }
+
 
 
     }
