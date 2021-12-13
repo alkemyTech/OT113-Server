@@ -5,6 +5,7 @@ using Entities;
 using Repositories;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +45,36 @@ namespace Core.Business
         public async Task<IEnumerable<Comment>> GetAll()
         {
             return await _repository.GetAll();
+        }
+
+        public Comment GetCommentById(int id)
+        {
+            return _repository.GetById(id);
+        }
+
+        public Comment UpdateComment(Comment comment, CommentsDto commentDto, string token)
+        {
+            if(UserValidation(token, comment))
+            {
+                comment.Body = commentDto.Body;
+                _repository.Update(comment);
+
+                return comment;
+            }
+
+            return null;
+        }
+
+        private bool UserValidation(string token, Comment comment)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var stringSplit = token.Split(' ');
+            var Token = handler.ReadJwtToken(stringSplit[0]);
+            var claimsUserId = Token.Claims.Where(x => x.Type == "nameid").FirstOrDefault();
+            var userRole = Token.Claims.Where(x=>x.Type =="role").FirstOrDefault().Value;
+            var id = int.Parse(claimsUserId.Value);
+
+            return (userRole == "Admin" || id == comment.userId);
         }
     }
 }
