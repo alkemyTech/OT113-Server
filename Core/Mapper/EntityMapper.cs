@@ -42,6 +42,7 @@ namespace Core.Mapper
 
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
 
+        Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
 
 
 
@@ -372,7 +373,16 @@ namespace Core.Mapper
             };
         }
 
+        public Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update)
+        {
+            testimonial.Name = update.Name;
+            testimonial.Image = update.Image;
+            testimonial.Content = update.Content;
+            testimonial.isDelete = false;
+            testimonial.modifiedAt = DateTime.Now;
 
+            return testimonial;
+        }
 
 
     }
