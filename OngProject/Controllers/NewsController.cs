@@ -97,7 +97,7 @@ namespace OngProject.Controllers
 
                 _business.UpdateNews(newsEntity, news);
 
-                return NoContent();
+                return new JsonResult(news) {StatusCode = 200 };
             }
             catch (Exception)
             {
