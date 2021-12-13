@@ -67,6 +67,7 @@ namespace OngProject.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         [ProducesResponseType(typeof(CommentsDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -97,7 +98,7 @@ namespace OngProject.Controllers
             catch (Exception)
             {
 
-                throw;
+                return StatusCode(500, "Internal server error");
             }
         }
     }
