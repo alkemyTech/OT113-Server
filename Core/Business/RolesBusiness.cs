@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Core.Business
 {
-    public class RolesBusiness : IActivityBusiness
+    public class RolesBusiness : IRolesBusiness
     {
         private readonly IRepository<Roles> _roles;
 
