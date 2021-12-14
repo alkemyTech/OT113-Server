@@ -48,5 +48,48 @@ namespace OngProject.Controllers
 
         }
 
+
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        [Route("/activities/{id}")]
+        public IActionResult UpdateActivity(int id, [FromBody] ActivitiesDto activityDto){
+
+            var act = _business.getActivity(id);
+            if(act == null){
+                return NotFound("The activity doesn't  exist");
+            }
+
+            else
+            _business.UpdateActivity(id, activityDto);
+            return Ok(activityDto);
+
+        }
+
+        [HttpGet]
+        [Route("/activities/{id}")]
+        public IActionResult GetActivity(int id){
+
+            var activity = _business.GetActivityById(id);
+            if(activity == null){
+                return NotFound("The activity doesn't  exist");
+            }
+
+            return Ok(activity);
+        }
+
+
+        [HttpGet]
+        [Route("/activities")]
+        public async Task<IActionResult> GetAllActivities(){
+
+            var activities = await _business.GetAllActivities();
+
+            if(activities == null){
+                return NotFound();
+            }
+
+            return Ok(activities);
+        }
+
     }
 }
