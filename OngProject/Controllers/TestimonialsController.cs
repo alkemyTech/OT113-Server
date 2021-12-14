@@ -61,5 +61,28 @@ namespace OngProject.Controllers
                 return StatusCode(500, "Internal error");
             }
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete]
+        [Route("~/testimonials/{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                var testimonial = _business.GetTestimonialsById(id);
+
+                if(testimonial == null)
+                {
+                    return NotFound();
+                }
+
+                _business.RemoveTestimonials(id);
+                return Ok("Testimonio eliminado con éxito");
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, "Internal error");
+            }
+        }
     }
 }

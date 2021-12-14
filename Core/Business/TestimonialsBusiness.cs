@@ -41,7 +41,9 @@ namespace Core.Business
             _repository.Update(testimonial);
         }
 
-        public void RemoveTestimonials(int id) { }
+        public void RemoveTestimonials(int id) {
+            _repository.Delete(id);
+        }
         public async Task<IEnumerable<Testimonials>> GetAllTestimonials() { throw new NotImplementedException(); }
      }
  }
