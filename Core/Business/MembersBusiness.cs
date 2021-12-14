@@ -32,7 +32,9 @@ namespace Core.Business
             return _repository.GetById(id);
         }
 
-        public void RemoveMember(int id) { }
+        public void RemoveMember(int id) {
+            _repository.Delete(id);
+        }
         public void UpdateMember(Member member, MemberDto update) {
             _mapper.mapUpdateMember(member, update);
             _repository.Update(member);

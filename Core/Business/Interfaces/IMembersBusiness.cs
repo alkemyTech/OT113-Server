@@ -16,5 +16,6 @@ namespace Core.Business.Interfaces
         void AddMember(MembersNameDto member);
         Member GetMemberById(int id);
         void UpdateMember(Member member, MemberDto update);
+        void RemoveMember(int id);
     }
 }
