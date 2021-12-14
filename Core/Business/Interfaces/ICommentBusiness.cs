@@ -12,5 +12,7 @@ namespace Core.Business.Interfaces
     {
         Task<IEnumerable<Comment>> GetAll();
         CommentDtoForCreation AddComment(CommentDtoForCreation comment);
+        Comment GetCommentById(int id);
+        Comment UpdateComment(Comment comment, CommentsDto commentDto, string token);
     }
 }
