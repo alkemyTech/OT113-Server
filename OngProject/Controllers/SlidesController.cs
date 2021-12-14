@@ -1,6 +1,8 @@
 ﻿using Core.Business.Interfaces;
 using Core.Mapper;
+using Core.Models.DTOs;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -56,5 +58,23 @@ namespace OngProject.Controllers
                 return StatusCode(400, e.Message);
             }
         }
+
+
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        [Route("/slides/{id}")]
+        public IActionResult UpdateSlide(int id, [FromBody] SlideDtoPutRequest slideDto){
+
+            var slide = _business.FindById(id);
+            if(slide == null){
+                return NotFound("The slide doesn't  exist");
+            }
+
+            else
+            _business.UpdateSlide(id, slideDto);
+            return Ok(slideDto);
+
+        }
+
     }
 }
