@@ -101,5 +101,32 @@ namespace OngProject.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult DeleteComment(int id)
+        {
+            var token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
+            var commentEntity = _business.GetCommentById(id);
+
+            if (commentEntity == null)
+            {
+                return NotFound();
+            }
+
+            var response = _business.DeleteComment(commentEntity, token);
+
+            if (response == null)
+            {
+                return Forbid();
+            }
+
+            return NoContent();
+        }
     }
 }
