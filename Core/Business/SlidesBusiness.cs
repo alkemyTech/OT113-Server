@@ -42,5 +42,11 @@ namespace Core.Business
             _repository.Update(slideEdit);
         }
 
+
+        public void DeleteSlide(Slides slide){
+
+            _repository.Delete(slide.Id);
+        }
+
     }
 }
