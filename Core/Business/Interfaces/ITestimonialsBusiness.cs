@@ -11,5 +11,8 @@ namespace Core.Business.Interfaces
     public interface ITestimonialsBusiness
     {
         void AddTestimonials(TestimonailsDto testimonial);
+        Testimonials GetTestimonialsById(int id);
+        void UpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
+        void RemoveTestimonials(int id);
     }
 }

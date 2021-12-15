@@ -14,5 +14,8 @@ namespace Core.Business.Interfaces
         Task<IEnumerable<MemberDto>> GetAllMembers();
 
         void AddMember(MembersNameDto member);
+        Member GetMemberById(int id);
+        void UpdateMember(Member member, MemberDto update);
+        void RemoveMember(int id);
     }
 }

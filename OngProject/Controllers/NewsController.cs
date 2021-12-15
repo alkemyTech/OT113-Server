@@ -2,6 +2,7 @@
 using Core.Mapper;
 using Core.Models.DTOs;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -76,6 +77,33 @@ namespace OngProject.Controllers
 
             }
             catch(Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
+        }
+
+        [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult UpdateNews(int id, [FromBody] NewNewsDto news)
+        {
+            try
+            {
+                var newsEntity = _business.GetNewsById(id);
+
+                if (newsEntity == null)
+                {
+                    return NotFound();
+                }
+
+                _business.UpdateNews(newsEntity, news);
+
+                return new JsonResult(news) {StatusCode = 200 };
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(500, "Internal server error");
+            }
         }
 
     }

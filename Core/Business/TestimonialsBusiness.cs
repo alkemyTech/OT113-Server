@@ -32,10 +32,18 @@ namespace Core.Business
             var testimonialMapped = _mapper.TestimonialsMapDto(testimonial);
             _repository.Save(testimonialMapped);
         }
+        public Testimonials GetTestimonialsById(int id) {
+            return _repository.GetById(id);
+        }
+        public void UpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update) {
+            _mapper.MapUpdateTestimonials(testimonial, update);
 
-        public void RemoveTestimonials(int id) { }
-        public void UpdateTestimonials(Testimonials testimonials) { }
-        public Testimonials GetTestimonialsById() { throw new NotImplementedException(); }
+            _repository.Update(testimonial);
+        }
+
+        public void RemoveTestimonials(int id) {
+            _repository.Delete(id);
+        }
         public async Task<IEnumerable<Testimonials>> GetAllTestimonials() { throw new NotImplementedException(); }
      }
  }
