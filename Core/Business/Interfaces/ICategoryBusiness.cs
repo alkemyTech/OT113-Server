@@ -11,7 +11,7 @@ namespace Core.Business.Interfaces
 {
     public interface ICategoryBusiness
     {
-        Category GetCategoryById(int id);  
+        CategoryDto GetCategoryById(int id);  
         Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories();
         void addCategory(CategoryDto category);
         void RemoveCategory(int id);

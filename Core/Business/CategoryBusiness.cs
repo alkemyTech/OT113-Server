@@ -23,12 +23,10 @@ namespace Core.Business
         }
 
         public void AddCategory() { }
-
-        public void RemoveCategory(int id) 
+        public void RemoveCategory(int id)
         {
             _repository.Delete(id);
         }
-
         public void UpdateCategory(Category activity) { }
 
 

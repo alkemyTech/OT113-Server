@@ -85,10 +85,10 @@ namespace OngProject.Controllers
                 }
                 else 
                 {
-                    _business.RemoveCategory(categorie);
+                    //_business.RemoveCategory(categorie);
+                    return Ok("The categorie correctly removed.");
                 }
                 
-                return Ok("The categorie was removed.");
                
             }catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
 
