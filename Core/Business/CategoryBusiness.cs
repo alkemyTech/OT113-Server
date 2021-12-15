@@ -24,7 +24,10 @@ namespace Core.Business
 
         public void AddCategory() { }
         public void RemoveCategory(int id) { }
-        public void UpdateCategory(Category activity) { }
+        public void UpdateCategory(Category activity, CategoryDto update) 
+        {
+            _mapper.Upda
+        }
 
 
         public CategoryDto GetCategoryById(int id)

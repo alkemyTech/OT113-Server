@@ -31,18 +31,10 @@ namespace Core.Mapper
         Activity ActivitieMapDto(ActivitiesDto activitie);
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
-
-
         Member mapUpdateMember(Member member, MemberDto update);
-
         News UpdateNews(News news, NewNewsDto newsDto);
-
-
         Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
-
-
-
-
+        Category UpdateMapCategories(Category categories, CategoryDto update);
 
     }
 
@@ -407,7 +399,14 @@ namespace Core.Mapper
             return testimonial;
         }
 
+        public Category UpdateMapCategories(Category categories, CategoryDto update)
+        {
+            categories.Name = update.Name;
+            categories.Image = update.Image;
+            categories.Description = update.Description;
 
+            return categories;
+        }
 
     }
 }
