@@ -60,6 +60,7 @@ namespace OngProject.Controllers
         }
 
 
+
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("/slides/{id}")]
@@ -74,6 +75,23 @@ namespace OngProject.Controllers
             _business.UpdateSlide(id, slideDto);
             return Ok(slideDto);
 
+        }
+
+
+        [HttpDelete]
+        [Authorize
+        (Roles = "Admin")]
+        [Route("/slides/{id}")]
+        public IActionResult DeleteSlide(int id){
+
+            var slide = _business.FindById(id);
+
+            if(slide == null || slide.isDelete == true){
+                return NotFound("The slide doesn't existe");
+            }
+
+            else _business.DeleteSlide(slide);
+            return Ok("The Slide was successfully deleted");
         }
 
     }

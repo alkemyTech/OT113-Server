@@ -42,6 +42,17 @@ namespace Core.Business
             return null;
         }
 
+        public Comment DeleteComment(Comment comment, string token)
+        {
+            if(UserValidation(token, comment))
+            {
+                _repository.Delete(comment.Id);
+                return comment;
+            }
+
+            return null;
+        }
+
         public async Task<IEnumerable<Comment>> GetAll()
         {
             return await _repository.GetAll();

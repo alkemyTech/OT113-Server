@@ -13,6 +13,10 @@ namespace Core.Business.Interfaces
         Slides FindById(int id);
         Task<IEnumerable<Slides>> GetAllSlides();
 
+
         void UpdateSlide(int id, SlideDtoPutRequest slideDto);
+
+        void DeleteSlide(Slides slide);
+
     }
 }
