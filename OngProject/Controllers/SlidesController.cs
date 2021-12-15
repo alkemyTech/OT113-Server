@@ -1,6 +1,7 @@
 ﻿using Core.Business.Interfaces;
 using Core.Mapper;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -55,6 +56,23 @@ namespace OngProject.Controllers
             {
                 return StatusCode(400, e.Message);
             }
+        }
+
+
+        [HttpDelete]
+        [Authorize
+        (Roles = "Admin")]
+        [Route("/slides/{id}")]
+        public IActionResult DeleteSlide(int id){
+
+            var slide = _business.FindById(id);
+
+            if(slide == null || slide.isDelete == true){
+                return NotFound("The slide doesn't existe");
+            }
+
+            else _business.DeleteSlide(slide);
+            return Ok("The Slide was successfully deleted");
         }
     }
 }
