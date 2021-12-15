@@ -72,5 +72,27 @@ namespace OngProject.Controllers
             }
         }
 
+        [HttpDelete("/categories/{id}")]
+        public IActionResult DeleteCategory(int id)
+        {
+            try
+            {
+                var categorie = _business.GetCategoryById(id);
+
+                if (categorie == null)
+                {
+                    return NotFound("The categorie do not exist");
+                }
+                else 
+                {
+                    _business.RemoveCategory(categorie);
+                }
+                
+                return Ok("The categorie was removed.");
+               
+            }catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
+
+        }
+
     }
 }
