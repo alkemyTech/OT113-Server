@@ -35,5 +35,12 @@ namespace Core.Business
             return await _repository.GetAll();
         }
 
+        public void UpdateSlide(int id, SlideDtoPutRequest slideDto) 
+        { 
+            var slide = _repository.GetById(id);
+            var slideEdit = _mapper.mapSlideDtoToModelPutRequest(slide, slideDto);
+            _repository.Update(slideEdit);
+        }
+
     }
 }

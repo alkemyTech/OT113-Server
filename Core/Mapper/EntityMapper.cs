@@ -31,20 +31,19 @@ namespace Core.Mapper
         Activity ActivitieMapDto(ActivitiesDto activitie);
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
-
-
         Member mapUpdateMember(Member member, MemberDto update);
-
         News UpdateNews(News news, NewNewsDto newsDto);
-
-
         Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
+
+        Slides mapSlideDtoToModelPutRequest(Slides slide,  SlideDtoPutRequest slideDto);
+
 
         Activity mapActivityDtoToModelPutRequest(Activity activity,  ActivitiesDto activityDto);
 
         ActivitiesDto mapActityModelToDto(Activity activity);
 
         IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto (IEnumerable<Activity> activities);
+
 
     }
 
@@ -409,6 +408,16 @@ namespace Core.Mapper
             return testimonial;
         }
 
+        public Slides mapSlideDtoToModelPutRequest(Slides slide,  SlideDtoPutRequest slideDto){
+
+
+                slide.isDelete = false;
+                slide.modifiedAt = DateTime.Now;
+                slide.ImgUrl = slideDto.ImgUrl;
+                slide.Order = slideDto.Order;
+                slide.Text = slideDto.Text;
+
+                return slide;
 
         public Activity mapActivityDtoToModelPutRequest(Activity activity,  ActivitiesDto activityDto){
 
@@ -458,6 +467,7 @@ namespace Core.Mapper
             }
 
             return null;
+
         }
 
     }
