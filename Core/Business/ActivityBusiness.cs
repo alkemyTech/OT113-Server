@@ -28,9 +28,40 @@ namespace Core.Business
             _repository.Save(activitieMapped);
         }
 
-        public void RemoveActivity(int id) { }
-        public void UpdateActivity(Activity activity) { }
-        public Activity GetActivityById() { throw new NotImplementedException(); }
-        public async Task<IEnumerable<Activity>> GetAllActivities() { throw new NotImplementedException(); }
+        public void RemoveActivity(int id) { 
+
+        }
+
+        public void UpdateActivity(int id, ActivitiesDto activityDto) 
+        { 
+            var activity = _repository.GetById(id);
+            var activityEdit = _mapper.mapActivityDtoToModelPutRequest(activity, activityDto);
+            _repository.Update(activityEdit);
+        }
+
+        public Activity getActivity(int id)
+        {
+                
+                return _repository.GetById(id);
+        }
+
+        public ActivitiesDto GetActivityById(int id) 
+        {
+
+            Activity activity = _repository.GetById(id);
+            ActivitiesDto activityDto = _mapper.mapActityModelToDto(activity);
+            return activityDto;
+         }
+
+
+        public async Task<IEnumerable<ActivityDtoGetAllResponse>> GetAllActivities() { 
+
+            var activities = await _repository.GetAll();
+
+            var activitiesDto = _mapper.mapActivitiesNamesModelToDto(activities);
+
+            return activitiesDto;
+
+        }
     }
 }

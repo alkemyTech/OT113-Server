@@ -1,4 +1,5 @@
 ﻿using Core.Models.DTOs;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,14 @@ namespace Core.Business.Interfaces
     public interface IActivityBusiness
     {
       void AddActivity(ActivitiesDto activitie);
+
+      void UpdateActivity(int id, ActivitiesDto activityDto);
+
+      ActivitiesDto GetActivityById(int id);
+
+      Activity getActivity(int id);
+
+      Task<IEnumerable<ActivityDtoGetAllResponse>> GetAllActivities();
+
     }
 }
