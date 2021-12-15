@@ -410,7 +410,6 @@ namespace Core.Mapper
 
         public Slides mapSlideDtoToModelPutRequest(Slides slide,  SlideDtoPutRequest slideDto){
 
-
                 slide.isDelete = false;
                 slide.modifiedAt = DateTime.Now;
                 slide.ImgUrl = slideDto.ImgUrl;
@@ -418,6 +417,7 @@ namespace Core.Mapper
                 slide.Text = slideDto.Text;
 
                 return slide;
+        }
 
         public Activity mapActivityDtoToModelPutRequest(Activity activity,  ActivitiesDto activityDto){
 
