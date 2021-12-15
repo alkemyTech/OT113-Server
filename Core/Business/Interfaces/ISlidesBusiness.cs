@@ -11,5 +11,7 @@ namespace Core.Business.Interfaces
     {
         Slides FindById(int id);
         Task<IEnumerable<Slides>> GetAllSlides();
+
+        void DeleteSlide(Slides slide);
     }
 }
