@@ -13,5 +13,7 @@ namespace Abstractions
         T GetById(int id);
         void Delete(int id);
         void Update(T entity);
+        Task<IEnumerable<T>> PaginatedGetAll(IPaginationFilter filter);
+        int Count();
     }
 }

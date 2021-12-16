@@ -25,7 +25,10 @@ namespace Core.Business
         public OrganizationDto GetById(int id)
         {
             var organization = _repository.GetById(id);
-
+            if(organization == null)
+            {
+                return null;
+            }
             return _mapper.MapOrganizationDtoToModel(organization);
         }
 

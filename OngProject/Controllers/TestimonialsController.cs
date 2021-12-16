@@ -10,6 +10,8 @@ using Core.Models.DTOs;
 using Core.Mapper;
 using Microsoft.AspNetCore.Authorization;
 using Core.Models;
+using Core.Helper;
+using Microsoft.AspNetCore.Http;
 
 namespace OngProject.Controllers
 {
@@ -18,21 +20,33 @@ namespace OngProject.Controllers
     public class TestimonialsController : ControllerBase
     {
         private readonly ITestimonialsBusiness _business;
+        private readonly IUriService _uriService;
 
-        public TestimonialsController(ITestimonialsBusiness business)
+        public TestimonialsController(ITestimonialsBusiness business, IUriService uriService)
         {
             _business = business;
+            _uriService = uriService;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllTestimonials([FromQuery] int? pageNumber = null, int? pageSize = null)
+        [Authorize]
+        [ProducesResponseType(typeof(PagedResponse<List<TestimonailsDto>>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> GetAllTestimonials([FromQuery] PaginationFilter filter)
         {
             try
             {
+                var route = Request.Path.Value;
+                var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+                var testimonials = await _business.GetAllTestimonials(validFilter);
+                var totalRecords = _business.CountTestimonials();
+                var pagedResponse = PaginationHelper.CreatePagedReponse<TestimonailsDto>(testimonials.ToList(), 
+                                                                                                   validFilter, 
+                                                                                                   totalRecords, 
+                                                                                                   _uriService, 
+                                                                                                   route);
 
-                var testimonials = await _business.GetAllTestimonials(pageNumber, pageSize);
-
-                return new JsonResult(testimonials) { StatusCode = 200 };
+                return new JsonResult(pagedResponse) { StatusCode = 200 };
             }
             catch (Exception)
             {
