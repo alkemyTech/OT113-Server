@@ -119,9 +119,15 @@ namespace Core.Business
 
             _repository.Save(newUser);
         }
-        public void RemoveUser(int id) 
+        public User RemoveUser(User user) 
         {
-            _repository.Delete(id);
+            _repository.Delete(user.Id);
+            return user;
+        }
+
+        public User GetUserId(int id)
+        {
+            return _repository.GetById(id);
         }
         public void UpdateUser(User user) { }
 

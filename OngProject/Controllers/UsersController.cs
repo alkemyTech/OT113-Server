@@ -129,20 +129,20 @@ namespace OngProject.Controllers
         }
 
         [HttpDelete("/users/{id}")]
-        public IActionResult DeleteUsers(int id)
+        public IActionResult DeleteUser(int id)
         {
             try
             {
-                var user = _business.GetUserById(id);
+                var user = _business.GetUserId(id);
 
                 if (user == null)
                 {
-                    return NotFound("No se encotro el usuario");
+                    return NotFound("User does not exist");
 
                 }else      
                 {
-                    _business.RemoveUser(id);
-                    return Ok("User correctly removed");
+                    _business.RemoveUser(user);
+                    return Ok("User has been removed correctly");
                 }
             }
             catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); };
