@@ -15,7 +15,7 @@ namespace Core.Mapper
         IEnumerable<MemberDto> mapMemberModelToDto(IEnumerable<Member> members);
         CategoryDto mapCategoryModeltoDto(Category category);
         IEnumerable<CategoryDtoGetAllResponse> mapCategoriesNamesModelToDto(IEnumerable<Category> categories);
-        OrganizationDto MapOrganizationDtoToModel(Organization organization);
+        OrganizationDto MapOrganizationDtoToModel(Organization organization, List<SlidesDTO> slides);
         TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
         UserDto mapUserDTO(UserRegisterDto user);
         List<UserDto> mapUsers(IEnumerable<User> users);
@@ -49,7 +49,7 @@ namespace Core.Mapper
 
     public class EntityMapper : IEntityMapper
     {
-        public OrganizationDto MapOrganizationDtoToModel(Organization organization)
+        public OrganizationDto MapOrganizationDtoToModel(Organization organization, List<SlidesDTO> slides)
         {
             if (organization != null)
             {
@@ -61,7 +61,8 @@ namespace Core.Mapper
                     Phone = organization.Phone,
                     Facebook = organization.Facebook,
                     Linkedin = organization.Linkedin,
-                    Instagram = organization.Instagram
+                    Instagram = organization.Instagram,
+                    Slides = slides
                 };
 
                 return organizationDto;
