@@ -30,7 +30,6 @@ namespace Core.Business
             _repository.Save(newsMapped);
         }
 
-        public void RemoveNews(int id) { }
         public void UpdateNews(News news, NewNewsDto newsDto) 
         {
             var mappedNews = _mapper.UpdateNews(news, newsDto);
@@ -50,6 +49,12 @@ namespace Core.Business
             return listComments;
         }
         public async Task<IEnumerable<News>> GetAllNews() { throw new NotImplementedException(); }
+
+        public News DeleteNews(News news)
+        {
+            _repository.Delete(news.Id);
+            return news;
+        }
     }
 }
 

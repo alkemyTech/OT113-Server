@@ -14,5 +14,6 @@ namespace Core.Business.Interfaces
         CommentDtoForCreation AddComment(CommentDtoForCreation comment);
         Comment GetCommentById(int id);
         Comment UpdateComment(Comment comment, CommentsDto commentDto, string token);
+        Comment DeleteComment(Comment comment, string token);
     }
 }
