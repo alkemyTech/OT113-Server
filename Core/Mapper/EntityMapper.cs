@@ -31,17 +31,18 @@ namespace Core.Mapper
         Activity ActivitieMapDto(ActivitiesDto activitie);
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
-
-
         Member mapUpdateMember(Member member, MemberDto update);
-
         News UpdateNews(News news, NewNewsDto newsDto);
-
-
         Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
 
+        Slides mapSlideDtoToModelPutRequest(Slides slide,  SlideDtoPutRequest slideDto);
 
 
+        Activity mapActivityDtoToModelPutRequest(Activity activity,  ActivitiesDto activityDto);
+
+        ActivitiesDto mapActityModelToDto(Activity activity);
+
+        IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto (IEnumerable<Activity> activities);
 
 
     }
@@ -407,7 +408,67 @@ namespace Core.Mapper
             return testimonial;
         }
 
+        public Slides mapSlideDtoToModelPutRequest(Slides slide,  SlideDtoPutRequest slideDto){
 
+                slide.isDelete = false;
+                slide.modifiedAt = DateTime.Now;
+                slide.ImgUrl = slideDto.ImgUrl;
+                slide.Order = slideDto.Order;
+                slide.Text = slideDto.Text;
+
+                return slide;
+        }
+
+        public Activity mapActivityDtoToModelPutRequest(Activity activity,  ActivitiesDto activityDto){
+
+                activity.isDelete = false;
+                activity.modifiedAt = DateTime.Now;
+                activity.Name = activityDto.Name;
+                activity.Content = activityDto.Content;
+                activity.Image = activityDto.Image;
+
+                return activity;
+        }
+
+        public ActivitiesDto mapActityModelToDto(Activity activity){
+
+            if(activity != null){
+            ActivitiesDto actityDto = new ActivitiesDto{
+                Name = activity.Name,
+                Content = activity.Content,
+                Image = activity.Image
+            };
+
+            return actityDto;
+            }
+
+            return null;
+        }
+
+
+        public IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto (IEnumerable<Activity> activities){
+
+            List<ActivityDtoGetAllResponse> activitiesDto = new List<ActivityDtoGetAllResponse>();
+
+            if (activities != null)
+            {
+                foreach (var a in activities)
+                {
+
+                    var activityDTO = new ActivityDtoGetAllResponse
+                    {
+                        Name = a.Name
+                    };
+
+                    activitiesDto.Add(activityDTO);
+                }
+
+                return activitiesDto;
+            }
+
+            return null;
+
+        }
 
     }
 }

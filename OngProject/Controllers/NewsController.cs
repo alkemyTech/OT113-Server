@@ -80,7 +80,8 @@ namespace OngProject.Controllers
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(typeof(NewNewsDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -98,6 +99,34 @@ namespace OngProject.Controllers
                 _business.UpdateNews(newsEntity, news);
 
                 return new JsonResult(news) {StatusCode = 200 };
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult DeleteNews(int id)
+        {
+            try
+            {
+                var newsEntity = _business.GetNewsById(id);
+
+                if (newsEntity == null)
+                {
+                    return NotFound();
+                }
+
+                _business.DeleteNews(newsEntity);
+
+                return NoContent();
             }
             catch (Exception)
             {
