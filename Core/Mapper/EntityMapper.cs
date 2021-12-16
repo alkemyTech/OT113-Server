@@ -34,7 +34,14 @@ namespace Core.Mapper
         Member mapUpdateMember(Member member, MemberDto update);
         News UpdateNews(News news, NewNewsDto newsDto);
         Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
-        Category UpdateMapCategories(Category categories, CategoryDto update);
+
+        Slides mapSlideDtoToModelPutRequest(Slides slide,  SlideDtoPutRequest slideDto);
+
+        Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
+
+
+
+        IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto (IEnumerable<Activity> activities);
 
     }
 
@@ -399,14 +406,7 @@ namespace Core.Mapper
             return testimonial;
         }
 
-        public Category UpdateMapCategories(Category categories, CategoryDto update)
-        {
-            categories.Name = update.Name;
-            categories.Image = update.Image;
-            categories.Description = update.Description;
 
-            return categories;
-        }
 
     }
 }
