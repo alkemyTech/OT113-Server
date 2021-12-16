@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Core.Helper
 {
-  public class PagedList<T> : List<T>{
+    public class PagedList<T> : List<T>{
 
         public int currentPage{get; private set;}
         public int totalPages {get; private set;}

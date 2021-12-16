@@ -9,6 +9,7 @@ using Core.Business.Interfaces;
 using Core.Models.DTOs;
 using Core.Mapper;
 using Microsoft.AspNetCore.Authorization;
+using Core.Models;
 
 namespace OngProject.Controllers
 {
@@ -21,6 +22,23 @@ namespace OngProject.Controllers
         public TestimonialsController(ITestimonialsBusiness business)
         {
             _business = business;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllTestimonials([FromQuery] int? pageNumber = null, int? pageSize = null)
+        {
+            try
+            {
+
+                var testimonials = await _business.GetAllTestimonials(pageNumber, pageSize);
+
+                return new JsonResult(testimonials) { StatusCode = 200 };
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(500, "Internal error");
+            }
         }
 
         [HttpPost]
