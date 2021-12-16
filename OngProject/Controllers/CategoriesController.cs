@@ -1,5 +1,6 @@
 ﻿using Core.Business.Interfaces;
 using Core.Models.DTOs;
+using Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -70,6 +71,29 @@ namespace OngProject.Controllers
             {
                 return StatusCode(500, "Internal error");
             }
+        }
+
+        [HttpDelete("/categories/{id}")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult DeleteCategory(int id)
+        {
+            try
+            {
+                var categorie = _business.GetCategoryById2(id);
+
+                if (categorie == null)
+                {
+                    return NotFound("The categorie do not exist");
+                }
+                else 
+                {
+                    _business.DeleteCategorie(categorie);
+                    return Ok("The category has been removed successfully.");
+                }
+                
+               
+            }catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
+
         }
 
     }

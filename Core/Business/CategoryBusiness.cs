@@ -23,7 +23,12 @@ namespace Core.Business
         }
 
         public void AddCategory() { }
-        public void RemoveCategory(int id) { }
+        public Category DeleteCategorie(Category categorie)
+        {
+            _repository.Delete(categorie.Id);
+            return categorie;
+            
+        }
         public void UpdateCategory(Category activity) { }
 
 
@@ -34,9 +39,9 @@ namespace Core.Business
             return _mapper.mapCategoryModeltoDto(category);
         }
 
-        public Category GetCategoryById()
+        public Category GetCategoryById2(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
         }
 
         public async Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories()

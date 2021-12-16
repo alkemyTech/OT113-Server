@@ -15,11 +15,13 @@ namespace Core.Business
     {
         private readonly IRepository<Organization> _repository;
         private readonly IEntityMapper _mapper;
+        private readonly IRepository<Slides> _repositorySlides;
 
-        public OrganizationBusiness(IRepository<Organization> repository, IEntityMapper mapper)
+        public OrganizationBusiness(IRepository<Organization> repository, IEntityMapper mapper, IRepository<Slides> repositorySlides)
         {
             _repository = repository;
             _mapper = mapper;
+            _repositorySlides = repositorySlides;
         }
 
         public OrganizationDto GetById(int id)
@@ -29,7 +31,24 @@ namespace Core.Business
             {
                 return null;
             }
-            return _mapper.MapOrganizationDtoToModel(organization);
+
+            var slides = _repositorySlides.GetAll();
+
+            var slidesOrg = new List<Slides>();
+
+            foreach (var slide in slides.Result.ToList())
+            {
+                if (slide.OrganizationId == organization.Id)
+                {
+                    slidesOrg.Add(slide);
+                }
+            }
+
+            var slidesOrgdto = _mapper.Mapp(slidesOrg);
+
+            slidesOrgdto.OrderBy(s => s.Order);
+
+            return _mapper.MapOrganizationDtoToModel(organization, slidesOrgdto.ToList());
         }
 
         public Organization GetOrg(int id)
