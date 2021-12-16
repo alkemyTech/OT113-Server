@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 using Core.Models.DTOs;
 using Core.Mapper;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
+
 
 namespace Core.Business
 {
@@ -120,7 +120,35 @@ namespace Core.Business
             _repository.Save(newUser);
         }
         public void RemoveUser(int id) { }
-        public void UpdateUser(User user) { }
+        public User UpdateUsers(User user, UserUpdateDto update, string token)
+        {
+            if (UserValidation(token, user))
+            {
+                user.firstName = update.firstName;
+                user.lastName = update.lastName;
+                user.Photo = update.Photo;
+                user.Email = update.Email;
+                user.Password = update.Password;
+                user.roleId = update.roleId;
+                user.modifiedAt = DateTime.Now;
+                _repository.Update(user);
+                return user;
+            }
+
+            return null;
+        }
+
+        private bool UserValidation(string token, User user)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var stringSplit = token.Split(' ');
+            var Token = handler.ReadJwtToken(stringSplit[0]);
+            var claimsUserId = Token.Claims.Where(x => x.Type == "nameid").FirstOrDefault();
+            var userRole = Token.Claims.Where(x => x.Type == "role").FirstOrDefault().Value;
+            var id = int.Parse(claimsUserId.Value);
+
+            return (userRole == "Admin" || id == user.roleId);
+        }
 
         public User GetUserById(int id) 
         {
