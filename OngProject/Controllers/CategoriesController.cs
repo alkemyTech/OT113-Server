@@ -1,5 +1,6 @@
 ﻿using Core.Business.Interfaces;
 using Core.Models.DTOs;
+using Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -73,11 +74,12 @@ namespace OngProject.Controllers
         }
 
         [HttpDelete("/categories/{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteCategory(int id)
         {
             try
             {
-                var categorie = _business.GetCategoryById(id);
+                var categorie = _business.GetCategoryById2(id);
 
                 if (categorie == null)
                 {
@@ -85,8 +87,8 @@ namespace OngProject.Controllers
                 }
                 else 
                 {
-                    //_business.RemoveCategory(categorie);
-                    return Ok("The categorie correctly removed.");
+                    _business.DeleteCategorie(categorie);
+                    return Ok("The category has been removed successfully.");
                 }
                 
                
