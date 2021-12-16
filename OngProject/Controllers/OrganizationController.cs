@@ -48,7 +48,7 @@ namespace OngProject
         }
 
 
-        [HttpPost]
+        [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("public")]
         public IActionResult updateOrganization([FromBody] OrganizationDtoPostRequest organizationDto)
