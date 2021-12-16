@@ -34,9 +34,15 @@ namespace Core.Business
             return _mapper.mapCategoryModeltoDto(category);
         }
 
-        public Category GetCategoryById()
+        public Category GetCategoryById2(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
+        }
+
+        public void UpdateCategory(Category categorie, CategoryDto update)
+        {
+            _mapper.UpdateMapCategories(categorie, update);
+            _repository.Update(categorie);
         }
 
         public async Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories()

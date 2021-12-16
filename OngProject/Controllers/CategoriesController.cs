@@ -72,5 +72,25 @@ namespace OngProject.Controllers
             }
         }
 
+        [HttpPut("/categories/:id")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult UpdateCategories([FromBody] CategoryDto updateCategories, int id)
+        {
+            try
+            {
+                var categories = _business.GetCategoryById2(id);
+
+                if (categories == null) return NotFound("The categories does not fount");
+                else
+                {
+                    _business.UpdateCategory(categories, updateCategories);
+                    return Ok("The categorie was update.");
+                }
+
+            }
+            catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
+
+        }
+
     }
 }
