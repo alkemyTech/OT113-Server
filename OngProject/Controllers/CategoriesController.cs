@@ -1,4 +1,5 @@
 ﻿using Core.Business.Interfaces;
+using Core.Helper;
 using Core.Models.DTOs;
 using Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -17,10 +18,12 @@ namespace OngProject.Controllers
     {
 
         private readonly ICategoryBusiness _business;
+        private readonly IUriService _uriService;
 
-        public CategoriesController(ICategoryBusiness business)
+        public CategoriesController(ICategoryBusiness business, IUriService uriService)
         {
             _business = business;
+            _uriService = uriService;
         }
 
         [HttpGet]
@@ -38,18 +41,27 @@ namespace OngProject.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("/categories")]
-        public async Task<IActionResult> GetAllCategories()
+        public async Task<IActionResult> GetAllCategories([FromQuery] PaginationFilter filter)
         {
 
-            var categories = await _business.GetAllCategories();
+                var route = Request.Path.Value;
+                var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+                var categories = await _business.GetAllCategories(validFilter);
+                var totalRecords = _business.CountCategories();
+                var pagedResponse = PaginationHelper.CreatePagedReponse<CategoryDtoGetAllResponse>(categories.ToList(), 
+                                                                                                   validFilter, 
+                                                                                                   totalRecords, 
+                                                                                                   _uriService, 
+                                                                                                   route);
 
             if (categories == null)
             {
                 return NotFound();
             }
 
-            return Ok(categories);
+            return Ok(pagedResponse);
         }
 
         [Authorize(Roles = "Admin")]
