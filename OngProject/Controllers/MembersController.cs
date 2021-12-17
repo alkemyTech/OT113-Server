@@ -41,7 +41,7 @@ namespace OngProject.Controllers
         }
 
         [HttpGet("/memberss")]
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> GetAllMembersP([FromQuery] PaginationFilter filter)
         {
             var route = Request.Path.Value;
