@@ -49,6 +49,8 @@ namespace Core.Mapper
         IEnumerable<TestimonailsDto> MapTestimonialstoTestimonialsDto(IEnumerable<Testimonials> testimonials);
         IEnumerable<NewsDto> MapNewsTODto(IEnumerable<News> newsList);
 
+        IEnumerable<MembersNameDto> MapMembersToMembersDto(IEnumerable<Member> members);
+
 
     }
 
@@ -482,8 +484,6 @@ namespace Core.Mapper
 
         }
 
-       
-
 
         public IEnumerable<TestimonailsDto> MapTestimonialstoTestimonialsDto(IEnumerable<Testimonials> testimonials)
         {
@@ -501,6 +501,22 @@ namespace Core.Mapper
 
             return mappedTestimonials;
         }
+
+
+        public IEnumerable<MembersNameDto> MapMembersToMembersDto(IEnumerable<Member> members)
+        {
+            var mappedMember = new List<MembersNameDto>();
+            
+            foreach(var mem in members)
+            {
+                var memberP = new MembersNameDto
+                {
+                    Name = mem.Name,
+                    Image = mem.Image
+                };
+                mappedMember.Add(memberP);
+            }
+            return mappedMember;
 
         public IEnumerable<NewsDto> MapNewsTODto(IEnumerable<News> newsList)
         {
@@ -520,6 +536,7 @@ namespace Core.Mapper
             }
 
             return newsDtoList;
+
         }
     }
 }
