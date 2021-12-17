@@ -133,19 +133,22 @@ namespace OngProject.Controllers
         {
             try
             {
-                var user = _business.GetUserId(id);
+                var user = _business.GetUserById(id);
+                var token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
+                
 
                 if (user == null)
                 {
                     return NotFound("User does not exist");
 
-                }else      
+                }
+
                 {
-                    _business.RemoveUser(user);
+                    _business.RemoveUser(user, token);
                     return Ok("User has been removed correctly");
                 }
             }
-            catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); };
+            catch (Exception e) { return StatusCode(500, $"There´s was an error of type: {e.Message}"); };
         }
 
     }

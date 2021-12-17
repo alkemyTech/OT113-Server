@@ -119,22 +119,39 @@ namespace Core.Business
 
             _repository.Save(newUser);
         }
-        public User RemoveUser(User user) 
+        public User RemoveUser(User user, string token) 
         {
-            _repository.Delete(user.Id);
-            return user;
+            if(UserValidation(token, user))
+            {
+                _repository.Delete(user.Id);
+                return user;
+            }
+
+            return null;
         }
 
         public User GetUserId(int id)
         {
             return _repository.GetById(id);
         }
-        public void UpdateUser(User user) { }
+
+        private bool UserValidation(string token, User user)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var stringSplit = token.Split(' ');
+            var Token = handler.ReadJwtToken(stringSplit[0]);
+            var claimsUserId = Token.Claims.Where(x => x.Type == "nameid").FirstOrDefault();
+            var userRole = Token.Claims.Where(x => x.Type == "role").FirstOrDefault().Value;
+            var id = int.Parse(claimsUserId.Value);
+
+            return (userRole == "Admin" || id == user.roleId);
+        }
 
         public User GetUserById(int id) 
         {
            return _repository.GetById(id);
         }
+
     }
 
     
