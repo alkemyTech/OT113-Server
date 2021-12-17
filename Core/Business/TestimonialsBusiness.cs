@@ -12,6 +12,9 @@ using Core.Models.DTOs;
 using Core.Mapper;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Core.Models;
+using Abstractions;
+
 namespace Core.Business
 {
    public class TestimonialsBusiness : ITestimonialsBusiness
@@ -44,7 +47,17 @@ namespace Core.Business
         public void RemoveTestimonials(int id) {
             _repository.Delete(id);
         }
-        public async Task<IEnumerable<Testimonials>> GetAllTestimonials() { throw new NotImplementedException(); }
+        public async Task<IEnumerable<TestimonailsDto>> GetAllTestimonials(IPaginationFilter filter) 
+        {
+            var testimonials = await _repository.PaginatedGetAll(filter);
+            var mappedTestimonials = _mapper.MapTestimonialstoTestimonialsDto(testimonials);
+            return mappedTestimonials;
+        }
+
+        public int CountTestimonials()
+        {
+            return _repository.Count();
+        }
      }
  }
 
