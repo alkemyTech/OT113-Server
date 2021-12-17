@@ -1,4 +1,5 @@
-﻿using Core.Business.Interfaces;
+﻿using Abstractions;
+using Core.Business.Interfaces;
 using Core.Mapper;
 using Core.Models.DTOs;
 using Entities;
@@ -51,6 +52,18 @@ namespace Core.Business
             return membersDto;
         }
 
+        public async Task<IEnumerable<MembersNameDto>> GetAllMembersP(IPaginationFilter filter)
+        {
+            var members = await _repository.PaginatedGetAll(filter);
 
+            var membersDto = _mapper.MapMembersToMembersDto(members);
+
+            return membersDto;
+        }
+
+        public int CountMembers()
+        {
+            return _repository.Count();
+        }
     }
 }
