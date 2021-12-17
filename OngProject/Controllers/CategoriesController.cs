@@ -46,15 +46,15 @@ namespace OngProject.Controllers
         public async Task<IActionResult> GetAllCategories([FromQuery] PaginationFilter filter)
         {
 
-                var route = Request.Path.Value;
-                var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
-                var categories = await _business.GetAllCategories(validFilter);
-                var totalRecords = _business.CountCategories();
-                var pagedResponse = PaginationHelper.CreatePagedReponse<CategoryDtoGetAllResponse>(categories.ToList(), 
-                                                                                                   validFilter, 
-                                                                                                   totalRecords, 
-                                                                                                   _uriService, 
-                                                                                                   route);
+            var route = Request.Path.Value;
+            var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+            var categories = await _business.GetAllCategories(validFilter);
+            var totalRecords = _business.CountCategories();
+            var pagedResponse = PaginationHelper.CreatePagedReponse<CategoryDtoGetAllResponse>(categories.ToList(),
+                                                                                               validFilter,
+                                                                                               totalRecords,
+                                                                                               _uriService,
+                                                                                               route);
 
             if (categories == null)
             {
@@ -67,7 +67,7 @@ namespace OngProject.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("~/categories")]
-        public IActionResult NewCategory ([FromBody] CategoryDto category)
+        public IActionResult NewCategory([FromBody] CategoryDto category)
         {
             try
             {
@@ -75,14 +75,34 @@ namespace OngProject.Controllers
                 {
                     return BadRequest();
                 }
-                
+
                 _business.addCategory(category);
                 return Ok(category);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return StatusCode(500, "Internal error");
             }
+        }
+
+
+        [HttpPut("/categories/:id")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult UpdateCategories([FromBody] CategoryDto updateCategories, int id)
+        {
+            try
+            {
+                var categories = _business.GetCategoryById2(id);
+
+                if (categories == null) return NotFound("The categories does not fount");
+                else
+                {
+                    _business.UpdateCategory(categories, updateCategories);
+                    return Ok("The categorie was update.");
+                }
+
+            }
+            catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
         }
 
         [HttpDelete("/categories/{id}")]
@@ -97,16 +117,18 @@ namespace OngProject.Controllers
                 {
                     return NotFound("The categorie do not exist");
                 }
-                else 
+                else
                 {
                     _business.DeleteCategorie(categorie);
                     return Ok("The category has been removed successfully.");
                 }
-                
-               
-            }catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
+
+
+            }
+            catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
 
         }
 
     }
+    
 }

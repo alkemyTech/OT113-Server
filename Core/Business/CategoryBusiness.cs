@@ -30,9 +30,6 @@ namespace Core.Business
             return categorie;
             
         }
-        public void UpdateCategory(Category activity) { }
-
-
         public CategoryDto GetCategoryById(int id)
         {
 
@@ -43,6 +40,14 @@ namespace Core.Business
         public Category GetCategoryById2(int id)
         {
             return _repository.GetById(id);
+
+        }
+
+        public void UpdateCategory(Category categorie, CategoryDto update)
+        {
+            _mapper.UpdateMapCategories(categorie, update);
+            _repository.Update(categorie);
+
         }
 
         public async Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories(IPaginationFilter filter)

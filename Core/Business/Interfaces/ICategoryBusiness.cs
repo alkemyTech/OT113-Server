@@ -15,13 +15,10 @@ namespace Core.Business.Interfaces
         CategoryDto GetCategoryById(int id);  
         Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories(IPaginationFilter filter);
         void addCategory(CategoryDto category);
-        
         Category GetCategoryById2(int id);
-
+        void UpdateCategory(Category categorie, CategoryDto update);
         Category DeleteCategorie(Category categorie);
-
         int CountCategories();
-
     }
     
 }

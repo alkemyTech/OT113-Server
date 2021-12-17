@@ -43,6 +43,7 @@ namespace Core.Mapper
         ActivitiesDto mapActityModelToDto(Activity activity);
 
         IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto (IEnumerable<Activity> activities);
+        Category UpdateMapCategories(Category categories, CategoryDto update);
 
 
 
@@ -482,6 +483,16 @@ namespace Core.Mapper
 
             return null;
 
+        }
+
+
+        public Category UpdateMapCategories(Category categories, CategoryDto update)
+        {
+            categories.Name = update.Name;
+            categories.Image = update.Image;
+            categories.Description = update.Description;
+
+            return categories;
         }
 
 
