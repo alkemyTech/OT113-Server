@@ -128,5 +128,21 @@ namespace OngProject.Controllers
             }
         }
 
+        [HttpPut("{id}")]
+        public IActionResult UpdateUser([FromBody] UserUpdateDto updateUser, int id)
+        {
+            try
+            {
+                var user = _business.GetUserById(id);
+                var token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
+                var response = _business.UpdateUsers(user, updateUser, token);
+
+                if (user == null || response == null) return StatusCode(404, "Error Not Found");
+
+                return Ok(updateUser);
+                
+            }
+            catch (Exception e) { return BadRequest($"There´s an error of type: {e.Message}"); }
+        }
     }
 }

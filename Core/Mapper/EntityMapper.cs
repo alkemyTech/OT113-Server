@@ -44,7 +44,10 @@ namespace Core.Mapper
 
         IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto (IEnumerable<Activity> activities);
 
+
+
         IEnumerable<TestimonailsDto> MapTestimonialstoTestimonialsDto(IEnumerable<Testimonials> testimonials);
+
 
     }
 
@@ -304,7 +307,7 @@ namespace Core.Mapper
             return newNews;
         }
 
-    
+
         public Member MemberMapDto(MembersNameDto member)
         {
             Member newMember = new Member
@@ -410,45 +413,51 @@ namespace Core.Mapper
             return testimonial;
         }
 
-        public Slides mapSlideDtoToModelPutRequest(Slides slide,  SlideDtoPutRequest slideDto){
+        public Slides mapSlideDtoToModelPutRequest(Slides slide, SlideDtoPutRequest slideDto)
+        {
 
-                slide.isDelete = false;
-                slide.modifiedAt = DateTime.Now;
-                slide.ImgUrl = slideDto.ImgUrl;
-                slide.Order = slideDto.Order;
-                slide.Text = slideDto.Text;
+            slide.isDelete = false;
+            slide.modifiedAt = DateTime.Now;
+            slide.ImgUrl = slideDto.ImgUrl;
+            slide.Order = slideDto.Order;
+            slide.Text = slideDto.Text;
 
-                return slide;
+            return slide;
         }
 
-        public Activity mapActivityDtoToModelPutRequest(Activity activity,  ActivitiesDto activityDto){
+        public Activity mapActivityDtoToModelPutRequest(Activity activity, ActivitiesDto activityDto)
+        {
 
-                activity.isDelete = false;
-                activity.modifiedAt = DateTime.Now;
-                activity.Name = activityDto.Name;
-                activity.Content = activityDto.Content;
-                activity.Image = activityDto.Image;
+            activity.isDelete = false;
+            activity.modifiedAt = DateTime.Now;
+            activity.Name = activityDto.Name;
+            activity.Content = activityDto.Content;
+            activity.Image = activityDto.Image;
 
-                return activity;
+            return activity;
         }
 
-        public ActivitiesDto mapActityModelToDto(Activity activity){
+        public ActivitiesDto mapActityModelToDto(Activity activity)
+        {
 
-            if(activity != null){
-            ActivitiesDto actityDto = new ActivitiesDto{
-                Name = activity.Name,
-                Content = activity.Content,
-                Image = activity.Image
-            };
+            if (activity != null)
+            {
+                ActivitiesDto actityDto = new ActivitiesDto
+                {
+                    Name = activity.Name,
+                    Content = activity.Content,
+                    Image = activity.Image
+                };
 
-            return actityDto;
+                return actityDto;
             }
 
             return null;
         }
 
 
-        public IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto (IEnumerable<Activity> activities){
+        public IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto(IEnumerable<Activity> activities)
+        {
 
             List<ActivityDtoGetAllResponse> activitiesDto = new List<ActivityDtoGetAllResponse>();
 
@@ -472,6 +481,9 @@ namespace Core.Mapper
 
         }
 
+       
+
+
         public IEnumerable<TestimonailsDto> MapTestimonialstoTestimonialsDto(IEnumerable<Testimonials> testimonials)
         {
             var mappedTestimonials = new List<TestimonailsDto>();
@@ -488,5 +500,6 @@ namespace Core.Mapper
 
             return mappedTestimonials;
         }
+
     }
 }
