@@ -89,8 +89,6 @@ namespace OngProject.Controllers
         }
 
 
-        
-
         [HttpGet("me")]
         [Authorize]
         [ProducesResponseType(typeof(List<UserDetailsDto>), StatusCodes.Status200OK)]
@@ -128,21 +126,17 @@ namespace OngProject.Controllers
             }
         }
 
-        [HttpDelete("/users/{id}")]
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteUser(int id)
         {
             try
             {
                 var user = _business.GetUserById(id);
                 var token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
-                
-
-                if (user == null)
-                {
-                    return NotFound("User does not exist");
-
-                }
-
+               
+                if (user == null) return NotFound("User does not exist");
+                else
                 {
                     _business.RemoveUser(user, token);
                     return Ok("User has been removed correctly");

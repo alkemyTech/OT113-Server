@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 using Core.Models.DTOs;
 using Core.Mapper;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
+
 
 namespace Core.Business
 {
@@ -119,20 +119,32 @@ namespace Core.Business
 
             _repository.Save(newUser);
         }
-        public User RemoveUser(User user, string token) 
+        public User RemoveUser(User user, string token)
         {
-            if(UserValidation(token, user))
+            if (UserValidation(token, user))
             {
                 _repository.Delete(user.Id);
                 return user;
             }
+            return null;
+        } 
+
+        public User UpdateUsers(User user, UserUpdateDto update, string token)
+        {
+            if (UserValidation(token, user))
+            {
+                user.firstName = update.firstName;
+                user.lastName = update.lastName;
+                user.Photo = update.Photo;
+                user.Email = update.Email;
+                user.Password = update.Password;
+                user.roleId = update.roleId;
+                user.modifiedAt = DateTime.Now;
+                _repository.Update(user);
+                return user;
+            }
 
             return null;
-        }
-
-        public User GetUserId(int id)
-        {
-            return _repository.GetById(id);
         }
 
         private bool UserValidation(string token, User user)
