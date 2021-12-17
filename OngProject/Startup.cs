@@ -131,6 +131,16 @@ namespace OngProject
             services.AddTransient<IDbContext<Activity>, DbContext<Activity>>();
             services.AddTransient<IRepository<Activity>, Repository<Activity>>();
 
+            services.AddTransient<IPaginationFilter, PaginationFilter>();
+            services.AddHttpContextAccessor();
+            services.AddSingleton<IUriService>(o =>
+            {
+                var accessor = o.GetRequiredService<IHttpContextAccessor>();
+                var request = accessor.HttpContext.Request;
+                var uri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent());
+                return new UriService(uri);
+            });
+
 
 
 

@@ -17,6 +17,12 @@ namespace DataAccess
             _ctx = ctx;
             _items = ctx.Set<T>();
         }
+
+        public int Count()
+        {
+            return _items.Count();
+        }
+
         public void Delete(int id)
         {
             var item = _items.Find(id);
@@ -32,6 +38,14 @@ namespace DataAccess
         {
             return _items.Where(i => i.Id.Equals(id)).FirstOrDefault();
         }
+
+        public async Task<IEnumerable<T>> PaginatedGetAll(IPaginationFilter filter)
+        {
+            return await _items.Skip((filter.PageNumber - 1) * filter.PageSize)
+                               .Take(filter.PageSize)
+                               .ToListAsync();
+        }
+
         public T Save(T entity)
         {
             _items.Add(entity);

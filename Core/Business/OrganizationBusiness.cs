@@ -27,6 +27,10 @@ namespace Core.Business
         public OrganizationDto GetById(int id)
         {
             var organization = _repository.GetById(id);
+            if(organization == null)
+            {
+                return null;
+            }
 
             var slides = _repositorySlides.GetAll();
 

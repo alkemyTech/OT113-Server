@@ -44,6 +44,11 @@ namespace Core.Mapper
 
         IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto (IEnumerable<Activity> activities);
 
+
+
+        IEnumerable<TestimonailsDto> MapTestimonialstoTestimonialsDto(IEnumerable<Testimonials> testimonials);
+
+
     }
 
     public class EntityMapper : IEntityMapper
@@ -475,6 +480,26 @@ namespace Core.Mapper
             return null;
 
         }
+
        
+
+
+        public IEnumerable<TestimonailsDto> MapTestimonialstoTestimonialsDto(IEnumerable<Testimonials> testimonials)
+        {
+            var mappedTestimonials = new List<TestimonailsDto>();
+
+            foreach (var testimonial in testimonials)
+            {
+                var item = new TestimonailsDto
+                {
+                    Name = testimonial.Name,
+                    Content = testimonial.Content
+                };
+                mappedTestimonials.Add(item);
+            }
+
+            return mappedTestimonials;
+        }
+
     }
 }
