@@ -119,7 +119,16 @@ namespace Core.Business
 
             _repository.Save(newUser);
         }
-        public void RemoveUser(int id) { }
+        public User RemoveUser(User user, string token)
+        {
+            if (UserValidation(token, user))
+            {
+                _repository.Delete(user.Id);
+                return user;
+            }
+            return null;
+        } 
+
         public User UpdateUsers(User user, UserUpdateDto update, string token)
         {
             if (UserValidation(token, user))
@@ -154,6 +163,7 @@ namespace Core.Business
         {
            return _repository.GetById(id);
         }
+
     }
 
     

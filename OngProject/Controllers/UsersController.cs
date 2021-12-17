@@ -89,8 +89,6 @@ namespace OngProject.Controllers
         }
 
 
-        
-
         [HttpGet("me")]
         [Authorize]
         [ProducesResponseType(typeof(List<UserDetailsDto>), StatusCodes.Status200OK)]
@@ -128,21 +126,24 @@ namespace OngProject.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateUser([FromBody] UserUpdateDto updateUser, int id)
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult DeleteUser(int id)
         {
             try
             {
                 var user = _business.GetUserById(id);
                 var token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
-                var response = _business.UpdateUsers(user, updateUser, token);
-
-                if (user == null || response == null) return StatusCode(404, "Error Not Found");
-
-                return Ok(updateUser);
-                
+               
+                if (user == null) return NotFound("User does not exist");
+                else
+                {
+                    _business.RemoveUser(user, token);
+                    return Ok("User has been removed correctly");
+                }
             }
-            catch (Exception e) { return BadRequest($"There´s an error of type: {e.Message}"); }
+            catch (Exception e) { return StatusCode(500, $"There´s was an error of type: {e.Message}"); };
         }
+
     }
 }

@@ -11,8 +11,7 @@ namespace Core.Business.Interfaces
     public interface IUserBusiness
     {
         void AddUser(UserRegisterDto user);
-        void RemoveUser(int id);
-       // void UpdateUser(User user);
+        User RemoveUser(User user, string token);
         User GetUserById(int id);
         Task<IEnumerable<User>> GetAllUsers();
         Task<string> Login(UserLoginDto userDto);

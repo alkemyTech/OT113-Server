@@ -1,4 +1,5 @@
 ﻿using Core.Business.Interfaces;
+using Core.Helper;
 using Core.Mapper;
 using Core.Models.DTOs;
 using Microsoft.AspNetCore.Authorization;
@@ -18,12 +19,14 @@ namespace OngProject.Controllers
         private readonly INewsBusiness _business;
         private readonly IEntityMapper _mapper;
         private readonly ICommentBusiness _commentBusiness;
+        private readonly IUriService _uriService;
 
-        public NewsController(INewsBusiness business, IEntityMapper mapper, ICommentBusiness commentBusiness)
+        public NewsController(INewsBusiness business, IEntityMapper mapper, ICommentBusiness commentBusiness, IUriService uriService)
         {
             _business = business;
             _mapper = mapper;
             _commentBusiness = commentBusiness;
+            _uriService = uriService;
         }
 
         [Authorize(Roles = "Admin")]
@@ -132,6 +135,26 @@ namespace OngProject.Controllers
             {
 
                 return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllNews([FromQuery] PaginationFilter paginationfilter)
+        {
+            try
+            {
+                var route = Request.Path.Value;
+                var filter = new PaginationFilter(paginationfilter.PageNumber, paginationfilter.PageSize);
+                var news = await _business.GetAllNews(filter);
+                var total = _business.CountNews();
+
+                var page = PaginationHelper.CreatePagedReponse<NewsDto>(news.ToList(), filter, total, _uriService, route);
+
+                return new JsonResult(page){ StatusCode = 200 };
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, "Internal error");
             }
         }
 
