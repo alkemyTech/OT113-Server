@@ -1,4 +1,5 @@
-﻿using Core.Business.Interfaces;
+﻿using Abstractions;
+using Core.Business.Interfaces;
 using Core.Mapper;
 using Core.Models.DTOs;
 using Entities;
@@ -54,6 +55,19 @@ namespace Core.Business
         {
             _repository.Delete(news.Id);
             return news;
+        }
+
+        public async Task<IEnumerable<NewsDto>> GetAllNews(IPaginationFilter paginationFilter)
+        {
+            var news = await _repository.PaginatedGetAll(paginationFilter);
+            var newsDto = _mapper.MapNewsTODto(news);
+
+            return newsDto;
+        }
+
+        public int CountNews()
+        {
+            return _repository.Count();
         }
     }
 }

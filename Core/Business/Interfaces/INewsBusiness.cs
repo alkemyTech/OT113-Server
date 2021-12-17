@@ -1,4 +1,5 @@
-﻿using Core.Models.DTOs;
+﻿using Abstractions;
+using Core.Models.DTOs;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,8 @@ namespace Core.Business.Interfaces
         void AddNews(NewNewsDto news);
         void UpdateNews(News news, NewNewsDto newsDto);
         News DeleteNews(News news);
+
+        Task<IEnumerable<NewsDto>> GetAllNews(IPaginationFilter paginationFilter);
+        int CountNews();
     }
 }
