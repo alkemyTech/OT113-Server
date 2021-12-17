@@ -12,11 +12,12 @@ namespace Core.Business.Interfaces
     {
         void AddUser(UserRegisterDto user);
         void RemoveUser(int id);
-        void UpdateUser(User user);
+       // void UpdateUser(User user);
         User GetUserById(int id);
         Task<IEnumerable<User>> GetAllUsers();
         Task<string> Login(UserLoginDto userDto);
         bool Exist(IEnumerable<User> users, string email);
         UserDetailsDto GetUserDetails(string token);
+        User UpdateUsers(User user, UserUpdateDto update, string token);
     }
 }

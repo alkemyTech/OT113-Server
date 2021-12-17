@@ -15,7 +15,7 @@ namespace Core.Mapper
         IEnumerable<MemberDto> mapMemberModelToDto(IEnumerable<Member> members);
         CategoryDto mapCategoryModeltoDto(Category category);
         IEnumerable<CategoryDtoGetAllResponse> mapCategoriesNamesModelToDto(IEnumerable<Category> categories);
-        OrganizationDto MapOrganizationDtoToModel(Organization organization);
+        OrganizationDto MapOrganizationDtoToModel(Organization organization, List<SlidesDTO> slides);
         TokenParameter MapUserLoginDtoToTokenParameter(UserLoginDto user);
         UserDto mapUserDTO(UserRegisterDto user);
         List<UserDto> mapUsers(IEnumerable<User> users);
@@ -46,11 +46,15 @@ namespace Core.Mapper
         Category UpdateMapCategories(Category categories, CategoryDto update);
 
 
+
+        IEnumerable<TestimonailsDto> MapTestimonialstoTestimonialsDto(IEnumerable<Testimonials> testimonials);
+
+
     }
 
     public class EntityMapper : IEntityMapper
     {
-        public OrganizationDto MapOrganizationDtoToModel(Organization organization)
+        public OrganizationDto MapOrganizationDtoToModel(Organization organization, List<SlidesDTO> slides)
         {
             if (organization != null)
             {
@@ -62,7 +66,8 @@ namespace Core.Mapper
                     Phone = organization.Phone,
                     Facebook = organization.Facebook,
                     Linkedin = organization.Linkedin,
-                    Instagram = organization.Instagram
+                    Instagram = organization.Instagram,
+                    Slides = slides
                 };
 
                 return organizationDto;
@@ -485,5 +490,23 @@ namespace Core.Mapper
 
             return categories;
         }
+
+        public IEnumerable<TestimonailsDto> MapTestimonialstoTestimonialsDto(IEnumerable<Testimonials> testimonials)
+        {
+            var mappedTestimonials = new List<TestimonailsDto>();
+
+            foreach (var testimonial in testimonials)
+            {
+                var item = new TestimonailsDto
+                {
+                    Name = testimonial.Name,
+                    Content = testimonial.Content
+                };
+                mappedTestimonials.Add(item);
+            }
+
+            return mappedTestimonials;
+        }
+
     }
 }
