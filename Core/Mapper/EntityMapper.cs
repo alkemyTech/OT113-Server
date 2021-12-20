@@ -306,6 +306,10 @@ namespace Core.Mapper
                 modifiedAt = DateTime.Now
             };
 
+            if(category.Image == null){
+                newCat.Image = "";
+            }
+            
             return newCat;
         }
 
