@@ -46,9 +46,7 @@ namespace Core.Business
 
             var slidesOrgdto = _mapper.Mapp(slidesOrg);
 
-            slidesOrgdto.OrderBy(s => s.Order);
-
-            return _mapper.MapOrganizationDtoToModel(organization, slidesOrgdto.ToList());
+            return _mapper.MapOrganizationDtoToModel(organization, slidesOrgdto.OrderBy(s => s.Order).ToList());
         }
 
         public Organization GetOrg(int id)
