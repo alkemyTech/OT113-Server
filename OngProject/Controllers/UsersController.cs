@@ -33,7 +33,7 @@ namespace OngProject.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register([FromBody] UserRegisterDto user)
+        public IActionResult Register([FromForm] UserRegisterDto user)
         {
             var userExist = _business.GetAllUsers().Result;
 
@@ -51,9 +51,9 @@ namespace OngProject.Controllers
                     }
                     else
                     {
-                        _business.AddUser(user);
+                        var response = _business.AddUser(user);
                         _sendG.SendEmailAsync(user.Email, $"Gracias por registrarte {user.firstName} {user.lastName}", "Registro completo").Wait();
-                        return Ok(_mapper.mapUserDTO(user));
+                        return Ok(response);
                     }
                 }
             }

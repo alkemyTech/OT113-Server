@@ -104,20 +104,13 @@ namespace Core.Business
 
 
 
-        public void AddUser(UserRegisterDto user) {
-            User newUser = new User
-            {
-                firstName = user.firstName,
-                lastName = user.lastName,
-                Email = user.Email,
-                Password = EncryptPassSha25(user.Password),
-                Photo = user.Photo,
-                roleId = 1,
-                isDelete = false,
-                modifiedAt = DateTime.Now
-            };
+        public UserDto AddUser(UserRegisterDto user) {
 
+            var newUser = _mapper.MapRegisteredUserDtoToUser(user);
+            newUser.Password = EncryptPassSha25(newUser.Password);
             _repository.Save(newUser);
+
+            return _mapper.MapUserToUserDto(newUser);
         }
         public User RemoveUser(User user, string token)
         {

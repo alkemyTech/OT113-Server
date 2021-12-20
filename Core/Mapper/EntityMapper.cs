@@ -56,6 +56,8 @@ namespace Core.Mapper
 
         TestimonialDtoResponse MapTestimonialResponseDto(Testimonials testimonial);
 
+        User MapRegisteredUserDtoToUser(UserRegisterDto user);
+        UserDto MapUserToUserDto(User user);
     }
 
     public class EntityMapper : IEntityMapper
@@ -602,6 +604,35 @@ namespace Core.Mapper
 
             return newsDtoList;
 
+        }
+
+        public User MapRegisteredUserDtoToUser(UserRegisterDto user)
+        {
+            var response = _amazonS3.Save(user.Photo.FileName, user.Photo);
+            
+            var mappedUser =  new User
+            {
+                firstName = user.firstName,
+                lastName = user.lastName,
+                Email = user.Email,
+                Password = user.Password,
+                Photo = response.Result,
+                roleId = 1,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+            };
+
+            return mappedUser;
+        }
+
+        public UserDto MapUserToUserDto(User user)
+        {
+            return new UserDto
+            {
+                firstName = user.firstName,
+                lastName = user.lastName,
+                Email = user.Email
+            };
         }
     }
 }
