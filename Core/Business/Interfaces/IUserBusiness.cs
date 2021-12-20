@@ -10,7 +10,7 @@ namespace Core.Business.Interfaces
 {
     public interface IUserBusiness
     {
-        void AddUser(UserRegisterDto user);
+        UserDto AddUser(UserRegisterDto user);
         User RemoveUser(User user, string token);
         User GetUserById(int id);
         Task<IEnumerable<User>> GetAllUsers();
