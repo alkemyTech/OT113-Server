@@ -14,9 +14,9 @@ namespace Core.Business.Interfaces
     {
         CategoryDto GetCategoryById(int id);  
         Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories(IPaginationFilter filter);
-        void addCategory(CategoryDto category);
+        CategoryDto addCategory(CategoryDtoPostRequest category);
         Category GetCategoryById2(int id);
-        void UpdateCategory(Category categorie, CategoryDto update);
+        void UpdateCategory(Category categorie, CategoryDtoPostRequest update);
         Category DeleteCategorie(Category categorie);
         int CountCategories();
     }

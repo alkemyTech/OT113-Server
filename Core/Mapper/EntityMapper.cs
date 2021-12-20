@@ -1,7 +1,9 @@
 ﻿using Abstractions;
+using Core.Business.Interfaces;
 using Core.Models;
 using Core.Models.DTOs;
 using Entities;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +26,7 @@ namespace Core.Mapper
         IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts);
         Contacts MapContactDtoToContact(ContactDto contact);
         NewsDto mapNews(News news);
-        Category mapNewCategory(CategoryDto category);
+        Category mapNewCategory(CategoryDtoPostRequest category);
         News NewsMapDto(NewNewsDto news);
         Member MemberMapDto(MembersNameDto member);
         Testimonials TestimonialsMapDto(TestimonailsDto testimonial);
@@ -43,7 +45,7 @@ namespace Core.Mapper
         ActivitiesDto mapActityModelToDto(Activity activity);
 
         IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto (IEnumerable<Activity> activities);
-        Category UpdateMapCategories(Category categories, CategoryDto update);
+        Category UpdateMapCategories(Category categories, CategoryDtoPostRequest update);
 
 
 
@@ -57,6 +59,13 @@ namespace Core.Mapper
 
     public class EntityMapper : IEntityMapper
     {
+
+        private readonly IAmazonS3Business _amazonS3;
+
+        public EntityMapper (IAmazonS3Business amazonS3){
+            _amazonS3 = amazonS3;
+        }
+
         public OrganizationDto MapOrganizationDtoToModel(Organization organization, List<SlidesDTO> slides)
         {
             if (organization != null)
@@ -284,17 +293,23 @@ namespace Core.Mapper
 
         }
 
-        public Category mapNewCategory(CategoryDto category)
+        public Category mapNewCategory(CategoryDtoPostRequest category)
         {
+            var response = _amazonS3.Save(category.Image.FileName, category.Image);
+
             Category newCat = new Category
             {
                 Name = category.Name,
                 Description = category.Description,
-                Image = category.Image,
+                Image = response.Result,
                 isDelete = false,
                 modifiedAt = DateTime.Now
             };
 
+            if(category.Image == null){
+                newCat.Image = "";
+            }
+            
             return newCat;
         }
 
@@ -486,13 +501,17 @@ namespace Core.Mapper
         }
 
 
-        public Category UpdateMapCategories(Category categories, CategoryDto update)
+        public Category UpdateMapCategories(Category category, CategoryDtoPostRequest update)
         {
-            categories.Name = update.Name;
-            categories.Image = update.Image;
-            categories.Description = update.Description;
+            if(update.Image != null){
+                var response = _amazonS3.Save(update.Image.FileName, update.Image);
+                category.Image = response.Result;
+            }
+            category.Name = update.Name;
+            category.Image = category.Image;
+            category.Description = update.Description;
 
-            return categories;
+            return category;
         }
 
 
@@ -528,6 +547,7 @@ namespace Core.Mapper
                 mappedMember.Add(memberP);
             }
             return mappedMember;
+        }
 
         public IEnumerable<NewsDto> MapNewsTODto(IEnumerable<News> newsList)
         {

@@ -43,10 +43,10 @@ namespace Core.Business
 
         }
 
-        public void UpdateCategory(Category categorie, CategoryDto update)
+        public void UpdateCategory(Category category, CategoryDtoPostRequest update)
         {
-            _mapper.UpdateMapCategories(categorie, update);
-            _repository.Update(categorie);
+            _mapper.UpdateMapCategories(category, update);
+            _repository.Update(category);
 
         }
 
@@ -61,11 +61,15 @@ namespace Core.Business
 
         }
 
-        public void addCategory(CategoryDto category)
+        public CategoryDto addCategory(CategoryDtoPostRequest category)
         {
             var newCat = _mapper.mapNewCategory(category);
 
+            var categoryDtoresponse = _mapper.mapCategoryModeltoDto(newCat);
+
             _repository.Save(newCat);
+
+            return categoryDtoresponse;
         }
 
         public int CountCategories(){

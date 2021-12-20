@@ -67,7 +67,7 @@ namespace OngProject.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("~/categories")]
-        public IActionResult NewCategory([FromBody] CategoryDto category)
+        public IActionResult NewCategory([FromForm] CategoryDtoPostRequest category)
         {
             try
             {
@@ -76,8 +76,9 @@ namespace OngProject.Controllers
                     return BadRequest();
                 }
 
-                _business.addCategory(category);
-                return Ok(category);
+                ;
+                
+                return Ok(_business.addCategory(category));
             }
             catch (Exception e)
             {
@@ -88,17 +89,17 @@ namespace OngProject.Controllers
 
         [HttpPut("/categories/:id")]
         [Authorize(Roles = "Admin")]
-        public IActionResult UpdateCategories([FromBody] CategoryDto updateCategories, int id)
+        public IActionResult UpdateCategories([FromForm] CategoryDtoPostRequest updateCategories, int id)
         {
             try
             {
                 var categories = _business.GetCategoryById2(id);
 
-                if (categories == null) return NotFound("The categories does not fount");
+                if (categories == null) return NotFound("The category doesn't exist");
                 else
                 {
                     _business.UpdateCategory(categories, updateCategories);
-                    return Ok("The categorie was update.");
+                    return Ok("The category was update.");
                 }
 
             }
@@ -115,7 +116,7 @@ namespace OngProject.Controllers
 
                 if (categorie == null)
                 {
-                    return NotFound("The categorie do not exist");
+                    return NotFound("The category doesn't exist");
                 }
                 else
                 {
