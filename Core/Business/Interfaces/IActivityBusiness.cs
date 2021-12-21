@@ -10,11 +10,11 @@ namespace Core.Business.Interfaces
 {
     public interface IActivityBusiness
     {
-      void AddActivity(ActivitiesDto activitie);
+      Activity AddActivity(ActivitiesDto activitie);
 
       void UpdateActivity(int id, ActivitiesDto activityDto);
 
-      ActivitiesDto GetActivityById(int id);
+      ActivitiesDtoForDisplay GetActivityById(int id);
 
       Activity getActivity(int id);
 

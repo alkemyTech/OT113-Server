@@ -22,10 +22,12 @@ namespace Core.Business
             _mapper = mapper;
         }
 
-        public void AddActivity(ActivitiesDto activitie)
+        public Activity AddActivity(ActivitiesDto activitie)
         {
             var activitieMapped = _mapper.ActivitieMapDto(activitie);
             _repository.Save(activitieMapped);
+
+            return activitieMapped;
         }
 
         public void RemoveActivity(int id) { 
@@ -45,11 +47,11 @@ namespace Core.Business
                 return _repository.GetById(id);
         }
 
-        public ActivitiesDto GetActivityById(int id) 
+        public ActivitiesDtoForDisplay GetActivityById(int id) 
         {
 
             Activity activity = _repository.GetById(id);
-            ActivitiesDto activityDto = _mapper.mapActityModelToDto(activity);
+            ActivitiesDtoForDisplay activityDto = _mapper.mapActityModelToDto(activity);
             return activityDto;
          }
 
