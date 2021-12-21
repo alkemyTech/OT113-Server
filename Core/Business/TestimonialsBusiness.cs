@@ -30,18 +30,24 @@ namespace Core.Business
             _mapper = mapper;
         }
 
-        public void AddTestimonials(TestimonailsDto testimonial) 
+        public TestimonialDtoResponse AddTestimonials(TestimonialUpdateDto testimonial) 
         {
             var testimonialMapped = _mapper.TestimonialsMapDto(testimonial);
             _repository.Save(testimonialMapped);
+            return _mapper.MapTestimonialResponseDto(testimonialMapped);
+        
         }
         public Testimonials GetTestimonialsById(int id) {
             return _repository.GetById(id);
         }
-        public void UpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update) {
-            _mapper.MapUpdateTestimonials(testimonial, update);
+        public TestimonialDtoResponse UpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update) {
+            
+            var testimonialUpdate = _mapper.MapUpdateTestimonials(testimonial, update);
 
-            _repository.Update(testimonial);
+            _repository.Update(testimonialUpdate);
+
+            var testimonialResponse = _mapper.MapTestimonialResponseDto(testimonialUpdate);
+            return testimonialResponse;
         }
 
         public void RemoveTestimonials(int id) {

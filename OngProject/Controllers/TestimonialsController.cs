@@ -58,12 +58,11 @@ namespace OngProject.Controllers
         [HttpPost]
         [Route("/testimonials")]
         [Authorize(Roles = "Admin")]
-        public IActionResult TestimonialAddItems([FromBody]TestimonailsDto testimonialsDto)
+        public IActionResult TestimonialAddItems([FromForm] TestimonialUpdateDto testimonialsDto)
         {
             try
             {
-                _business.AddTestimonials(testimonialsDto);
-                return new JsonResult(testimonialsDto) { StatusCode = 201 };
+                return new JsonResult(_business.AddTestimonials(testimonialsDto)) { StatusCode = 201 };
 
             }
             catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
@@ -73,7 +72,7 @@ namespace OngProject.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPut]
         [Route("~/testimonials/{id}")]
-        public IActionResult Update([FromBody] TestimonialUpdateDto updateTestimonial, int id)
+        public IActionResult Update([FromForm] TestimonialUpdateDto updateTestimonial, int id)
         {
             try
             {
@@ -84,9 +83,7 @@ namespace OngProject.Controllers
                     return NotFound();
                 }
 
-                _business.UpdateTestimonials(testimonials, updateTestimonial);
-
-                return Ok(updateTestimonial);
+                return Ok(_business.UpdateTestimonials(testimonials, updateTestimonial));
             }
             catch(Exception e)
             {

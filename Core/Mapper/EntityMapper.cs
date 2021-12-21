@@ -29,7 +29,7 @@ namespace Core.Mapper
         Category mapNewCategory(CategoryDtoPostRequest category);
         News NewsMapDto(NewNewsDto news);
         Member MemberMapDto(MembersNameDto member);
-        Testimonials TestimonialsMapDto(TestimonailsDto testimonial);
+        Testimonials TestimonialsMapDto(TestimonialUpdateDto testimonial);
         Activity ActivitieMapDto(ActivitiesDto activitie);
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
         Comment MapCommentDtoForCreationToComment(CommentDtoForCreation comment);
@@ -37,14 +37,14 @@ namespace Core.Mapper
         News UpdateNews(News news, NewNewsDto newsDto);
         Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
 
-        Slides mapSlideDtoToModelPutRequest(Slides slide,  SlideDtoPutRequest slideDto);
+        Slides mapSlideDtoToModelPutRequest(Slides slide, SlideDtoPutRequest slideDto);
 
 
-        Activity mapActivityDtoToModelPutRequest(Activity activity,  ActivitiesDto activityDto);
+        Activity mapActivityDtoToModelPutRequest(Activity activity, ActivitiesDto activityDto);
 
         ActivitiesDto mapActityModelToDto(Activity activity);
 
-        IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto (IEnumerable<Activity> activities);
+        IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto(IEnumerable<Activity> activities);
         Category UpdateMapCategories(Category categories, CategoryDtoPostRequest update);
 
 
@@ -53,6 +53,8 @@ namespace Core.Mapper
         IEnumerable<NewsDto> MapNewsTODto(IEnumerable<News> newsList);
 
         IEnumerable<MembersNameDto> MapMembersToMembersDto(IEnumerable<Member> members);
+
+        TestimonialDtoResponse MapTestimonialResponseDto(Testimonials testimonial);
 
         User MapRegisteredUserDtoToUser(UserRegisterDto user);
         UserDto MapUserToUserDto(User user);
@@ -63,7 +65,8 @@ namespace Core.Mapper
 
         private readonly IAmazonS3Business _amazonS3;
 
-        public EntityMapper (IAmazonS3Business amazonS3){
+        public EntityMapper(IAmazonS3Business amazonS3)
+        {
             _amazonS3 = amazonS3;
         }
 
@@ -296,7 +299,8 @@ namespace Core.Mapper
 
         public Category mapNewCategory(CategoryDtoPostRequest category)
         {
-            var response = _amazonS3.Save(category.Image.FileName, category.Image);
+
+            var response = _amazonS3.Save(category.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), category.Image);
 
             Category newCat = new Category
             {
@@ -307,10 +311,11 @@ namespace Core.Mapper
                 modifiedAt = DateTime.Now
             };
 
-            if(category.Image == null){
+            if (category.Image == null)
+            {
                 newCat.Image = "";
             }
-            
+
             return newCat;
         }
 
@@ -341,13 +346,22 @@ namespace Core.Mapper
 
 
 
-        public Testimonials TestimonialsMapDto(TestimonailsDto testimonial)
+        public Testimonials TestimonialsMapDto(TestimonialUpdateDto testimonial)
         {
+            var response = _amazonS3.Save(testimonial.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), testimonial.Image);
+
             Testimonials newTestimonial = new Testimonials
             {
                 Name = testimonial.Name,
-                Content = testimonial.Content
+                Content = testimonial.Content,
+                Image = response.Result
             };
+
+            if (testimonial.Image == null)
+            {
+                newTestimonial.Image = "";
+            }
+
             return newTestimonial;
         }
 
@@ -424,13 +438,31 @@ namespace Core.Mapper
 
         public Testimonials MapUpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update)
         {
+
             testimonial.Name = update.Name;
-            testimonial.Image = update.Image;
+            testimonial.Image = testimonial.Image;
             testimonial.Content = update.Content;
             testimonial.isDelete = false;
             testimonial.modifiedAt = DateTime.Now;
 
+            if (update.Image != null)
+            {
+                var response = _amazonS3.Save(update.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), update.Image);
+                testimonial.Image = response.Result; ;
+            }
+
             return testimonial;
+        }
+
+        public TestimonialDtoResponse MapTestimonialResponseDto(Testimonials testimonial)
+        {
+
+            return new TestimonialDtoResponse
+            {
+                Name = testimonial.Name,
+                Image = testimonial.Image,
+                Content = testimonial.Content
+            };
         }
 
         public Slides mapSlideDtoToModelPutRequest(Slides slide, SlideDtoPutRequest slideDto)
@@ -504,13 +536,16 @@ namespace Core.Mapper
 
         public Category UpdateMapCategories(Category category, CategoryDtoPostRequest update)
         {
-            if(update.Image != null){
-                var response = _amazonS3.Save(update.Image.FileName, update.Image);
-                category.Image = response.Result;
-            }
+
             category.Name = update.Name;
             category.Image = category.Image;
             category.Description = update.Description;
+
+            if (update.Image != null)
+            {
+                var response = _amazonS3.Save(update.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), update.Image);
+                category.Image = response.Result;
+            }
 
             return category;
         }
@@ -537,8 +572,8 @@ namespace Core.Mapper
         public IEnumerable<MembersNameDto> MapMembersToMembersDto(IEnumerable<Member> members)
         {
             var mappedMember = new List<MembersNameDto>();
-            
-            foreach(var mem in members)
+
+            foreach (var mem in members)
             {
                 var memberP = new MembersNameDto
                 {
@@ -554,7 +589,7 @@ namespace Core.Mapper
         {
             var newsDtoList = new List<NewsDto>();
 
-            foreach(var news in newsList)
+            foreach (var news in newsList)
             {
                 var n = new NewsDto
                 {

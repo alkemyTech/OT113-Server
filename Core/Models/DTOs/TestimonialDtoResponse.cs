@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Http;
 
 namespace Core.Models.DTOs
 {
-    public class TestimonialUpdateDto
+    public class TestimonialDtoResponse
     {
         [Required]
         public string Name { get; set; }
 
-        public IFormFile Image { get; set; }
+        public string Image { get; set; }
 
         [Required]
         public string Content { get; set; }

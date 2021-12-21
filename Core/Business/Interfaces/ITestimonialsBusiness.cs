@@ -14,9 +14,9 @@ namespace Core.Business.Interfaces
     public interface ITestimonialsBusiness
     {
         Task<IEnumerable<TestimonailsDto>> GetAllTestimonials(IPaginationFilter filter);
-        void AddTestimonials(TestimonailsDto testimonial);
+        TestimonialDtoResponse AddTestimonials(TestimonialUpdateDto testimonial);
         Testimonials GetTestimonialsById(int id);
-        void UpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
+        TestimonialDtoResponse UpdateTestimonials(Testimonials testimonial, TestimonialUpdateDto update);
         void RemoveTestimonials(int id);
         int CountTestimonials();
     }
