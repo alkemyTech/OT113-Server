@@ -52,7 +52,7 @@ namespace OngProject.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "Admin")]
-        public IActionResult UpdateActivity(int id, [FromBody] ActivitiesDto activityDto){
+        public IActionResult UpdateActivity(int id, [FromForm] ActivityDtoForEdit activityDto){
 
             var act = _business.getActivity(id);
             if(act == null){
@@ -60,8 +60,8 @@ namespace OngProject.Controllers
             }
 
             else
-            _business.UpdateActivity(id, activityDto);
-            return Ok(activityDto);
+            _business.UpdateActivity(id, _mapper.MapActivityForEditToActivityDto(activityDto));
+            return Ok(_mapper.mapActityModelToDto(act));
 
         }
 
