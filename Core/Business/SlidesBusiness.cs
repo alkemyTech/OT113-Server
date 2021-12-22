@@ -48,5 +48,12 @@ namespace Core.Business
             _repository.Delete(slide.Id);
         }
 
+        public void addSlides(SlideDtoPutRequest newSlide)
+        {
+            var SlideMapped = _mapper.mapNewSlide(newSlide);
+
+            _repository.Save(SlideMapped);
+        }
+
     }
 }

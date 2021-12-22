@@ -64,7 +64,7 @@ namespace OngProject.Controllers
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("/slides/{id}")]
-        public IActionResult UpdateSlide(int id, [FromBody] SlideDtoPutRequest slideDto){
+        public IActionResult UpdateSlide(int id, [FromForm] SlideDtoPutRequest slideDto){
 
             var slide = _business.FindById(id);
             if(slide == null){
@@ -92,6 +92,26 @@ namespace OngProject.Controllers
 
             else _business.DeleteSlide(slide);
             return Ok("The Slide was successfully deleted");
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public IActionResult NewSlides([FromForm] SlideDtoPutRequest newSlide)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest();
+                }
+
+                _business.addSlides(newSlide);
+                return Ok(newSlide);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, "Internal error");
+            }
         }
 
     }
