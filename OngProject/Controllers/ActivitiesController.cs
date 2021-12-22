@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 
 namespace OngProject.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("activities")]
     [ApiController]
     public class ActivitiesController : ControllerBase
     {
@@ -34,14 +34,15 @@ namespace OngProject.Controllers
         }
 
 
-        [HttpPost("activities")]
-        //[Authorize(Roles = "Admin")]
-        public IActionResult ActivitieCreation([FromBody] ActivitiesDto activitiesDto)
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public IActionResult ActivitieCreation([FromForm] ActivitiesDto activitiesDto)
         {
             try
             {
-                _business.AddActivity(activitiesDto);
-                return new JsonResult(activitiesDto) { StatusCode = 201 };
+                var activity = _business.AddActivity(activitiesDto);
+
+                return new JsonResult(_mapper.mapActityModelToDto(activity)) { StatusCode = 201 };
 
             }
             catch (Exception e) { return StatusCode(500, $"Hubo un error de tipo {e.Message}"); }
@@ -49,10 +50,9 @@ namespace OngProject.Controllers
         }
 
 
-        [HttpPut]
+        [HttpPut("{id}")]
         [Authorize(Roles = "Admin")]
-        [Route("/activities/{id}")]
-        public IActionResult UpdateActivity(int id, [FromBody] ActivitiesDto activityDto){
+        public IActionResult UpdateActivity(int id, [FromForm] ActivityDtoForEdit activityDto){
 
             var act = _business.getActivity(id);
             if(act == null){
@@ -60,13 +60,12 @@ namespace OngProject.Controllers
             }
 
             else
-            _business.UpdateActivity(id, activityDto);
-            return Ok(activityDto);
+            _business.UpdateActivity(id, _mapper.MapActivityForEditToActivityDto(activityDto));
+            return Ok(_mapper.mapActityModelToDto(act));
 
         }
 
-        [HttpGet]
-        [Route("/activities/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetActivity(int id){
 
             var activity = _business.GetActivityById(id);
@@ -79,7 +78,6 @@ namespace OngProject.Controllers
 
 
         [HttpGet]
-        [Route("/activities")]
         public async Task<IActionResult> GetAllActivities(){
 
             var activities = await _business.GetAllActivities();

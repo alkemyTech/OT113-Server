@@ -28,6 +28,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using System.Reflection;
+using System.IO;
 
 namespace OngProject
 {
@@ -48,6 +50,9 @@ namespace OngProject
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OngProject", Version = "v1" });
+                var xmlfile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlpath = Path.Combine(AppContext.BaseDirectory, xmlfile);
+                c.IncludeXmlComments(xmlpath);
 
                 var securitySchema = new OpenApiSecurityScheme
                 {

@@ -42,7 +42,7 @@ namespace Core.Mapper
 
         Activity mapActivityDtoToModelPutRequest(Activity activity, ActivitiesDto activityDto);
 
-        ActivitiesDto mapActityModelToDto(Activity activity);
+        ActivitiesDtoForDisplay mapActityModelToDto(Activity activity);
 
         IEnumerable<ActivityDtoGetAllResponse> mapActivitiesNamesModelToDto(IEnumerable<Activity> activities);
         Category UpdateMapCategories(Category categories, CategoryDtoPostRequest update);
@@ -58,6 +58,8 @@ namespace Core.Mapper
 
         User MapRegisteredUserDtoToUser(UserRegisterDto user);
         UserDto MapUserToUserDto(User user);
+
+        ActivitiesDto MapActivityForEditToActivityDto(ActivityDtoForEdit activity);
     }
 
     public class EntityMapper : IEntityMapper
@@ -370,12 +372,13 @@ namespace Core.Mapper
 
         public Activity ActivitieMapDto(ActivitiesDto activitie)
         {
+            var response = _amazonS3.Save(activitie.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), activitie.Image);
 
             Activity newActivitie = new Activity
             {
                 Name = activitie.Name,
                 Content = activitie.Content,
-                Image = activitie.Image
+                Image = response.Result
             };
 
             return newActivitie;
@@ -485,22 +488,28 @@ namespace Core.Mapper
 
         public Activity mapActivityDtoToModelPutRequest(Activity activity, ActivitiesDto activityDto)
         {
-
+            if(activityDto.Image != null)
+            {
+                var response = _amazonS3.Save(activityDto.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), activityDto.Image);
+                activity.Image = response.Result;
+            }
+            
             activity.isDelete = false;
             activity.modifiedAt = DateTime.Now;
             activity.Name = activityDto.Name;
             activity.Content = activityDto.Content;
-            activity.Image = activityDto.Image;
+            
 
             return activity;
         }
 
-        public ActivitiesDto mapActityModelToDto(Activity activity)
+        public ActivitiesDtoForDisplay mapActityModelToDto(Activity activity)
         {
+            
 
             if (activity != null)
             {
-                ActivitiesDto actityDto = new ActivitiesDto
+                var actityDto = new ActivitiesDtoForDisplay
                 {
                     Name = activity.Name,
                     Content = activity.Content,
@@ -614,7 +623,7 @@ namespace Core.Mapper
 
         public User MapRegisteredUserDtoToUser(UserRegisterDto user)
         {
-            var response = _amazonS3.Save(user.Photo.FileName, user.Photo);
+            var response = _amazonS3.Save(user.Photo.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), user.Photo);
             
             var mappedUser =  new User
             {
@@ -638,6 +647,16 @@ namespace Core.Mapper
                 firstName = user.firstName,
                 lastName = user.lastName,
                 Email = user.Email
+            };
+        }
+
+        public ActivitiesDto MapActivityForEditToActivityDto(ActivityDtoForEdit activity)
+        {
+            return new ActivitiesDto
+            {
+                Name = activity.Name,
+                Content = activity.Content,
+                Image = activity.Image
             };
         }
     }

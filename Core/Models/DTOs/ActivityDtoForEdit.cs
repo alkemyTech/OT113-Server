@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Http;
 
 namespace Core.Models.DTOs
 {
-    public class ActivitiesDto
+    public class ActivityDtoForEdit
     {
         [Required]
         [MaxLength(255)]
@@ -17,8 +17,6 @@ namespace Core.Models.DTOs
         [Required]
         [MaxLength(255)]
         public string Content { get; set; }
-
-        [Required]
         public IFormFile Image { get; set; }
     }
 }
