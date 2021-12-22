@@ -17,6 +17,6 @@ namespace Core.Business.Interfaces
         void UpdateSlide(int id, SlideDtoPutRequest slideDto);
 
         void DeleteSlide(Slides slide);
-
+        void addSlides(SlideDtoPutRequest newSlide);
     }
 }

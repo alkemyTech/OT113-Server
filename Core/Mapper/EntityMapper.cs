@@ -60,6 +60,7 @@ namespace Core.Mapper
         UserDto MapUserToUserDto(User user);
 
         ActivitiesDto MapActivityForEditToActivityDto(ActivityDtoForEdit activity);
+        Slides mapNewSlide(SlideDtoPutRequest slide);
     }
 
     public class EntityMapper : IEntityMapper
@@ -476,10 +477,15 @@ namespace Core.Mapper
 
         public Slides mapSlideDtoToModelPutRequest(Slides slide, SlideDtoPutRequest slideDto)
         {
+            slide.ImgUrl = slide.ImgUrl;
+            var img = _amazonS3.Save(slideDto.ImgUrl.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), slideDto.ImgUrl);
 
+            if (img.Result != null)
+            {
+                slide.ImgUrl = img.Result;
+            }
             slide.isDelete = false;
             slide.modifiedAt = DateTime.Now;
-            slide.ImgUrl = slideDto.ImgUrl;
             slide.Order = slideDto.Order;
             slide.Text = slideDto.Text;
 
@@ -658,6 +664,29 @@ namespace Core.Mapper
                 Content = activity.Content,
                 Image = activity.Image
             };
+        }
+
+        public Slides mapNewSlide(SlideDtoPutRequest slide)
+        {
+            var imgUpload = "";
+            var img = _amazonS3.Save(slide.ImgUrl.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), slide.ImgUrl);
+           
+            if(img.Result != null)
+            {
+                imgUpload = img.Result;
+            }
+
+            var newSlide = new Slides
+            {
+                ImgUrl = imgUpload,
+                Text = slide.Text,
+                Order = slide.Order,
+                OrganizationId = slide.OrganizationId,
+                isDelete = false,
+                modifiedAt = DateTime.Now
+            };
+
+            return newSlide;
         }
     }
 }
