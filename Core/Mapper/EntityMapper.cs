@@ -322,11 +322,13 @@ namespace Core.Mapper
 
         public News NewsMapDto(NewNewsDto news)
         {
+            var imgUpload = _amazonS3.Save(news.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), news.Image);
+
             News newNews = new News
             {
                 Name = news.Name,
                 Content = news.Content,
-                Image = news.Image,
+                Image = imgUpload.Result,
                 CategoryId = news.CategoryId
             };
             return newNews;
@@ -428,8 +430,12 @@ namespace Core.Mapper
 
         public News UpdateNews(News news, NewNewsDto newsDto)
         {
+            if(newsDto.Image != null)
+            {
+                var imgUpload = _amazonS3.Save(newsDto.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), newsDto.Image);
+                news.Image = imgUpload.Result;
+            }
             news.Name = newsDto.Name;
-            news.Image = newsDto.Image;
             news.Content = newsDto.Content;
             news.CategoryId = newsDto.CategoryId;
 

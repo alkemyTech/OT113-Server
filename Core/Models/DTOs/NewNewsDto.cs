@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,10 +18,8 @@ namespace Core.Models.DTOs
         [Column(TypeName = "news")]
         public string Name { get; set; }
 
-        [Required]
-        [MaxLength(255)]
         [Column(TypeName = "news")]
-        public string Image { get; set; }
+        public IFormFile Image { get; set; }
 
         [Required]
         [MaxLength(65535)]

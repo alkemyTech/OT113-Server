@@ -71,7 +71,7 @@ namespace OngProject.Controllers
 
         [HttpPost("/news")]
         [Authorize(Roles = "Admin")]
-        public IActionResult NewsAddItems([FromBody]NewNewsDto newsDto)
+        public IActionResult NewsAddItems([FromForm]NewNewsDto newsDto)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace OngProject.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult UpdateNews(int id, [FromBody] NewNewsDto news)
+        public IActionResult UpdateNews(int id, [FromForm] NewNewsDto news)
         {
             try
             {
