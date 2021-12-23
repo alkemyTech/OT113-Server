@@ -17,7 +17,11 @@ namespace Core.Business
         private readonly IEntityMapper _mapper;
         private readonly IRepository<Slides> _repositorySlides;
 
+
         public OrganizationBusiness(IRepository<Organization> repository, IEntityMapper mapper, IRepository<Slides> repositorySlides)
+
+        public OrganizationBusiness(IRepository<Organization> repository, IEntityMapper mapper)
+
         {
             _repository = repository;
             _mapper = mapper;
@@ -57,8 +61,12 @@ namespace Core.Business
         }
 
 
+
         public void UpdateOrganization(OrganizationDtoPostRequest organizationDto)
         {
+
+        public void UpdateOrganization(OrganizationDtoPostRequest organizationDto){
+
 
             var organizationEdit = _repository.GetById(organizationDto.Id);
             _mapper.MapOrganizationDtoPostRequestToModel(organizationEdit, organizationDto);
