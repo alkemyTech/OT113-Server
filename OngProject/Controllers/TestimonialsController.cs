@@ -28,6 +28,16 @@ namespace OngProject.Controllers
             _uriService = uriService;
         }
 
+        /// GET: /api/Testimonials
+        /// <summary>
+        /// Returns all testimonials
+        /// </summary>
+        /// <remarks>
+        /// Obtains all the Testimonials. Default amount of objects per page: 10.
+        /// </remarks>
+        /// <param name="paginationfilter">Pagination filter.</param>
+        /// <response code="200">OK. Returns All the Testimonials</response>
+        /// <response code="500">Internal server error.</response>
         [HttpGet]
         [Authorize]
         [ProducesResponseType(typeof(PagedResponse<List<TestimonailsDto>>), StatusCodes.Status200OK)]
@@ -55,6 +65,19 @@ namespace OngProject.Controllers
             }
         }
 
+        /// POST: /testimonials
+        /// <summary>
+        /// Adds a new Testimonial.
+        /// </summary>
+        /// <remarks>
+        /// Adds a new Testimonial to the database.
+        /// </remarks>
+        /// <param name="testimonialsDto">Body of the new Testimonial to be added.</param>
+        /// <response code="201">Created. New Testimonial has been succesfully created.
+        /// Body of the added Testimonial  will be returned as response.</response>
+        /// <response code="401">Unauthorized. JWT is either incorrect or hasn't been submitted.</response>
+        /// <response code="403">Forbidden. JWT does not correspond to a user with the necessary permissions to perform this action.</response>
+        /// <response code="500">Internal server error.</response>
         [HttpPost]
         [Route("/testimonials")]
         [Authorize(Roles = "Admin")]
@@ -69,6 +92,21 @@ namespace OngProject.Controllers
 
         }
 
+
+        /// PUT: /testimonials/1
+        /// <summary>
+        /// Method to edit a Testimonials given a correct id.
+        /// </summary>
+        /// <remarks>
+        /// Edition of a Testimonials given a correct Id. An inexistent Id will result in 404 response.
+        /// </remarks>
+        /// <param name="id">Id of the Testimonial.</param>
+        /// <param name="updateTestimonial">Testimonial to update</param>
+        /// <response code="200">OK. Returns the requested Testimonial.</response>
+        /// <response code="401">Unauthorized. JWT is either incorrect or hasn't been submitted.</response>              
+        /// <response code="403">Forbidden. JWT does not correspond to a user with the necessary permissions to perform this action.</response>
+        /// <response code="404">NotFound. A Testimonial with the given Id Couldn't be found.</response>
+        /// <response code="500">Internal server error.</response>
         [Authorize(Roles = "Admin")]
         [HttpPut]
         [Route("~/testimonials/{id}")]
@@ -91,6 +129,19 @@ namespace OngProject.Controllers
             }
         }
 
+        /// DELETE: /testimonials/1
+        /// <summary>
+        /// Deletes a Testimonials given a correct id.
+        /// </summary>
+        /// <remarks>
+        /// Deletes a Testimonials given a correct Id. An inexistent Id will result in 404 response.
+        /// </remarks>
+        /// <param name="id">Id of the Testimonial.</param>
+        /// <response code="200">OK. The requested Testimonial was deleted.</response>
+        /// <response code="401">Unauthorized. JWT is either incorrect or hasn't been submitted.</response>              
+        /// <response code="403">Forbidden. JWT does not correspond to a user with the necessary permissions to perform this action.</response>
+        /// <response code="404">NotFound. A News with the given Id Couldn't be found.</response>
+        /// <response code="500">Internal server error.</response>
         [Authorize(Roles = "Admin")]
         [HttpDelete]
         [Route("~/testimonials/{id}")]
