@@ -17,6 +17,12 @@ namespace Repositories
         {
             _ctx = ctx;
         }
+
+        public int Count()
+        {
+            return _ctx.Count();
+        }
+
         public void Delete(int id)
         {
             _ctx.Delete(id);
@@ -29,6 +35,12 @@ namespace Repositories
         {
             return _ctx.GetById(id);
         }
+
+        public Task<IEnumerable<T>> PaginatedGetAll(IPaginationFilter filter)
+        {
+            return _ctx.PaginatedGetAll(filter);
+        }
+
         public T Save(T entity)
         {
             return _ctx.Save(entity);

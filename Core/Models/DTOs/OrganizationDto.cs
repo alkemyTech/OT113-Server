@@ -35,5 +35,8 @@ namespace Core.Models.DTOs
         [Required]
         [MaxLength(65535)]
         public string Instagram { get; set; }
+
+        public List<SlidesDTO> Slides {get;set;}
+
     }
 }

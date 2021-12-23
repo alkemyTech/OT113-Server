@@ -32,6 +32,7 @@ namespace Core.Helper
             {
                 Subject = new ClaimsIdentity(new[]
                 {
+                    new Claim(ClaimTypes.NameIdentifier, parameter.Id.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, parameter.Email),
                     new Claim("Password", parameter.Password),
                     new Claim(ClaimTypes.Role, parameter.Role)

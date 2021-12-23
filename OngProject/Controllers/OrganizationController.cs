@@ -1,6 +1,9 @@
-﻿using Core.Business.Interfaces;
+using Core.Business.Interfaces;
 using Core.Models.DTOs;
+
+
 using Entities;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -49,7 +52,11 @@ namespace OngProject
         }
 
 
+
+      
+
         [HttpPost]
+
         [Authorize(Roles = "Admin")]
         [Route("public")]
         public IActionResult updateOrganization([FromBody] OrganizationDtoPostRequest organizationDto)
@@ -66,7 +73,6 @@ namespace OngProject
 
             return Ok(organizationDto);
         }
-
 
 
     }

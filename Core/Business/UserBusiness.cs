@@ -10,6 +10,8 @@ using Core.Helper;
 using System.Security.Cryptography;
 using Core.Models.DTOs;
 using Core.Mapper;
+using System.IdentityModel.Tokens.Jwt;
+
 
 namespace Core.Business
 {
@@ -39,6 +41,29 @@ namespace Core.Business
             return sb.ToString();
         }
 
+        private int GetUserId(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var stringSplit = token.Split(' ');
+            var Token = handler.ReadJwtToken(stringSplit[0]);
+            var claims = Token.Claims.Where(x => x.Type == "nameid").FirstOrDefault();
+            var id = int.Parse(claims.Value);
+            return id;
+        }
+
+        public UserDetailsDto GetUserDetails(string token)
+        {
+            var id = GetUserId(token);
+            var user = _repository.GetById(id);
+
+            return new UserDetailsDto
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Role = _roleRepository.GetById(user.roleId).Name
+            };
+        }
+
         public async Task<string> Login(UserLoginDto userDto)
         {
             var users = await _repository.GetAll();
@@ -49,6 +74,7 @@ namespace Core.Business
                 var role = _roleRepository.GetById(user.roleId).Name;
                 var tokenParameter = _mapper.MapUserLoginDtoToTokenParameter(userDto);
                 tokenParameter.Role = role;
+                tokenParameter.Id = user.Id;
                 if (EncryptPassSha25(userDto.Password) == user.Password)
                 {
                     return _tokenHandler.GenerateTokenJWT(tokenParameter);
@@ -78,28 +104,59 @@ namespace Core.Business
 
 
 
-        public void AddUser(UserRegisterDto user) {
-            User newUser = new User
-            {
-                firstName = user.firstName,
-                lastName = user.lastName,
-                Email = user.Email,
-                Password = EncryptPassSha25(user.Password),
-                Photo = user.Photo,
-                roleId = 1,
-                isDelete = false,
-                modifiedAt = DateTime.Now
-            };
+        public UserDto AddUser(UserRegisterDto user) {
 
+            var newUser = _mapper.MapRegisteredUserDtoToUser(user);
+            newUser.Password = EncryptPassSha25(newUser.Password);
             _repository.Save(newUser);
+
+            return _mapper.MapUserToUserDto(newUser);
         }
-        public void RemoveUser(int id) { }
-        public void UpdateUser(User user) { }
+        public User RemoveUser(User user, string token)
+        {
+            if (UserValidation(token, user))
+            {
+                _repository.Delete(user.Id);
+                return user;
+            }
+            return null;
+        } 
+
+        public User UpdateUsers(User user, UserUpdateDto update, string token)
+        {
+            if (UserValidation(token, user))
+            {
+                user.firstName = update.firstName;
+                user.lastName = update.lastName;
+                user.Photo = update.Photo;
+                user.Email = update.Email;
+                user.Password = update.Password;
+                user.roleId = update.roleId;
+                user.modifiedAt = DateTime.Now;
+                _repository.Update(user);
+                return user;
+            }
+
+            return null;
+        }
+
+        private bool UserValidation(string token, User user)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var stringSplit = token.Split(' ');
+            var Token = handler.ReadJwtToken(stringSplit[0]);
+            var claimsUserId = Token.Claims.Where(x => x.Type == "nameid").FirstOrDefault();
+            var userRole = Token.Claims.Where(x => x.Type == "role").FirstOrDefault().Value;
+            var id = int.Parse(claimsUserId.Value);
+
+            return (userRole == "Admin" || id == user.roleId);
+        }
 
         public User GetUserById(int id) 
         {
            return _repository.GetById(id);
         }
+
     }
 
     

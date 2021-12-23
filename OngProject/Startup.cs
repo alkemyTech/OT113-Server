@@ -7,6 +7,7 @@ using Core.Mapper;
 using Core.Models;
 using DataAccess;
 using Entities;
+using OngProject.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,7 +27,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Services;
+using Microsoft.AspNetCore.Http;
+using System.Reflection;
+using System.IO;
 
 namespace OngProject
 {
@@ -47,6 +50,9 @@ namespace OngProject
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OngProject", Version = "v1" });
+                var xmlfile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlpath = Path.Combine(AppContext.BaseDirectory, xmlfile);
+                c.IncludeXmlComments(xmlpath);
 
                 var securitySchema = new OpenApiSecurityScheme
                 {
@@ -103,8 +109,44 @@ namespace OngProject
             services.AddTransient<IDbContext<Slides>, DbContext<Slides>>();
             services.AddTransient<IAmazonS3Business, AmazonS3Business>();
             services.AddTransient<IS3AwsHelper, S3AwsHelper>();
+            services.AddTransient<IRepository<News>, Repository<News>>();
+            services.AddTransient<INewsBusiness, NewsBusiness>();
+            services.AddTransient<IDbContext<News>, DbContext<News>>();
 
             services.AddTransient<SendGInterface, SendG>();
+            services.AddTransient<IRepository<Comment>, Repository<Comment>>();
+            services.AddTransient<ICommentBusiness, CommentBusiness>();
+            services.AddTransient<IDbContext<Comment>, DbContext<Comment>>();
+
+
+            services.AddTransient<INewsBusiness, NewsBusiness>();
+            services.AddTransient<IDbContext<News>, DbContext<News>>();
+            services.AddTransient<IRepository<News>, Repository<News>>();
+
+            services.AddTransient<IMembersBusiness, MembersBusiness>();
+            services.AddTransient<IDbContext<Member>, DbContext<Member>>();
+            services.AddTransient<IRepository<Member>, Repository<Member>>();
+
+            services.AddTransient<ITestimonialsBusiness, TestimonialsBusiness>();
+            services.AddTransient<IDbContext<Testimonials>, DbContext<Testimonials>>();
+            services.AddTransient<IRepository<Testimonials>, Repository<Testimonials>>();
+
+
+            services.AddTransient<IActivityBusiness, ActivityBusiness>();
+            services.AddTransient<IDbContext<Activity>, DbContext<Activity>>();
+            services.AddTransient<IRepository<Activity>, Repository<Activity>>();
+
+            services.AddTransient<IPaginationFilter, PaginationFilter>();
+            services.AddHttpContextAccessor();
+            services.AddSingleton<IUriService>(o =>
+            {
+                var accessor = o.GetRequiredService<IHttpContextAccessor>();
+                var request = accessor.HttpContext.Request;
+                var uri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent());
+                return new UriService(uri);
+            });
+
+
 
 
             services.AddAuthentication(options =>
@@ -143,6 +185,8 @@ namespace OngProject
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseOwnershipMiddleware();
+
             app.UseAuthentication();
 
             app.UseHttpsRedirection();
@@ -150,6 +194,8 @@ namespace OngProject
             app.UseRouting();
 
             app.UseAuthorization();
+
+//          app.UseRoutesAdminMiddleware();
 
             app.UseEndpoints(endpoints =>
             {

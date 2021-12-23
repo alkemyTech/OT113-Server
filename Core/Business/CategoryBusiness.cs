@@ -1,4 +1,5 @@
-﻿using Core.Business.Interfaces;
+﻿using Abstractions;
+using Core.Business.Interfaces;
 using Core.Mapper;
 using Core.Models.DTOs;
 using Entities;
@@ -23,10 +24,12 @@ namespace Core.Business
         }
 
         public void AddCategory() { }
-        public void RemoveCategory(int id) { }
-        public void UpdateCategory(Category activity) { }
-
-
+        public Category DeleteCategorie(Category categorie)
+        {
+            _repository.Delete(categorie.Id);
+            return categorie;
+            
+        }
         public CategoryDto GetCategoryById(int id)
         {
 
@@ -34,20 +37,44 @@ namespace Core.Business
             return _mapper.mapCategoryModeltoDto(category);
         }
 
-        public Category GetCategoryById()
+        public Category GetCategoryById2(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
+
         }
 
-        public async Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories()
+        public void UpdateCategory(Category category, CategoryDtoPostRequest update)
+        {
+            _mapper.UpdateMapCategories(category, update);
+            _repository.Update(category);
+
+        }
+
+        public async Task<IEnumerable<CategoryDtoGetAllResponse>> GetAllCategories(IPaginationFilter filter)
         {
 
-            var categories = await _repository.GetAll();
+            var categories = await _repository.PaginatedGetAll(filter);
 
             var categoriesDto = _mapper.mapCategoriesNamesModelToDto(categories);
 
             return categoriesDto;
 
+        }
+
+        public CategoryDto addCategory(CategoryDtoPostRequest category)
+        {
+            var newCat = _mapper.mapNewCategory(category);
+
+            var categoryDtoresponse = _mapper.mapCategoryModeltoDto(newCat);
+
+            _repository.Save(newCat);
+
+            return categoryDtoresponse;
+        }
+
+        public int CountCategories(){
+
+            return _repository.Count();
         }
 
     }

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OngProject</name>
+    </assembly>
+    <members>
+        <member name="M:OngProject.Controllers.CategoriesController.#ctor(Core.Business.Interfaces.ICategoryBusiness,Core.Helper.IUriService)">
+            <Summary>
+             Endpoint for categories
+            </Summary>
+        </member>
+        <member name="M:OngProject.Controllers.CategoriesController.GetById(System.Int32)">
+            GET: /categories/1
+            <summary>
+            Returns a category given a correct id.
+            </summary>
+            <remarks>
+            Obtains a category given a correct Id. An inexistent Id will result in 404 response.
+            </remarks>
+            <param name="id">Id of the category.</param>
+            <response code="401">Unauthorized. JWT is either incorrect or hasn't been submitted.</response>              
+            <response code="200">OK. Returns the requested category.</response>        
+            <response code="404">NotFound. A category with the given Id Couldn't be found.</response>
+        </member>
+        <member name="M:OngProject.Controllers.CategoriesController.GetAllCategories(Core.Helper.PaginationFilter)">
+            GET: /categories
+            <summary>
+            Returns all categories
+            </summary>
+            <remarks>
+            Obtains all the categories. Default amount of objects per page: 10.
+            </remarks>
+            <param name="filter">Pagination filter.</param>
+            <response code="200">OK. Returns All the categories</response>
+            <response code="401">Unauthorized. JWT is either incorrect or hasn't been submitted.</response>                      
+            <response code="404">NotFound. A category with the given Id Couldn't be found.</response>
+        </member>
+        <member name="M:OngProject.Controllers.CategoriesController.NewCategory(Core.Models.DTOs.CategoryDtoPostRequest)">
+            POST: /categories
+            <summary>
+            Adds a new category.
+            </summary>
+            <remarks>
+            Adds a new category to the database.
+            </remarks>
+            <param name="category">Body of the new category to be added.</param>
+            <response code="201">Created. New category has been succesfully created.
+            Body of the added category will be returned as response.</response>
+            <response code="401">Unauthorized. JWT is either incorrect or hasn't been submitted.</response>
+            <response code="403">Forbidden. JWT does not correspond to a user with the necessary permissions to perform this action.</response>
+            <response code="500">Internal server error.</response>
+        </member>
+        <member name="M:OngProject.Controllers.CategoriesController.UpdateCategories(Core.Models.DTOs.CategoryDtoPostRequest,System.Int32)">
+            PUT: /categories/1
+            <summary>
+            Method to edit a category given a correct id.
+            </summary>
+            <remarks>
+            Edition of a category given a correct Id. An inexistent Id will result in 404 response.
+            </remarks>
+            <param name="id">Id of the category.</param>
+            <param name="updateCategories">Category to update</param>
+            <response code="200">OK. Returns the requested category.</response>
+            <response code="401">Unauthorized. JWT is either incorrect or hasn't been submitted.</response>              
+            <response code="403">Forbidden. JWT does not correspond to a user with the necessary permissions to perform this action.</response>
+            <response code="404">NotFound. A category with the given Id Couldn't be found.</response>
+            <response code="500">Internal server error.</response>
+        </member>
+        <member name="M:OngProject.Controllers.CategoriesController.DeleteCategory(System.Int32)">
+            DELETE: /categories/1
+            <summary>
+            Deletes a category given a correct id.
+            </summary>
+            <remarks>
+            Deletes a category given a correct Id. An inexistent Id will result in 404 response.
+            </remarks>
+            <param name="id">Id of the category.</param>
+            <response code="200">OK. Returns the requested category.</response>
+            <response code="401">Unauthorized. JWT is either incorrect or hasn't been submitted.</response>              
+            <response code="403">Forbidden. JWT does not correspond to a user with the necessary permissions to perform this action.</response>
+            <response code="404">NotFound. A category with the given Id Couldn't be found.</response>
+        </member>
+    </members>
+</doc>

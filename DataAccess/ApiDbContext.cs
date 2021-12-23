@@ -30,12 +30,17 @@ namespace DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            SeedUsers(modelBuilder);
-            SeedNews(modelBuilder);
             SeedActivity(modelBuilder);
-            SeedMembres(modelBuilder);
-            SeedTestimonals(modelBuilder);
             SeedCategories(modelBuilder);
+            SeedComments(modelBuilder);
+            SeedContact(modelBuilder);
+            SeedMembres(modelBuilder);
+            SeedNews(modelBuilder);
+            SeedOrganization(modelBuilder);
+            SeedRoles(modelBuilder);
+            SeedSlides(modelBuilder);
+            SeedTestimonals(modelBuilder);
+            SeedUsers(modelBuilder);
         }
       
         private void SeedUsers(ModelBuilder modelBuilder)
@@ -119,7 +124,7 @@ namespace DataAccess
                 modelBuilder.Entity<Activity>().HasData(new Activity
                 {
                     Id = i,
-                    Name = "TestNamegit",
+                    Name = "TestName",
                     Content = "TestContent",
                     Image = "TestImage",
                     isDelete = false
@@ -177,6 +182,115 @@ namespace DataAccess
                     modifiedAt = DateTime.Now
                 });
             }
+        }
+
+        private void SeedRoles(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Roles>().HasData(new Roles() 
+            {   
+                Id = 1,
+                Name = "Admin",
+                Description = "Admin",              
+
+            },new Roles() 
+            {
+                Id = 2,
+                Name = "User",
+                Description = "User"
+            });
+        }
+        
+        private void SeedOrganization(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Organization>().HasData(new Organization()
+            {
+                Id = 1,
+                Name = "NameTestOrganization",
+                Image = "ImageTestOrganization",
+                Address = "AddresTestOrganization",
+                Phone = "123456789",
+                Email = "Organization@test.com",
+                WelcomeText = "WelcomTestOrganization",
+                AboutUsText = "Organization of ORGANIZATIONS",
+                Facebook = "@OrganizationF",
+                Linkedin = "@OrganizationL",
+                Instagram = "@OrganizationI",
+                isDelete = false,
+                modifiedAt = DateTime.Now
+
+            },new Organization() 
+            {
+                Id = 2,
+                Name = "NameTestOrganization",
+                Image = "ImageTestOrganization",
+                Address = "AddresTestOrganization",
+                Phone = "987654321",
+                Email = "Organization@test2.com",
+                WelcomeText = "WelcomTestOrganization",
+                AboutUsText = "Organization of ORGANIZATIONS",
+                Facebook = "@OrganizationFa",
+                Linkedin = "@OrganizationLi",
+                Instagram = "@OrganizationIn",
+                isDelete = false,
+                modifiedAt = DateTime.Now
+            });
+        }
+
+        private void SeedContact(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Contacts>().HasData(new Contacts()
+            {
+                Id=1,
+                Name = "ContactTestName",
+                Phone = 123456789,
+                Email = "Contact@test.com",
+                Message = "TestMessage",
+                isDelete = false,
+                modifiedAt = DateTime.Now
+
+            },new Contacts() 
+            {
+                Id = 2,
+                Name = "ContactTestName",
+                Phone = 987654321,
+                Email = "Contact@test2.com",
+                Message = "TestMessage",
+                isDelete = false,
+                modifiedAt = DateTime.Now
+            });
+        }
+
+        private void SeedSlides(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                modelBuilder.Entity<Slides>().HasData(new Slides()
+                {
+                    Id = i,
+                    ImgUrl = "Https//test1.com",
+                    Text = "TestTextSlides",
+                    Order = (i - 1),
+                    OrganizationId = (i - 1),
+                    isDelete = false,
+                    modifiedAt = DateTime.Now
+                });
+            };
+        }
+
+        private void SeedComments(ModelBuilder modelBuilder)
+        {
+            for (int i = 1; i < 11; i++) 
+            {
+                modelBuilder.Entity<Comment>().HasData(new Comment()
+                {
+                    Id = i,
+                    userId = (i - 1),
+                    Body = "TestBodyComments",
+                    newsId = (i - 1),
+                    isDelete = false,
+                    modifiedAt = DateTime.Now
+                });
+            };
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using Core.Models.DTOs;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,11 @@ namespace Core.Business.Interfaces
     {
         Slides FindById(int id);
         Task<IEnumerable<Slides>> GetAllSlides();
+
+
+        void UpdateSlide(int id, SlideDtoPutRequest slideDto);
+
+        void DeleteSlide(Slides slide);
+        void addSlides(SlideDtoPutRequest newSlide);
     }
 }
