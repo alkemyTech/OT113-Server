@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Models.DTOs
+namespace Core.Helper.FromFileData
 {
-    public class SlidesDTO
+    public class FormFileData 
     {
-        public string ImgUrl { get; set; }
-        public int Order { get; set; }
         public string FileName { get; set; }
         public string ContentType { get; set; }
         public string Name { get; set; }

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Models.DTOs
+namespace Abstractions
 {
-    public class SlidesDTO
+    public interface IFormFile<T> : ICrud<T>
     {
-        public string ImgUrl { get; set; }
-        public int Order { get; set; }
         public string FileName { get; set; }
         public string ContentType { get; set; }
         public string Name { get; set; }
+       
     }
 }
+

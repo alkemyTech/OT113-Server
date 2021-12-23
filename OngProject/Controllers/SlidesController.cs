@@ -114,5 +114,11 @@ namespace OngProject.Controllers
             }
         }
 
+        public async Task<IActionResult> CreateSlides(SlidesCreateDTO slidesCreateDTO)
+        {
+            await _business.CreateSlide(slidesCreateDTO);
+            return NoContent();
+        }
+
     }
 }
