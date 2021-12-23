@@ -24,6 +24,7 @@ namespace Core.Mapper
         IEnumerable<SlidesDTO> Mapp(IEnumerable<Slides> slides);
         IEnumerable<CommentsDto> MappComments(IEnumerable<Comment> comments);
         IEnumerable<ContactDto> MapContactsToContactDto(IEnumerable<Contacts> contacts);
+
         Contacts MapContactDtoToContact(ContactDto contact);
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDtoPostRequest category);
@@ -63,6 +64,9 @@ namespace Core.Mapper
         Slides mapNewSlide(SlideDtoPutRequest slide);
 
         MemberDto MapMemberGetByIdResponse(Member member);
+
+        Organization MapOrganizationDtoPostRequestToModel (Organization organization, OrganizationDtoPostRequest organizationDto);
+
     }
 
     public class EntityMapper : IEntityMapper
@@ -273,6 +277,7 @@ namespace Core.Mapper
 
             return mappedContacts;
         }
+
 
 
         public Contacts MapContactDtoToContact(ContactDto contact)
@@ -709,5 +714,24 @@ namespace Core.Mapper
 
             return newSlide;
         }
+
+        public Organization MapOrganizationDtoPostRequestToModel (Organization organization, OrganizationDtoPostRequest organizationDto){
+
+                organization.isDelete = false;
+                organization.modifiedAt = DateTime.Now;
+                organization.Name = organizationDto.Name;
+                organization.Image = organizationDto.Image;
+                organization.Address = organizationDto.Address;
+                organization.Phone = organizationDto.Phone;
+                organization.WelcomeText = organizationDto.WelcomeText;
+                organization.AboutUsText = organizationDto.AboutUsText;
+                organization.Facebook = organizationDto.Facebook;
+                organization.Linkedin = organizationDto.Linkedin;
+                organization.Instagram = organizationDto.Instagram;
+
+                return organization;
+        }
+
+
     }
 }
