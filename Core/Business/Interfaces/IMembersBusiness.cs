@@ -19,5 +19,6 @@ namespace Core.Business.Interfaces
         void RemoveMember(int id);
         Task<IEnumerable<MembersNameDto>> GetAllMembersP(IPaginationFilter filter);
         int CountMembers();
+        MemberDto GetMember(int id);
     }
 }

@@ -61,6 +61,8 @@ namespace Core.Mapper
 
         ActivitiesDto MapActivityForEditToActivityDto(ActivityDtoForEdit activity);
         Slides mapNewSlide(SlideDtoPutRequest slide);
+
+        MemberDto MapMemberGetByIdResponse(Member member);
     }
 
     public class EntityMapper : IEntityMapper
@@ -370,7 +372,26 @@ namespace Core.Mapper
             return newTestimonial;
         }
 
+        public MemberDto MapMemberGetByIdResponse(Member member)
+        {
 
+            if (member != null)
+            {
+                MemberDto memberDto = new MemberDto
+                {
+                    Name = member.Name,
+                    FacebookUrl = member.FacebookUrl,
+                    InstagramUrl = member.InstagramUrl,
+                    LinkedinUrl = member.LinkedinUrl,
+                    Image = member.Image,
+                    Description = member.Description
+                };
+
+                return memberDto;
+            }
+
+            return null;
+        }
         public Activity ActivitieMapDto(ActivitiesDto activitie)
         {
             var response = _amazonS3.Save(activitie.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), activitie.Image);
@@ -434,7 +455,7 @@ namespace Core.Mapper
 
         public News UpdateNews(News news, NewNewsDto newsDto)
         {
-            if(newsDto.Image != null)
+            if (newsDto.Image != null)
             {
                 var imgUpload = _amazonS3.Save(newsDto.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), newsDto.Image);
                 news.Image = imgUpload.Result;
@@ -494,24 +515,24 @@ namespace Core.Mapper
 
         public Activity mapActivityDtoToModelPutRequest(Activity activity, ActivitiesDto activityDto)
         {
-            if(activityDto.Image != null)
+            if (activityDto.Image != null)
             {
                 var response = _amazonS3.Save(activityDto.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), activityDto.Image);
                 activity.Image = response.Result;
             }
-            
+
             activity.isDelete = false;
             activity.modifiedAt = DateTime.Now;
             activity.Name = activityDto.Name;
             activity.Content = activityDto.Content;
-            
+
 
             return activity;
         }
 
         public ActivitiesDtoForDisplay mapActityModelToDto(Activity activity)
         {
-            
+
 
             if (activity != null)
             {
@@ -630,8 +651,8 @@ namespace Core.Mapper
         public User MapRegisteredUserDtoToUser(UserRegisterDto user)
         {
             var response = _amazonS3.Save(user.Photo.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), user.Photo);
-            
-            var mappedUser =  new User
+
+            var mappedUser = new User
             {
                 firstName = user.firstName,
                 lastName = user.lastName,
@@ -670,8 +691,8 @@ namespace Core.Mapper
         {
             var imgUpload = "";
             var img = _amazonS3.Save(slide.ImgUrl.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), slide.ImgUrl);
-           
-            if(img.Result != null)
+
+            if (img.Result != null)
             {
                 imgUpload = img.Result;
             }
