@@ -28,7 +28,7 @@ namespace Core.Mapper
         NewsDto mapNews(News news);
         Category mapNewCategory(CategoryDtoPostRequest category);
         News NewsMapDto(NewNewsDto news);
-        Member MemberMapDto(MembersNameDto member);
+        Member MemberMapDto(MembersDtoResponse member);
         Testimonials TestimonialsMapDto(TestimonialUpdateDto testimonial);
         Activity ActivitieMapDto(ActivitiesDto activitie);
         Organization MapOrganizationDtoPostRequestToModel(Organization organization, OrganizationDtoPostRequest organizationDto);
@@ -122,7 +122,7 @@ namespace Core.Mapper
                         FacebookUrl = m.FacebookUrl,
                         InstagramUrl = m.InstagramUrl,
                         LinkedinUrl = m.LinkedinUrl,
-                        Image = m.Image,
+                        //Image = m.Image,
                         Description = m.Description
                     };
 
@@ -338,12 +338,20 @@ namespace Core.Mapper
         }
 
 
-        public Member MemberMapDto(MembersNameDto member)
+        public Member MemberMapDto(MembersDtoResponse member)
         {
-            Member newMember = new Member
+            var imgUpload = "";
+            var response = _amazonS3.Save(member.Image.FileName + exceptblanks.ExceptBlanks(DateTime.Now.AddMilliseconds(500.0).ToString()), member.Image);
+
+            if(response.Result != null)
+            {
+                imgUpload = response.Result;
+            }
+
+            var newMember = new Member
             {
                 Name = member.Name,
-                Image = member.Image
+                Image = imgUpload
             };
 
             return newMember;
@@ -424,7 +432,7 @@ namespace Core.Mapper
             member.FacebookUrl = update.FacebookUrl;
             member.InstagramUrl = update.InstagramUrl;
             member.LinkedinUrl = update.LinkedinUrl;
-            member.Image = update.Image;
+            //member.Image = update.Image;
             member.Description = update.Description;
             member.isDelete = false;
             member.modifiedAt = DateTime.Now;

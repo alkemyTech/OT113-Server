@@ -1,5 +1,9 @@
-﻿using Core.Business.Interfaces;
+using Core.Business.Interfaces;
 using Core.Models.DTOs;
+
+
+using Entities;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +37,7 @@ namespace OngProject
             {
                 var organization = _business.GetById(id);
 
-                if(organization == null)
+                if (organization == null)
                 {
                     return NotFound();
                 }
@@ -48,10 +52,11 @@ namespace OngProject
         }
 
 
-        [HttpPut]
+        [HttpPost]
+
         [Authorize(Roles = "Admin")]
         [Route("public")]
-        public IActionResult updateOrganization([FromBody] OrganizationDtoPostRequest organizationDto)
+        public IActionResult updateOrganization([FromForm] OrganizationDtoPostRequest organizationDto)
         {
 
             var organization = _business.GetOrg(organizationDto.Id);
@@ -65,6 +70,7 @@ namespace OngProject
 
             return Ok(organizationDto);
         }
+
 
     }
 }

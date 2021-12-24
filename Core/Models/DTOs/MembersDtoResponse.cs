@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Http;
 
 namespace Core.Models.DTOs
 {
-    public class MembersNameDto
+    public class MembersDtoResponse
     {
         [Required]
         [StringLength(255)]
@@ -16,6 +16,8 @@ namespace Core.Models.DTOs
 
         [Required]
         [StringLength(255)]
-        public string Image { get; set; }
+        public IFormFile Image { get; set; }
+
+
     }
 }

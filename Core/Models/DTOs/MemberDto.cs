@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -21,7 +22,7 @@ namespace Core.Models.DTOs
 
         [MaxLength(255)]
         [Required]
-        public string Image { get; set; }
+        public IFormFile Image { get; set; }
 
         [MaxLength(255)]
         public string Description { get; set; }

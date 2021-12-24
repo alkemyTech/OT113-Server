@@ -23,7 +23,7 @@ namespace Core.Business
             _mapper = mapper;
         }
 
-        public void AddMember(MembersNameDto member) 
+        public void AddMember(MembersDtoResponse member)  //POST
         {
             var memberMapped = _mapper.MemberMapDto(member);
             _repository.Save(memberMapped);
@@ -36,7 +36,8 @@ namespace Core.Business
         public void RemoveMember(int id) {
             _repository.Delete(id);
         }
-        public void UpdateMember(Member member, MemberDto update) {
+        public void UpdateMember(Member member, MemberDto update) // PUT
+        {
             _mapper.mapUpdateMember(member, update);
             _repository.Update(member);
         }

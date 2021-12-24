@@ -60,7 +60,7 @@ namespace OngProject.Controllers
         [HttpPost]
         [Route("/members")]
         [Authorize(Roles = "User")]
-        public IActionResult MemberAddName([FromBody]MembersNameDto memberDto)
+        public IActionResult MemberAddName([FromForm]MembersDtoResponse memberDto) //
         {
             try
             {
@@ -72,7 +72,7 @@ namespace OngProject.Controllers
 
         [HttpPut]
         [Route("~/members/{id}")]
-        public IActionResult UpdateMember([FromBody] MemberDto update, int id)
+        public IActionResult UpdateMember([FromForm] MemberDto update, int id)
         {
             try
             {

@@ -13,11 +13,12 @@ namespace Core.Business.Interfaces
     public interface IMembersBusiness
     {
         Task<IEnumerable<MemberDto>> GetAllMembers();
-        void AddMember(MembersNameDto member);
+        void AddMember(MembersDtoResponse member);
         Member GetMemberById(int id);
         void UpdateMember(Member member, MemberDto update);
         void RemoveMember(int id);
         Task<IEnumerable<MembersNameDto>> GetAllMembersP(IPaginationFilter filter);
         int CountMembers();
+        
     }
 }
