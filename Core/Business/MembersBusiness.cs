@@ -33,6 +33,13 @@ namespace Core.Business
             return _repository.GetById(id);
         }
 
+        public MemberDto GetMember(int id){
+
+            var member = _repository.GetById(id);
+            var memberDto = _mapper.MapMemberGetByIdResponse(member);
+            return memberDto;
+        }
+
         public void RemoveMember(int id) {
             _repository.Delete(id);
         }

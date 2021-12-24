@@ -5,17 +5,19 @@ VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OngProject", "OngProject\OngProject.csproj", "{4F43CE39-A0A2-4130-83A2-EFDC4AEB669E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstractions", "Abstractions\Abstractions.csproj", "{3785EDAE-DDDA-4FE8-B48C-46580600D65A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstractions", "Abstractions\Abstractions.csproj", "{3785EDAE-DDDA-4FE8-B48C-46580600D65A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{AD503D91-2ED3-4EEE-8FCB-E115E61ADF4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{AD503D91-2ED3-4EEE-8FCB-E115E61ADF4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{5FB469A0-8A2A-43A5-9B88-94DE4A3F5D67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{5FB469A0-8A2A-43A5-9B88-94DE4A3F5D67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{1A7C2A9A-6B88-4201-8862-8D7E668E6A28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{1A7C2A9A-6B88-4201-8862-8D7E668E6A28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{2F9C10CA-E09E-417F-A232-E94CEE6FC27E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{2F9C10CA-E09E-417F-A232-E94CEE6FC27E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{254DC1DF-9266-4EF8-AED3-096422E28182}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{254DC1DF-9266-4EF8-AED3-096422E28182}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{5253756A-62BC-4B34-9902-ED95040B4F22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{254DC1DF-9266-4EF8-AED3-096422E28182}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{254DC1DF-9266-4EF8-AED3-096422E28182}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{254DC1DF-9266-4EF8-AED3-096422E28182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5253756A-62BC-4B34-9902-ED95040B4F22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5253756A-62BC-4B34-9902-ED95040B4F22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5253756A-62BC-4B34-9902-ED95040B4F22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5253756A-62BC-4B34-9902-ED95040B4F22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
