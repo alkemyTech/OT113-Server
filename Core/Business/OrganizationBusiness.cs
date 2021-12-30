@@ -19,9 +19,6 @@ namespace Core.Business
 
 
         public OrganizationBusiness(IRepository<Organization> repository, IEntityMapper mapper, IRepository<Slides> repositorySlides)
-
-        public OrganizationBusiness(IRepository<Organization> repository, IEntityMapper mapper)
-
         {
             _repository = repository;
             _mapper = mapper;
@@ -31,7 +28,7 @@ namespace Core.Business
         public OrganizationDto GetById(int id)
         {
             var organization = _repository.GetById(id);
-            if(organization == null)
+            if (organization == null)
             {
                 return null;
             }
@@ -60,12 +57,8 @@ namespace Core.Business
             return organization;
         }
 
-
-
         public void UpdateOrganization(OrganizationDtoPostRequest organizationDto)
         {
-
-        public void UpdateOrganization(OrganizationDtoPostRequest organizationDto){
 
 
             var organizationEdit = _repository.GetById(organizationDto.Id);
